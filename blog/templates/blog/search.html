@@ -1,9 +1,9 @@
 {% extends 'core/base.html' %}
-
-{% block title %}Search | {% endblock %}
-
+{% if request.user.is_staff %}   
+{% include 'blog/includes/post_menu.html'%}
+{% endif %}
 {% block content %}
-{% include 'blog/includes/post_menu.html' %}
+{% block title %} Search | <a href="{% url 'frontpage' %}" class="span">Volver</a> | {% endblock %}
     <section class="hero">
         <div class="hero-body">
             <div class="container">
