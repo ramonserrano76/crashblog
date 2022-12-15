@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-9n_ih-bhy$#92@-+)%zuxw_jilauy2wg313@p2rq3#fxxm20u+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -142,17 +142,26 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 #emails
-#if DEBUG:
-#   EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
-#  EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
-#else:
+if not DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+    EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+else:
 #aquí hay que configurar un mail real para producción
 #   pass
-#email config
-EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = 'ac995aa26bc7b7'
-EMAIL_HOST_PASSWORD = 'cf2829001baf2c'
-EMAIL_PORT = '2525'
+# #email config
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'smtp.mail.ru'
+    EMAIL_USE_TLS = False
+    EMAIL_PORT = 465
+    EMAIL_USE_SSL = True
+    EMAIL_HOST_USER = 'proyectodjangoblog@mail.ru'
+    EMAIL_HOST_PASSWORD = 'E9ywZDQriMUDUZP3ZjYn'
+    DEFAULT_FROM_EMAIL = 'proyectodjangoblog@mail.ru'
+
+    # EMAIL_HOST = 'SMTP.MAIL.RU'
+    # EMAIL_HOST_USER = 'proyectodjangoblog@mail.ru'
+    # EMAIL_HOST_PASSWORD = 'ProyectoCaC'
+    # EMAIL_PORT = '465'
 
 
 # Default primary key field type
