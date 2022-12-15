@@ -1,0 +1,71 @@
+{% extends 'core/base.html' %} 
+{% if request.user.is_staff %}   
+{% include 'blog/includes/post_menu.html'%}
+{% endif %}
+{% block content %}
+{% block title %} | {{ post.title }} | <a href="{% url 'frontpage' %}" class="span">Volver</a> | {% endblock %}
+<section class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <section class="section">
+                {% if post.image %}
+                <figure class="image mb-6">
+                    <img src="{{ post.image.url }}" alt="" class='rounded mx-auto d-block' style="width:640px;">
+                </figure>
+                {% else %}
+                <video class='rounded mx-auto d-block' controls width="720" height="480">
+                    <source src="{{ post.clip.url }}" class='' type="video/webm">
+                    <a href="{{ post.clip.url }}">Ver/Descargar Video</a>
+                </video>
+                {% endif %}
+
+                <div class="columns">
+                    <div class="column is-8 is-offset-2">
+                        <div class="content is-medium">
+
+                            <h2 class="subtitle is-4">{{ post.created_at|timesince }} ago</h2>
+                            <h1 class="title">{{ post.title }}</h1>
+                            <p><strong>{{ post.intro }}</strong></p>
+                            <p>{{ post.body|safe }}</p>
+                            {% if request.user.is_staff %}
+                            <p> <a href="{% url 'frontpage' %}">Volver</a>
+                                | <a href="{% url 'update' post.slug %}">Editar</a>
+                                | <a href="{% url 'delete' post.slug %}">Borrar</a>
+                            </p>
+                            {% endif %}                            
+                            <p><small>Category: <a href="{% url 'category_detail' post.category.slug %}">{{ post.category }}</a></small></p>
+                            
+                            <hr>
+
+                            <h2 class="subtitle is-4">Comments</h2>
+                            {% if request.user.is_authenticated %}
+                            <form method="post" class="mb-6">
+                                {% csrf_token %}
+
+                                {{ form.as_p }}
+
+                                <div class="field">
+                                    <div class="control">
+                                        <button class="button is-success">Submit comment</button>
+                                    </div>
+                                </div>                            
+                            </form>
+                            {% endif %}
+                            {% for comment in post.comments.all %}
+                            <article class="media box">
+                                <div class="media-content">
+                                    <strong>{{ comment.name }}</strong> <small>{{ comment.created_at|timesince }}
+                                        ago</small><br>
+                                    {{ comment.body }}
+                                </div>
+                            </article>
+                            {% endfor %}
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+{% endblock %}

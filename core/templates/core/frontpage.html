@@ -1,0 +1,53 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Home | {% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <section class="section">
+                <div class="columns">
+                    <div class="column is-8 is-offset-2">
+                        {% for post in posts %}
+                        <div class="content is-medium">
+                            <a href="{% url 'post_detail' post.category.slug post.slug %}">
+                                {% if post.image %}
+                                <figure class="image mb-6">
+                                    <img src="{{ post.image.url }}" alt="" class='rounded mx-auto d-block' style="width:640px;">
+                                </figure>
+                                {% else %}
+                                <video controls width="720" height="480">
+                                    <source src="{{ post.clip.url }}" type="video/webm">
+                                    <a href="{{ post.clip.url }}">Ver/Descargar Video</a>
+                                </video>
+                                {% endif %}
+                                <h3 class="subtitle is-4">Creado el {{ post.created_at|date }}</h3>
+                                <hr>
+                                <!-- <h2 <a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2> -->
+                                <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+                            <p>{{ post.body|safe|linebreaks }}</p>
+                            <p> <a href="{{ post.get_absolute_url }}">Leer más</a>
+                                {% if request.user.is_staff %}
+                                | <a href="{% url 'update' post.slug %}">Editar</a>
+                                | <a href="{% url 'delete' post.slug %}">Borrar</a>
+                                {% endif %}
+                            </p>
+                            </a>
+                        </div>
+                        <hr>
+                        <hr>
+                        {% endfor %}
+                        <hr>
+                        {% for category in object_list.all %}
+                        <button type="button" class="btn btn-outline-warning btn-sm">{{ category }}</button>
+                        {% endfor %}
+
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+{% endblock %}

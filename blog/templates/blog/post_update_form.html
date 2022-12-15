@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+{% if request.user.is_staff %}   
+{% include 'blog/includes/post_menu.html'%}
+{% endif %}
+{% load static %}
+{% block content %}
+{% block title %} | Actualizar publicación | <a href="{% url 'frontpage' %}" class="span">Volver</a> | {% endblock %}
+<main role="main">
+    <div class="container">
+        <div class="row mt-3 mb-5">
+            <div class="col-md-9 mx-auto">
+                <div>
+                    {% if 'ok' in request.GET %}
+                    <p style="color: green;">
+                        Publicación editada correctamente
+                        <a href= "{% url 'post_detail' post.category post.slug %}">  
+                            Hacé clic aquí para ver el resultado
+                        </a>
+                    </p>
+                    {% endif %}
+                    <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="text-center">
+                            <input type="submit" class="btn btn-primary btn-block" value="Actualizar publicación" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
