@@ -2,7 +2,7 @@ from .models import Category, Post
 from django import forms
 from ckeditor.fields import RichTextField
 from .models import Comment
-from upload_validator import FileTypeValidator
+# from upload_validator import FileTypeValidator
 
 class CommentForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
