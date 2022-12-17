@@ -1,8 +1,9 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.template.defaultfilters import slugify
 class Category(models.Model):
     title = models.CharField(max_length=255)
-    slug = models.SlugField()
+    slug = models.SlugField(null=False, unique=True)
             
     class Meta:
         ordering = ('title',)
@@ -25,7 +26,7 @@ class Post(models.Model):
 
     category = models.ForeignKey(Category, related_name='posts', verbose_name="Category", on_delete=models.CASCADE)
     title = models.CharField(max_length=255, verbose_name="Title")
-    slug = models.SlugField(verbose_name="Slug")
+    slug = models.SlugField(verbose_name="Slug", null=False, unique=True)
     intro = models.TextField(verbose_name="Intro")
     body = models.TextField(verbose_name="Body")
     status = models.CharField(max_length=10, verbose_name="Status", choices=CHOICES_STATUS, default=ACTIVE)
@@ -41,6 +42,11 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return '/%s/%s' % (self.category.slug, self.slug)
+
+    def save(self, *args, **kwargs):  # new
+        if not self.slug:
+            self.slug = slugify(self.title)
+        return super().save(*args, **kwargs)
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
