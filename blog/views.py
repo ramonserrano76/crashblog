@@ -531,7 +531,7 @@ def post_linkedin_network_update(request, access_token, title, body, intro, subm
                     "shareMediaCategory": "ARTICLE",
                     "media": [
                         {                            
-                            "media": ,
+                            "media": image_urn,
                             "status": "READY",
                             "description": {
                                 "text": message_STR
