@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'core',
     'blog',
     'ckeditor',
-    'profiles'
+    'profiles',
 ]
 
 MIDDLEWARE = [
@@ -83,6 +83,7 @@ DJRICHTEXTFIELD_CONFIG = {
         'width': 700
     }
 }
+
 
 WSGI_APPLICATION = 'crashblog.wsgi.application'
 
@@ -140,7 +141,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 #auth redirects
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-
+DEFAULT_IMAGE_URL = 'https://demofree.sirv.com/nope-not-here.jpg'
+LINKEDIN_CLIENT_ID = '779t61pwcb1014'
+LINKEDIN_CLIENT_SECRET = '5jaNbiMrjlR1aCzF'
+REDIRECT_URI = 'http://127.0.0.1:9000/redirect_uri/'
 #emails
 if not DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
@@ -157,7 +161,7 @@ else:
     EMAIL_HOST_USER = 'proyectodjangoblog@mail.ru'
     EMAIL_HOST_PASSWORD = 'E9ywZDQriMUDUZP3ZjYn'
     DEFAULT_FROM_EMAIL = 'proyectodjangoblog@mail.ru'
-
+    SESSION_ENGINE = 'django.contrib.sessions.backends.file'
     # EMAIL_HOST = 'SMTP.MAIL.RU'
     # EMAIL_HOST_USER = 'proyectodjangoblog@mail.ru'
     # EMAIL_HOST_PASSWORD = 'ProyectoCaC'

@@ -7,81 +7,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>{% block title %}{% endblock %}Proyecto blog</title>
+    <title>{% block title %}{% endblock %}BlogifyAR</title>
     {% load static %}
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.2/css/bulma.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">    
+    {% comment %} <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> {% endcomment %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/fontawesome.min.css" integrity="sha512-giQeaPns4lQTBMRpOOHsYnGw1tGVzbAIHUyHRgn7+6FmiEgGGjaG0T2LZJmAPMzRCl+Cug0ItQ2xDZpTmEc+CQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/brands.min.css" integrity="sha512-G/T7HQJXSeNV7mKMXeJKlYNJ0jrs8RsWzYG7rVACye+qrcUhEAYKYzaa+VFy6eFzM2+/JT1Q+eqBbZFSHmJQew==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/solid.min.css" integrity="sha512-6mc0R607di/biCutMUtU9K7NtNewiGQzrvWX4bWTeqmljZdJrwYvKJtnhgR+Ryvj+NRJ8+NnnCM/biGqMe/iRA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/regular.min.css" integrity="sha512-k2UAKyvfA7Xd/6FrOv5SG4Qr9h4p2oaeshXF99WO3zIpCsgTJ3YZELDK0gHdlJE5ls+Mbd5HL50b458z3meB/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/fontawesome.min.js" integrity="sha512-nKvEIGRKw2OQCR34yLfnWnvrOBxidLG9aK+vzsBxCZ/9ZxgcS4FrYcN+auWUTkCitTVZAt82InDKJ7x+QtKu6g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script src="{% static 'main.js' %}"></script>
+    <style>
+        .body {
+            background: grey;
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
+    <div class="header">
+        <div class="inner-header">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container">
 
-            <div class="navbar-brand">
-                <a class="navbar-item" href="/">
-                    <strong>Proyecto blog</strong>
-                </a>
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nep" aria-controls="nep"
-                aria-expanded="false">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="nep">
-                <div class="navbar-end">
+                    <a class="navbar-brand" href="/"><img
+                            src="https://media.licdn.com/dms/image/C4D0BAQEP84e1QFLYCg/company-logo_100_100/0/1673964529427?e=1682553600&v=beta&t=Ka_vDfD7W0uTh2UaTe7NdctFF2a1F45LQJ8KuVU-MPk"
+                            alt="logo" width="100" height="100"
+                            class="d-inline-block align-text-center"><strong>BlogifyAR</strong></a>
 
-                    <div class="navbar-nav mr-auto">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nep"
+                        aria-controls="nep" aria-expanded="false">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nep">
+                        <div class="navbar-end">
 
-                        <form method="get" action="{% url 'search' %}">
-                            <div class="control has-icons-left">
-                                <input class="input is-rounded" name="query" type="text"
-                                    placeholder="Buscar publicación">
-                                <span class="icon is-left">
-                                    <i class="fa fa-search"></i>
-                                </span>
+                            <div class="navbar-nav mr-auto">
+
+                                <form method="get" action="{% url 'search' %}">
+                                    <div class="control has-icons-left">
+                                        <input class="input is-rounded" name="query" type="text"
+                                            placeholder="Buscar publicación">
+                                        <span class="icon is-left">
+                                            <i class="fa-solid fa-search"></i>
+                                        </span>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="navbar-item is-active is-size-5 has-text-weight-semibold"
+                                        href="/">Inicio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="navbar-item is-active is-size-5 has-text-weight-semibold"
+                                        href="{% url 'about' %}">Acerca de</a>
+                                </li>
+
+                            </ul>
+                            <ul class="navbar-nav mr-auto  text-end">
+                                {% if not request.user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a class="navbar-item is-size-5 has-text-weight-semibold btn btn-outline-primary me-2"
+                                        href="{% url 'login' %}" role="button"><i class="fa-solid fa-right-to-bracket"></i> Acceder</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a role='button'
+                                        class="navbar-item is-size-5 has-text-weight-semibold btn btn-outline-primary me-2"
+                                        href="{% url 'signup' %}"><i class="fa-solid fa-user-plus"></i> Registro</a>
+                                </li>
+                                {% else %}
+                                <li class="nav-item">
+                                    <a class="navbar-item is-active is-size-5 has-text-weight-semibold"
+                                        href="{% url 'profiles:list' %}">Perfiles</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="navbar-item is-active is-size-5 has-text-weight-semibold"
+                                        href="{% url 'profile' %}">Perfil</a>
+                                </li>
+                                <li class="nav-item">
+                                    <p type="text" style="display: inline" class="">Bienvenido\a, {{ user.username }}.
+                                    </p>
+                                    <a type="text" style="display: inline" href="{% url 'password_change' %}"
+                                        class="">Cambiar contraseña  </a>
+                                    <a role='button' class="btn btn-outline-primary me-2 navbar-item is-size-5 has-text-weight-semibold"
+                                        href="{% url 'logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Salir</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
                     </div>
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="navbar-item is-active is-size-5 has-text-weight-semibold" href="/">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="navbar-item is-active is-size-5 has-text-weight-semibold"
-                                href="{% url 'about' %}">Acerca de</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="navbar-item is-active is-size-5 has-text-weight-semibold"
-                                href="{% url 'profiles:list' %}">Perfiles</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav mr-auto">
-                        {% if not request.user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="navbar-item is-active is-size-5 has-text-weight-semibold"
-                                href="{% url 'login' %}">Acceder</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="navbar-item is-active is-size-5 has-text-weight-semibold"
-                                href="{% url 'signup' %}">Registro</a>
-                        </li>
-                        {% else %}
-                        <li class="nav-item">
-                            <a class="navbar-item is-active is-size-5 has-text-weight-semibold"
-                                href="{% url 'profile' %}">Perfil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="navbar-item is-active is-size-5 has-text-weight-semibold"
-                                href="{% url 'logout' %}">Salir</a>
-                        </li>
-                        {% endif %}
-                    </ul>
                 </div>
-            </div>
+            </nav>
         </div>
-    </nav>
+
+        <!--Waves Container-->
+        <div>
+            <div id="output"></div>
+
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                    <path id="gentle-wave"
+                        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                </g>
+            </svg>
+        </div>
+        <!--Waves end-->
+
+    </div>
+
+
     {% if request.user.is_staff %}
     {% include 'blog/includes/post_menu.html'%}
     {% endif %}
@@ -95,17 +142,15 @@
     <footer class="footer">
         <div class="content has-text-centered">
             <p>
-                Copyright (c) 2022 - Proyecto blog
+                Copyright (c) 2022 - BlogifyAR
             </p>
         </div>
     </footer>
-    
+
     <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
-    {% comment %} <!-- <script src="http://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> --> {% endcomment %}
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-</body>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    </body>
 
 </html>

@@ -13,7 +13,7 @@
                     {% if 'ok' in request.GET %}
                     <p style="color: green;">
                         Publicación editada correctamente
-                        <a href= "{% url 'post_detail' post.category post.slug %}">  
+                        <a href= "{% url 'post_detail' category_slug=post.category.slug slug=post.slug %}">  
                             Hacé clic aquí para ver el resultado
                         </a>
                     </p>

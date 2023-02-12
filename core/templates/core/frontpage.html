@@ -2,50 +2,66 @@
 {% load static %}
 {% block title %}Home | {% endblock %}
 {% block content %}
-<section class="hero">
-    <div class="hero-body">
-        <div class="container">
-            <section class="section">
-                <div class="columns">
-                    <div class="column is-8 is-offset-2">
-                        {% for post in posts %}
-                        <div class="content is-medium">
-                            <a href="{% url 'post_detail' post.category.slug post.slug %}">
-                                {% if post.image %}
-                                <figure class="image mb-6">
-                                    <img src="{{ post.image.url }}" alt="" class='rounded mx-auto d-block' style="width:640px;">
-                                </figure>
-                                {% else %}
-                                <video controls width="720" height="480">
-                                    <source src="{{ post.clip.url }}" type="video/webm">
-                                    <a href="{{ post.clip.url }}">Ver/Descargar Video</a>
-                                </video>
-                                {% endif %}
-                                <h3 class="subtitle is-4">Creado el {{ post.created_at|date }}</h3>
-                                <hr>
-                                <!-- <h2 <a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2> -->
-                                <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-                            <p>{{ post.body|safe|linebreaks }}</p>
-                            <p> <a href="{{ post.get_absolute_url }}">Leer más</a>
-                                {% if request.user.is_staff %}
-                                | <a href="{% url 'update' post.slug %}">Editar</a>
-                                | <a href="{% url 'delete' post.slug %}">Borrar</a>
-                                {% endif %}
-                            </p>
-                            </a>
+<style>
+    .body{
+        background: grey;
+    } 
+    </style>
+<section class="album py-5 bg-light">
+    <div class="container">
+        <!--Section heading-->
+        <h2 class="h1-responsive font-weight-bold text-center my-4">Nuestras Publicaciones</h2>
+        <!--Section description-->
+        <p class="text-center w-responsive mx-auto mb-5">Estas son las mejores publicaciones que puedes ver en un blog, variedades,
+            noticias de tecnología, del área de programación y mucho más.</p>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+            {% for post in posts %}
+            <div class="col-md-4">
+                <div class="card shadow-sm mb-3 rounded">
+                    <a href="{% url 'post_detail' post.category.slug post.slug %}">
+                        {% if post.image %}
+                        <figure class="">
+                            <img class="bd-placeholder-img card-img-top" alt="Card media cap" style="width:420px; height:315px" src="{{ post.image.url }}"
+                                alt="{{post.title}}" width="20%">
+                        </figure>
+                        {% else %}
+
+                        {% endif %}
+                        {% if post.clip %}
+                        <div class="video">
+                            <video controls width="720" height="480" alt= "Card media cap">
+                                <source src="{{ post.clip.url }}" type="video/webm">
+                                <a href="{{ post.clip.url }}">Ver/Descargar Video</a>
+                            </video>
                         </div>
-                        <hr>
-                        <hr>
-                        {% endfor %}
-                        <hr>
-                        {% for category in object_list.all %}
-                        <button type="button" class="btn btn-outline-warning btn-sm">{{ category }}</button>
-                        {% endfor %}
+                        {% else %}
 
+                        {% endif %}
 
-                    </div>
+                        <div class="card-body">
+                            <h5><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h5>
+                            <p class='card-text'>{{ post.intro }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <p>
+                                        <a class="btn btn-outline-success btn-sm" href="{{ post.get_absolute_url }}" role="button"><i class="fa-regular fa-eye"></i><b>Ver</b></a>
+                                        {% if request.user.is_staff %}
+                                        <a class="btn btn-outline-info btn-sm" href="{% url 'update' post.slug %}" role="button"><i class="fa-solid fa-pencil"></i><b>Editar</b></a>
+                                        <a class="btn btn-outline-danger btn-sm" href="{% url 'delete' post.slug %}" role="button"><i class="fa-regular fa-trash-can"></i><b>Borrar</b></a>
+                                        
+                                        {% endif %}
+                                    </p>
+                                </div>
+                                <small class="text-muted">
+                                    <p> <a class="">Creado {{ post.created_at|date:"d M Y" }}</a></p>
+                                </small>
+                            </div>
+                            <p><small>Category: <a class="btn btn-outline-dark btn-sm" href="{% url 'category_detail' post.category.slug %}" role="button"><i class="fa-solid fa-filter"></i> <b>{{ post.category }}</b></a></small></p>
+                        </div>
+                    </a>
                 </div>
-            </section>
+            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

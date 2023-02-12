@@ -27,16 +27,17 @@ from blog.urls import url_patterns
 sitemaps = {'category': CategorySitemap, 'post': PostSitemap}
 
 urlpatterns = [
+    path('', frontpage, name='frontpage'),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
     path('robots.txt', robots_txt, name='robots_txt'),
-    path('admin/', admin.site.urls),   
-    path('', frontpage, name='frontpage'),
+    path('admin/', admin.site.urls),    
     path('about/', about, name='about'),
     path('', include(url_patterns)),
     # path de auth
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('registration.urls')),
     path('profiles/', include(profiles_patterns)),
+    path('tinymce/', include('tinymce.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # if settings.DEBUG:
