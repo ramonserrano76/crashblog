@@ -36,8 +36,7 @@ urlpatterns = [
     # path de auth
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('registration.urls')),
-    path('profiles/', include(profiles_patterns)),
-    path('tinymce/', include('tinymce.urls')),
+    path('profiles/', include(profiles_patterns)),    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # if settings.DEBUG:

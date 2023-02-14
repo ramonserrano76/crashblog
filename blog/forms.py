@@ -1,8 +1,8 @@
 from .models import Category, Post, Comment
 from django import forms
 from ckeditor.fields import RichTextField
-from tinymce.widgets import TinyMCE
-# from upload_validator import FileTypeValidator
+
+
 
 class CommentForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):

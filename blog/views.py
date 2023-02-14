@@ -370,13 +370,17 @@ def post_linkedin_network_update(request, access_token, title, body, intro, subm
     
     # Definicion de Variables para el post
     mention_name = 'BlogifyAR'
-    mention2_name = 'ramonserrano76'
-    message = f'Mira nuestras publicaciones en {mention_name} o a traves de @{mention2_name} donde encontrarás temas de tecnología, servicios e internet, somos tu guía especializada del mundo digital, ¡¡Esta es la tercera publicación del sitio!!, Disfrútenla; #Tech, #Web, #SocialMedia.'
+    mention2_name = 'Ramón Antonio Serrano Martin'
+    message = f'Mira nuestras publicaciones en {mention_name} o a traves de {mention2_name} donde encontrarás temas de tecnología, servicios e internet, somos tu guía especializada del mundo digital, ¡¡Esta es la tercera publicación del sitio!!, Disfrútenla; #Tech, #Web, #SocialMedia.'
     mention_id = '90238112'
     mention_urn = f'urn:li:organization:{mention_id}'
     link = 'https://ramonserrano76.pythonanywhere.com'
     originalUrl = link + (urlparse(submitted_url)).path
+    originalurl1 = str(request.build_absolute_uri(submitted_url))
+    image_path= link + (urlparse(submitted_image_url)).path
     print('ORIGINAL URL:', originalUrl)
+    print("image_path:", image_path)
+    print("original url1:", originalurl1)
     # Aqui termina Definicion de Variables para post
     
     
@@ -395,6 +399,7 @@ def post_linkedin_network_update(request, access_token, title, body, intro, subm
     title_STR = str(title)
     originalUrl_STR = str(originalUrl)
     image_urn_STR = str(image_urn)
+    image_path_STR = str(image_path)
     asett_STR = str(asset)
     message_STR = str(message)    
     body_STR = str(body)
@@ -531,18 +536,19 @@ def post_linkedin_network_update(request, access_token, title, body, intro, subm
                     "shareMediaCategory": "ARTICLE",
                     "media": [
                         {                            
-                            "media": image_urn,
+                            "mediaType": "IMAGE",                            
                             "status": "READY",
                             "description": {
-                                "text": message_STR
-                            },
-                            
-                            "originalUrl": originalUrl,
+                                "text": body_STR
+                            },                            
+                            "originalUrl": originalurl1,
                             "title": {
                                 "attributes": [],
                                 "text": title
                             },
-                            
+                            "thumbnails": [{
+                                "url": file_path
+                            }]
                             
                         }
                     ],

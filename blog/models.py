@@ -1,7 +1,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.utils.text import slugify
-from tinymce.models import HTMLField
+
 
 class Category(models.Model):
     
