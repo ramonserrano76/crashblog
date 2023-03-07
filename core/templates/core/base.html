@@ -6,23 +6,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <title>{% block title %}{% endblock %}BlogifyAR</title>
     {% load static %}
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.2/css/bulma.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    {% comment %} <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> {% endcomment %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/fontawesome.min.css" integrity="sha512-giQeaPns4lQTBMRpOOHsYnGw1tGVzbAIHUyHRgn7+6FmiEgGGjaG0T2LZJmAPMzRCl+Cug0ItQ2xDZpTmEc+CQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/brands.min.css" integrity="sha512-G/T7HQJXSeNV7mKMXeJKlYNJ0jrs8RsWzYG7rVACye+qrcUhEAYKYzaa+VFy6eFzM2+/JT1Q+eqBbZFSHmJQew==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/solid.min.css" integrity="sha512-6mc0R607di/biCutMUtU9K7NtNewiGQzrvWX4bWTeqmljZdJrwYvKJtnhgR+Ryvj+NRJ8+NnnCM/biGqMe/iRA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/regular.min.css" integrity="sha512-k2UAKyvfA7Xd/6FrOv5SG4Qr9h4p2oaeshXF99WO3zIpCsgTJ3YZELDK0gHdlJE5ls+Mbd5HL50b458z3meB/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/fontawesome.min.js" integrity="sha512-nKvEIGRKw2OQCR34yLfnWnvrOBxidLG9aK+vzsBxCZ/9ZxgcS4FrYcN+auWUTkCitTVZAt82InDKJ7x+QtKu6g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
-    <script type="text/javascript" src="{% static 'main.js' %}"></script>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/fontawesome.min.css"
+        integrity="sha512-giQeaPns4lQTBMRpOOHsYnGw1tGVzbAIHUyHRgn7+6FmiEgGGjaG0T2LZJmAPMzRCl+Cug0ItQ2xDZpTmEc+CQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/brands.min.css"
+        integrity="sha512-G/T7HQJXSeNV7mKMXeJKlYNJ0jrs8RsWzYG7rVACye+qrcUhEAYKYzaa+VFy6eFzM2+/JT1Q+eqBbZFSHmJQew=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/solid.min.css"
+        integrity="sha512-6mc0R607di/biCutMUtU9K7NtNewiGQzrvWX4bWTeqmljZdJrwYvKJtnhgR+Ryvj+NRJ8+NnnCM/biGqMe/iRA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/regular.min.css"
+        integrity="sha512-k2UAKyvfA7Xd/6FrOv5SG4Qr9h4p2oaeshXF99WO3zIpCsgTJ3YZELDK0gHdlJE5ls+Mbd5HL50b458z3meB/Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="{% static 'main.js' %}" type="text/javascript"></script>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" type="text/css">
+    <link rel="shortcut icon" href="../../../crashblog/favicon.ico" type="image/x-icon">
     <style>
         .body {
             background: grey;
@@ -73,9 +76,10 @@
                             </ul>
                             <ul class="navbar-nav mr-auto  text-end">
                                 {% if not request.user.is_authenticated %}
-                                <li class="nav-item">
+                                <li class="nav-item  mr-3">
                                     <a class="navbar-item is-size-5 has-text-weight-semibold btn btn-outline-primary me-2"
-                                        href="{% url 'login' %}" role="button"><i class="fa-solid fa-right-to-bracket"></i> Acceder</a>
+                                        href="{% url 'login' %}" role="button"><i
+                                            class="fa-solid fa-right-to-bracket"></i> Acceder</a>
                                 </li>
                                 <li class="nav-item">
                                     <a role='button'
@@ -83,10 +87,13 @@
                                         href="{% url 'signup' %}"><i class="fa-solid fa-user-plus"></i> Registro</a>
                                 </li>
                                 {% else %}
+                                {% if request.user.is_superuser %}
                                 <li class="nav-item">
                                     <a class="navbar-item is-active is-size-5 has-text-weight-semibold"
                                         href="{% url 'profiles:list' %}">Perfiles</a>
                                 </li>
+                                {% else %}
+                                {% endif %}
                                 <li class="nav-item">
                                     <a class="navbar-item is-active is-size-5 has-text-weight-semibold"
                                         href="{% url 'profile' %}">Perfil</a>
@@ -95,10 +102,13 @@
                                     <p type="text" style="display: inline" class="">Bienvenido\a, {{ user.username }}.
                                     </p>
                                     <a type="text" style="display: inline" href="{% url 'password_change' %}"
-                                        class="">Cambiar contraseña  </a>
-                                    <a role='button' class="btn btn-outline-primary me-2 navbar-item is-size-5 has-text-weight-semibold"
-                                        href="{% url 'logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Salir</a>
+                                        class="">Cambiar contraseña </a>
+                                    <a role='button'
+                                        class="btn btn-outline-primary me-2 navbar-item is-size-5 has-text-weight-semibold"
+                                        href="{% url 'logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                        Salir</a>
                                 </li>
+
                                 {% endif %}
                             </ul>
                         </div>
@@ -139,19 +149,34 @@
             {% endblock %}
         </div>
     </section>
+    <footer class="footer bg-light px-2 py-2 mt-3 sticky-footer fixed-bottom">
+        <div class="container d-flex justify-content-between flex-wrap">
+            <div class="col-md-4 social-icons d-flex align-self-center mb-3 mb-md-0 text-start">
+                <a href="#"><i class="fab fa-instagram fa-2x text-dark mr-3"></i></a>
+                <a href="#"><i class="fab fa-facebook fa-2x text-dark mr-3"></i></a>
+                <a href="#"><i class="fab fa-whatsapp fa-2x text-dark"></i></a>
+            </div>
 
-    <footer class="footer">
-        <div class="content has-text-centered">
-            <p>
-                Copyright (c) 2022 - BlogifyAR
-            </p>
+            <div class="col-md-4 align-self-center">
+                <span class="text-center text-dark mb-2">
+                    <h4>Copyright © 2022 BlogifyAR</h4>
+                </span>
+            </div>
+            <div class="col-md-4 align-self-center">
+                <span class="text-end text-dark mb-2"></span>
+            </div>
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    
-    </body>
+    <script src="https://code.jquery.com/jquery-3.6.2.min.js"
+        integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/fontawesome.min.js"
+        integrity="sha512-nKvEIGRKw2OQCR34yLfnWnvrOBxidLG9aK+vzsBxCZ/9ZxgcS4FrYcN+auWUTkCitTVZAt82InDKJ7x+QtKu6g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="shortcut icon" href="../../../crashblog/favicon.ico" type="image/x-icon">
+</body>
 
 </html>
