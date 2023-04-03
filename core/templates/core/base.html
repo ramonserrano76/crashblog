@@ -33,8 +33,8 @@
     </style>
 </head>
 
-<body>
-    <div class="header">
+<body class="d-flex flex-column min-vh-100">
+    <div class="header flex-grow-1">
         <div class="inner-header">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container">
@@ -136,7 +136,6 @@
             </svg>
         </div>
         <!--Waves end-->
-
     </div>
 
 
@@ -149,21 +148,22 @@
             {% endblock %}
         </div>
     </section>
-    <footer class="footer bg-light px-2 py-2 mt-3 sticky-footer fixed-bottom">
+    <footer class="footer bg-light px-2 py-2 mt-3"> 
+        {% comment %} sticky-footer fixed-bottom {% endcomment %}
         <div class="container d-flex justify-content-between flex-wrap">
-            <div class="col-md-4 social-icons d-flex align-self-center mb-3 mb-md-0 text-start">
+            <div class="col-sm-4 social-icons my-auto text-sm-start">
                 <a href="#"><i class="fab fa-instagram fa-2x text-dark mr-3"></i></a>
                 <a href="#"><i class="fab fa-facebook fa-2x text-dark mr-3"></i></a>
                 <a href="#"><i class="fab fa-whatsapp fa-2x text-dark"></i></a>
             </div>
 
-            <div class="col-md-4 align-self-center">
-                <span class="text-center text-dark mb-2">
+            <div class="col-sm-7 my-auto text-sm-center">
+                <span class="text-center text-dark">
                     <h4>Copyright © 2022 BlogifyAR</h4>
                 </span>
             </div>
-            <div class="col-md-4 align-self-center">
-                <span class="text-end text-dark mb-2"></span>
+            <div class="col-md-1 my-auto text-sm-end">
+                <span class="text-dark"></span>
             </div>
         </div>
     </footer>
@@ -176,7 +176,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/fontawesome.min.js"
         integrity="sha512-nKvEIGRKw2OQCR34yLfnWnvrOBxidLG9aK+vzsBxCZ/9ZxgcS4FrYcN+auWUTkCitTVZAt82InDKJ7x+QtKu6g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="shortcut icon" href="../../../crashblog/favicon.ico" type="image/x-icon">
-</body>
+    <link rel="icon" href="{% static 'core/favicon.ico' %}">
 
 </html>
