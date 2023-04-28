@@ -23,6 +23,7 @@ from .sitemaps import CategorySitemap, PostSitemap
 from core.views import frontpage, about, robots_txt
 from profiles.urls import profiles_patterns
 from blog.urls import url_patterns
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 sitemaps = {'category': CategorySitemap, 'post': PostSitemap}
 
@@ -37,7 +38,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('registration.urls')),
     path('profiles/', include(profiles_patterns)),    
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + staticfiles_urlpatterns()
 
 # if settings.DEBUG:
 #     from django.conf.urls.static import static

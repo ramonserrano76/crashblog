@@ -5,7 +5,7 @@ from blog.models import Post
 from django.views.generic import View
 
 class RedirectDomainView(View):
-    FROM_DOMAIN = 'ramonserrano76.pythonanywhere.com'
+    FROM_DOMAIN = 'blogifyar.onrender.com'
     TO_DOMAIN = 'www.blogifyar.pro'
 
     def dispatch(self, request, *args, **kwargs):
