@@ -5,8 +5,8 @@ from blog.models import Post
 from django.views.generic import View
 
 class RedirectDomainView(View):
-    FROM_DOMAIN = 'yourusername.pythonanywhere.com'
-    TO_DOMAIN = 'www.yourdomain.com'
+    FROM_DOMAIN = 'ramonserrano76.pythonanywhere.com'
+    TO_DOMAIN = 'www.blogifyar.pro'
 
     def dispatch(self, request, *args, **kwargs):
         if request.get_host() == self.FROM_DOMAIN:
