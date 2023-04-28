@@ -1,6 +1,6 @@
-from django.http.response import HttpResponse HttpResponseRedirect
+from django.http.response import HttpResponse, HttpResponseRedirect
 from django.http import HttpResponse
-from django.shortcuts import render redirect
+from django.shortcuts import render, redirect
 from urllib.parse import urlparse, urlunparse
 from blog.models import Post
 from django.urls import reverse
