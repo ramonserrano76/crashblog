@@ -5,8 +5,10 @@ from registration.views import SignUpView
 
 
 urlpatterns = [
+    path('', RedirectDomainView.as_view(), name='home'), 
     path('', views.frontpage, name="frontpage"),
-    path('signup/', SignUpView.as_view(), name='signup'),    
+    path('signup/', SignUpView.as_view(), name='signup'),
+     
 ]
 
 

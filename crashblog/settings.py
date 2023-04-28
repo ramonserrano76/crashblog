@@ -154,13 +154,13 @@ else:
 #   pass
 # #email config
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_HOST = 'smtp.mail.ru'
+    EMAIL_HOST = 'smtp.gmail.com'
     EMAIL_USE_TLS = False
-    EMAIL_PORT = 465
+    EMAIL_PORT = 587
     EMAIL_USE_SSL = True
-    EMAIL_HOST_USER = 'proyectodjangoblog@mail.ru'
-    EMAIL_HOST_PASSWORD = 'E9ywZDQriMUDUZP3ZjYn'
-    DEFAULT_FROM_EMAIL = 'proyectodjangoblog@mail.ru'
+    EMAIL_HOST_USER = 'proyectodjangoblog1@gmail.com'
+    EMAIL_HOST_PASSWORD = 'auscoftkettyqulr'
+    DEFAULT_FROM_EMAIL = 'proyectodjangoblog1@gmail.com'
     SESSION_ENGINE = 'django.contrib.sessions.backends.file'
     # EMAIL_HOST = 'SMTP.MAIL.RU'
     # EMAIL_HOST_USER = 'proyectodjangoblog@mail.ru'
