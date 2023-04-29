@@ -1,0 +1,2358 @@
+[
+{
+  "model": "registration.profile",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "avatar": "profiles/WhatsApp_Image_2022-05-19_at_12.13.01_PM.jpeg",
+    "bio": "hola estoy haciendo esto de prueba porque no se a quien perteneceria este perfil",
+    "link": "https://ramonserrano-portfolio.web.app"
+  }
+},
+{
+  "model": "registration.profile",
+  "pk": 3,
+  "fields": {
+    "user": 4,
+    "avatar": "",
+    "bio": "Nacimiento y datos de la vida",
+    "link": null
+  }
+},
+{
+  "model": "registration.profile",
+  "pk": 4,
+  "fields": {
+    "user": 5,
+    "avatar": "",
+    "bio": null,
+    "link": null
+  }
+},
+{
+  "model": "registration.profile",
+  "pk": 7,
+  "fields": {
+    "user": 8,
+    "avatar": "",
+    "bio": null,
+    "link": null
+  }
+},
+{
+  "model": "registration.profile",
+  "pk": 8,
+  "fields": {
+    "user": 9,
+    "avatar": "",
+    "bio": null,
+    "link": null
+  }
+},
+{
+  "model": "registration.profile",
+  "pk": 9,
+  "fields": {
+    "user": 10,
+    "avatar": "",
+    "bio": null,
+    "link": null
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2022-12-05T23:19:18.338Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "This is a python post",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\", \"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2022-12-05T23:20:30.864Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Second post",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Category\", \"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2022-12-06T02:45:17.993Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "This is a python post",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\", \"Clip\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2022-12-06T04:17:40.577Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "This is a python post",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2022-12-06T04:18:34.893Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "This is a python post",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Body\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2022-12-06T04:20:07.274Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "This is a python post",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2022-12-07T16:43:42.665Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "This is a python post",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2022-12-07T16:43:42.784Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Second post",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2022-12-07T16:43:42.899Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "This is the first post",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2022-12-07T16:45:53.229Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Este es el primer Post",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2022-12-07T16:46:07.670Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Este es el primer Post",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2022-12-07T16:47:02.616Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Este es el primer Post",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2022-12-07T16:51:55.770Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Este es el segundo post",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2022-12-07T16:54:15.372Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Este es el segundo post",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2022-12-07T16:56:22.056Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Este es el tercer post",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2022-12-13T04:15:56.505Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "1",
+    "object_repr": "admin",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2022-12-13T04:17:29.930Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Username\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2022-12-13T14:39:25.141Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "9",
+    "object_repr": "Creando publicacion",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2022-12-13T14:39:25.294Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "8",
+    "object_repr": "ddfgdfgdfgfdg",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2022-12-13T14:39:25.376Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "ddfgdfgdfgfdg",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2022-12-13T14:48:08.237Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "10",
+    "object_repr": "publicacion",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Clip\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2022-12-13T14:51:04.267Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "10",
+    "object_repr": "publicacion",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2022-12-13T15:05:23.512Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "10",
+    "object_repr": "publicacion",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2022-12-13T15:45:15.236Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "10",
+    "object_repr": "publicacion",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2022-12-14T00:15:55.401Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "11",
+    "object_repr": "PRUEBISIMA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2022-12-14T01:39:41.246Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "12",
+    "object_repr": "prueba de subida",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2022-12-14T02:11:03.276Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "13",
+    "object_repr": "dfgddfd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2022-12-14T02:17:54.782Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "14",
+    "object_repr": "CLIP",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2022-12-14T02:25:59.346Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "15",
+    "object_repr": "CLIP",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2022-12-14T03:08:41.067Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "16",
+    "object_repr": "sddsds",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2022-12-14T18:50:50.063Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "17",
+    "object_repr": "dffgfdg",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2022-12-14T18:55:14.343Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "20",
+    "object_repr": "xvdffd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2022-12-14T18:55:14.443Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "19",
+    "object_repr": "xvdffd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2022-12-14T18:55:14.570Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "18",
+    "object_repr": "ddfsdf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2022-12-14T18:58:33.489Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "21",
+    "object_repr": "fdfdddf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2022-12-14T19:13:40.646Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "22",
+    "object_repr": "ddsd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2022-12-14T19:42:42.612Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "28",
+    "object_repr": "sdsdsadsf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2022-12-14T19:42:42.736Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "27",
+    "object_repr": "sdsdsadsf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2022-12-14T19:42:42.832Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "26",
+    "object_repr": "sdsdsadsf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2022-12-14T19:42:42.950Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "25",
+    "object_repr": "sdsdsadsf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2022-12-14T19:42:43.089Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "24",
+    "object_repr": "sdsdsadsf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2022-12-14T19:42:43.163Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "23",
+    "object_repr": "sdsdsadsf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2022-12-14T19:45:50.497Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "29",
+    "object_repr": "123",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2022-12-14T20:14:35.717Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "30",
+    "object_repr": "123",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2022-12-14T20:34:27.073Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "31",
+    "object_repr": "123",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2022-12-14T20:47:11.468Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "35",
+    "object_repr": "123",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2022-12-14T20:47:11.602Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "33",
+    "object_repr": "456",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2022-12-14T21:34:18.772Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "32",
+    "object_repr": "123",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2022-12-14T23:09:32.131Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "10",
+    "object_repr": "publicacionMODIF6123",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2022-12-16T16:37:03.425Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Este es el tercer post",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Clip\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2022-12-16T20:33:56.506Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Este es el tercer post",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Clip\"]}}, {\"changed\": {\"name\": \"comment\", \"object\": \"Ramon\", \"fields\": [\"Body\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2022-12-16T20:47:52.196Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Este es el segundo post",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"name\": \"comment\", \"object\": \"ramon\", \"fields\": [\"Body\"]}}, {\"changed\": {\"name\": \"comment\", \"object\": \"ramon\", \"fields\": [\"Body\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2022-12-16T20:51:24.809Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Este es el segundo post",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2022-12-16T23:42:17.271Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "4",
+    "object_repr": "ramonserrano",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Staff status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2022-12-17T19:34:42.709Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "3",
+    "object_repr": "rserrano",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Staff status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2022-12-17T19:35:45.345Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "3",
+    "object_repr": "rserrano",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2023-01-11T20:27:42.815Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "6",
+    "object_repr": "NICOLAS_BILIC",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2023-01-11T20:27:42.842Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "7",
+    "object_repr": "qwer",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2023-01-17T15:35:56.411Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "4",
+    "object_repr": "Empleabilidad",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 68,
+  "fields": {
+    "action_time": "2023-01-17T15:36:05.061Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "5",
+    "object_repr": "Tecnologías",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 69,
+  "fields": {
+    "action_time": "2023-01-17T15:36:37.738Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "6",
+    "object_repr": "Actualidad",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 70,
+  "fields": {
+    "action_time": "2023-01-17T15:36:49.995Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "7",
+    "object_repr": "Noticias",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 71,
+  "fields": {
+    "action_time": "2023-01-17T15:37:00.944Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "8",
+    "object_repr": "Economia",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 72,
+  "fields": {
+    "action_time": "2023-01-17T15:37:05.848Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "9",
+    "object_repr": "Sociedad",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 73,
+  "fields": {
+    "action_time": "2023-01-17T15:37:14.928Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "10",
+    "object_repr": "Personas",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 74,
+  "fields": {
+    "action_time": "2023-01-22T20:08:13.458Z",
+    "user": 2,
+    "content_type": 3,
+    "object_id": "1",
+    "object_repr": "Activos",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 75,
+  "fields": {
+    "action_time": "2023-01-22T20:08:55.009Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "5",
+    "object_repr": "ramon",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 76,
+  "fields": {
+    "action_time": "2023-01-22T20:11:14.763Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "35",
+    "object_repr": "Septimo Post",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Body\", \"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 77,
+  "fields": {
+    "action_time": "2023-01-22T20:11:39.569Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Este es el tercer post",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Body\", \"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 78,
+  "fields": {
+    "action_time": "2023-01-22T20:12:02.237Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "34",
+    "object_repr": "sexto post",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Body\", \"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 79,
+  "fields": {
+    "action_time": "2023-01-22T20:12:25.110Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "33",
+    "object_repr": "Este es el Segundo pst",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Body\", \"Status\"]}}, {\"changed\": {\"name\": \"comment\", \"object\": \"Alexis\\u00ba\", \"fields\": [\"Body\"]}}, {\"changed\": {\"name\": \"comment\", \"object\": \"German Sardella\", \"fields\": [\"Body\"]}}, {\"changed\": {\"name\": \"comment\", \"object\": \"hola\", \"fields\": [\"Body\"]}}, {\"changed\": {\"name\": \"comment\", \"object\": \"fghfgh\", \"fields\": [\"Body\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 80,
+  "fields": {
+    "action_time": "2023-01-22T21:22:28.609Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "19",
+    "object_repr": "ramon",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 81,
+  "fields": {
+    "action_time": "2023-01-22T21:25:05.814Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "18",
+    "object_repr": "admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Body\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 82,
+  "fields": {
+    "action_time": "2023-01-22T21:25:12.565Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "18",
+    "object_repr": "admin",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 83,
+  "fields": {
+    "action_time": "2023-01-22T21:25:18.570Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "18",
+    "object_repr": "admin",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 84,
+  "fields": {
+    "action_time": "2023-01-22T21:26:25.735Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "18",
+    "object_repr": "admin",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 85,
+  "fields": {
+    "action_time": "2023-01-22T21:28:36.939Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "20",
+    "object_repr": "admin",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 86,
+  "fields": {
+    "action_time": "2023-01-22T21:28:36.968Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "18",
+    "object_repr": "admin",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 87,
+  "fields": {
+    "action_time": "2023-01-22T21:30:07.105Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "21",
+    "object_repr": "admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Body\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 88,
+  "fields": {
+    "action_time": "2023-01-22T21:30:59.625Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "21",
+    "object_repr": "admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Body\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 89,
+  "fields": {
+    "action_time": "2023-01-22T21:31:43.322Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "21",
+    "object_repr": "admin",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 90,
+  "fields": {
+    "action_time": "2023-01-27T16:26:10.368Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "42",
+    "object_repr": "ChatGPT: Cómo la IA está revolucionando la forma en que hacemos negocios.",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Slug\", \"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 91,
+  "fields": {
+    "action_time": "2023-01-27T16:47:13.001Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "42",
+    "object_repr": "ChatGPT: Cómo la IA está revolucionando la forma en que hacemos negocios.",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 92,
+  "fields": {
+    "action_time": "2023-01-28T20:15:47.199Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "42",
+    "object_repr": "ChatGPT: Cómo la IA está revolucionando la forma en que hacemos negocios.",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 93,
+  "fields": {
+    "action_time": "2023-02-19T23:09:11.564Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "9",
+    "object_repr": "adrianax.gonzalezx@gmail.com",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Staff status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 94,
+  "fields": {
+    "action_time": "2023-03-01T18:31:36.097Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "10",
+    "object_repr": "jlgserrano",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Staff status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 95,
+  "fields": {
+    "action_time": "2023-03-05T22:49:01.007Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "17",
+    "object_repr": "admin",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 96,
+  "fields": {
+    "action_time": "2023-03-05T22:49:01.037Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "16",
+    "object_repr": "fghfgh",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 97,
+  "fields": {
+    "action_time": "2023-03-05T22:49:01.067Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "15",
+    "object_repr": "Mae",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 98,
+  "fields": {
+    "action_time": "2023-03-05T22:49:01.093Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "14",
+    "object_repr": "hola",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 99,
+  "fields": {
+    "action_time": "2023-03-05T22:49:01.118Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "13",
+    "object_repr": "Dayana",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 100,
+  "fields": {
+    "action_time": "2023-03-05T22:49:01.145Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "12",
+    "object_repr": "German Sardella",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 101,
+  "fields": {
+    "action_time": "2023-03-05T22:49:01.178Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "11",
+    "object_repr": "Alexisº",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 102,
+  "fields": {
+    "action_time": "2023-03-05T22:49:01.206Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "8",
+    "object_repr": "Ramon",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 103,
+  "fields": {
+    "action_time": "2023-03-05T22:49:01.231Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "ramon2",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 104,
+  "fields": {
+    "action_time": "2023-03-05T22:49:01.257Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "Ramon",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 105,
+  "fields": {
+    "action_time": "2023-03-05T22:50:19.360Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "3",
+    "object_repr": "rserrano",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 106,
+  "fields": {
+    "action_time": "2023-03-05T22:51:07.721Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 107,
+  "fields": {
+    "action_time": "2023-03-05T22:51:57.064Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 108,
+  "fields": {
+    "action_time": "2023-03-05T22:52:10.172Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "admin",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add post",
+    "content_type": 7,
+    "codename": "add_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change post",
+    "content_type": 7,
+    "codename": "change_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete post",
+    "content_type": 7,
+    "codename": "delete_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view post",
+    "content_type": 7,
+    "codename": "view_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add comment",
+    "content_type": 8,
+    "codename": "add_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change comment",
+    "content_type": 8,
+    "codename": "change_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete comment",
+    "content_type": 8,
+    "codename": "delete_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view comment",
+    "content_type": 8,
+    "codename": "view_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add category",
+    "content_type": 9,
+    "codename": "add_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change category",
+    "content_type": 9,
+    "codename": "change_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete category",
+    "content_type": 9,
+    "codename": "delete_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view category",
+    "content_type": 9,
+    "codename": "view_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add profile",
+    "content_type": 10,
+    "codename": "add_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change profile",
+    "content_type": 10,
+    "codename": "change_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete profile",
+    "content_type": 10,
+    "codename": "delete_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view profile",
+    "content_type": 10,
+    "codename": "view_profile"
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Activos",
+    "permissions": [
+      36,
+      29,
+      32,
+      28,
+      20,
+      38,
+      40
+    ]
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$q0hzrdKs7azr1kFYAqUmxU$cV3uYbwUQRSIOpj6bIjWJMbrm+648PV1pWNpAT8u48Y=",
+    "last_login": "2023-04-10T18:54:24.471Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "Administrator",
+    "last_name": "System",
+    "email": "admin@admin.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-12-05T23:17:43Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$csk0urs7ld0fHPML68rxeI$hzPQV2IVP03OmtCQaqQmhjSkfGHDTS0xH74fpP8MG14=",
+    "last_login": "2023-04-04T01:26:39.414Z",
+    "is_superuser": false,
+    "username": "ramonserrano",
+    "first_name": "",
+    "last_name": "",
+    "email": "ramonserrano76@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-12-12T23:03:33Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$RGO8NXDNOcnSAmANklssmn$ZNkt5UAYKMzWhq5WtZ4tFI9D+B0S/32EiV3jgCyQPRw=",
+    "last_login": "2023-04-05T01:16:16.516Z",
+    "is_superuser": false,
+    "username": "ramon",
+    "first_name": "",
+    "last_name": "",
+    "email": "ramon@ramon.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-12-13T04:25:46Z",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$Hbg8FG281EWn2k1c2FxuVf$w9QHT3iNb7abqc6QvLGmUfvnWRaLSprUu0sHONUhhaQ=",
+    "last_login": "2023-01-27T17:48:21.818Z",
+    "is_superuser": false,
+    "username": "JoseGalvis",
+    "first_name": "",
+    "last_name": "",
+    "email": "jolugales@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-01-27T17:46:32.060Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$f1ZCmZbO33X8JEmHH8K8YN$uYLqdm1ecpHMNvdDQDqIE/pWFqyzzKRQzSSAOUAZfDQ=",
+    "last_login": "2023-02-19T19:55:07Z",
+    "is_superuser": false,
+    "username": "adrianax.gonzalezx@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "email": "adrianax.gonzalezx@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-02-19T19:54:34Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$8h44JHgVMNvc5FyX9DLbaV$BxN4hO+hW4TJiKlyS4Hdpz33qz/MrYLN/mZ0tU6js88=",
+    "last_login": "2023-03-01T17:45:41Z",
+    "is_superuser": false,
+    "username": "jlgserrano",
+    "first_name": "",
+    "last_name": "",
+    "email": "jlgserrano3009@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-03-01T17:45:25Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "blog",
+    "model": "post"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "blog",
+    "model": "comment"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "blog",
+    "model": "category"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "registration",
+    "model": "profile"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "12asv3g5hs2lsnuzp93j5n9cs8jh3vqc",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-x1DS5wzWer2LA8iR4qRC3B0ipYD2zcx7iQTbWtPWaUlTERfhxOl3y4APajsod2i3WeLc1mXKclfkQbsc50LP6-H-HVTo9Vvr6H3BbBjQDjkrhwicGRRptEFHYhOIyRJZUGiYg3YDRCJ39lYZFu8PIeQ5Qg:1p4rq0:GKJ7ZfXtdSN0s-J8C1PMSALd22OAAqQRuvx0-S__YTE",
+    "expire_date": "2022-12-26T23:03:56.987Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "4csu9397hg1klc42sbc3cqeyxgdg2bsl",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCggqNL956BzDCDVA0kpV0Z726bdKHb997_bxVxmUtcukxxZHVRTh1-GWF6St0EP7Dem06tztNIekv0bru-NZbXdW__Dgr2sq7TIAR-ABnQsPcJmIInTme0YCE4MZZOLudwzLAC8cGwMS5TABbgrD5f8HI4QA:1p5ATU:u9EQ4GwOsRWnMl0Vs-0kqHaSPD0CY21HnSBFliw5eAg",
+    "expire_date": "2022-12-27T18:57:56.334Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "5wtt70h90vo28lger4dx82cgir3bl7vg",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCggqNL956BzDCDVA0kpV0Z726bdKHb997_bxVxmUtcukxxZHVRTh1-GWF6St0EP7Dem06tztNIekv0bru-NZbXdW__Dgr2sq7TIAR-ABnQsPcJmIInTme0YCE4MZZOLudwzLAC8cGwMS5TABbgrD5f8HI4QA:1p4xoQ:s27enb8D5yGa8uea14JLuRWWUmiGHdLarkY2LjcKxKM",
+    "expire_date": "2022-12-27T05:26:42.193Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "88i55urtzvc9wvrn39xml55dfzw1c08q",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCggqNL956BzDCDVA0kpV0Z726bdKHb997_bxVxmUtcukxxZHVRTh1-GWF6St0EP7Dem06tztNIekv0bru-NZbXdW__Dgr2sq7TIAR-ABnQsPcJmIInTme0YCE4MZZOLudwzLAC8cGwMS5TABbgrD5f8HI4QA:1p59Wf:BP5fMT3RaWzvKDSQ7cSYrjzgNdRDzcRLuuZj1plW6kE",
+    "expire_date": "2022-12-27T17:57:09.714Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "bakz5wsdniwwoi80rhr0dfk2ogv5sjyb",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCggqNL956BzDCDVA0kpV0Z726bdKHb997_bxVxmUtcukxxZHVRTh1-GWF6St0EP7Dem06tztNIekv0bru-NZbXdW__Dgr2sq7TIAR-ABnQsPcJmIInTme0YCE4MZZOLudwzLAC8cGwMS5TABbgrD5f8HI4QA:1p56EK:fd3_xasI_YImZjWY_qc3Wpw8uNhngvgJyR13pEHl6a8",
+    "expire_date": "2022-12-27T14:26:00.747Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "br28ql04tzf5ia7gd3neyssk3e2pvinq",
+  "fields": {
+    "session_data": ".eJxVjEsOwjAMBe-SNYrs9BOHJXvOUDlxTAsokfpZIe4OlbqA7ZuZ9zIDb-s4bEueh0nM2aA5_W6R0yOXHcidy63aVMs6T9Huij3oYq9V8vNyuH8HIy_jtyahpvcaMSIGpw58D0DsQBjbJneUXO6CSgdKKNCoJiBCDt630XEw7w_GaDc_:1lxOjW:Bg9_Jubs-B4_2o9D2s1moVrA18kEtBAtjZPxZy5LQfU",
+    "expire_date": "2021-07-11T06:57:34.402Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "fksn2d02rh0d8g3bmn803stmem2j615m",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCggqNL956BzDCDVA0kpV0Z726bdKHb997_bxVxmUtcukxxZHVRTh1-GWF6St0EP7Dem06tztNIekv0bru-NZbXdW__Dgr2sq7TIAR-ABnQsPcJmIInTme0YCE4MZZOLudwzLAC8cGwMS5TABbgrD5f8HI4QA:1p4toq:P7AVs1idEf_Di_E3bwdSZoDI_IwJ6NqJDwigee4skAU",
+    "expire_date": "2022-12-27T01:10:52.347Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "fnm4p9mqdnbyhnxqfhufnbqacv04rcwm",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCggqNL956BzDCDVA0kpV0Z726bdKHb997_bxVxmUtcukxxZHVRTh1-GWF6St0EP7Dem06tztNIekv0bru-NZbXdW__Dgr2sq7TIAR-ABnQsPcJmIInTme0YCE4MZZOLudwzLAC8cGwMS5TABbgrD5f8HI4QA:1p4jPg:ZqOHpzsS2IzaPiAquJoO8l4exEhGjWO5-YiZC-HsXlk",
+    "expire_date": "2022-12-26T14:04:12.484Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "gk07t73hl3btf99t4uxb6w34ihjkyiuu",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCggqNL956BzDCDVA0kpV0Z726bdKHb997_bxVxmUtcukxxZHVRTh1-GWF6St0EP7Dem06tztNIekv0bru-NZbXdW__Dgr2sq7TIAR-ABnQsPcJmIInTme0YCE4MZZOLudwzLAC8cGwMS5TABbgrD5f8HI4QA:1pLEdv:vYaGs7QctMNfvFLgf8pXvITVoIwAkx8pV0FHOddnRUM",
+    "expire_date": "2023-02-10T02:39:07.811Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "gwh9gvasrknjpzssuy96oghpr7bitwxm",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCggqNL956BzDCDVA0kpV0Z726bdKHb997_bxVxmUtcukxxZHVRTh1-GWF6St0EP7Dem06tztNIekv0bru-NZbXdW__Dgr2sq7TIAR-ABnQsPcJmIInTme0YCE4MZZOLudwzLAC8cGwMS5TABbgrD5f8HI4QA:1p5FSx:LoROtUUtbfv5SW7NmIMbzFnSGuGJkl89mjvhRRxiw2k",
+    "expire_date": "2022-12-28T00:17:43.083Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "hsulve1htutenijpf7yypl855fgoq73p",
+  "fields": {
+    "session_data": ".eJxVjEsOwjAMBe-SNYrs9BOHJXvOUDlxTAsokfpZIe4OlbqA7ZuZ9zIDb-s4bEueh0nM2aA5_W6R0yOXHcidy63aVMs6T9Huij3oYq9V8vNyuH8HIy_jtyahpvcaMSIGpw58D0DsQBjbJneUXO6CSgdKKNCoJiBCDt630XEw7w_GaDc_:1lx2Tn:KnNTEfKp7FGVOyt2v9AsbcZXO2heGG-XImLYifmNDpo",
+    "expire_date": "2021-07-10T07:11:51.582Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "hxy6er3r0en9rzmqtpvjfdoxhpaejdup",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCggqNL956BzDCDVA0kpV0Z726bdKHb997_bxVxmUtcukxxZHVRTh1-GWF6St0EP7Dem06tztNIekv0bru-NZbXdW__Dgr2sq7TIAR-ABnQsPcJmIInTme0YCE4MZZOLudwzLAC8cGwMS5TABbgrD5f8HI4QA:1p5eTu:S15Vs4d82qIqMv2H78GtpTbVUCuEkH-CfzNCbnNHKIY",
+    "expire_date": "2022-12-29T03:00:22.465Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "i76mv5xlb7lrz70zkh74v5yxygfz8fq9",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCggqNL956BzDCDVA0kpV0Z726bdKHb997_bxVxmUtcukxxZHVRTh1-GWF6St0EP7Dem06tztNIekv0bru-NZbXdW__Dgr2sq7TIAR-ABnQsPcJmIInTme0YCE4MZZOLudwzLAC8cGwMS5TABbgrD5f8HI4QA:1p5Bbg:QRvvQohMrlL6jW-zbNSwwyD-Vd4QCjIn1-o9kulWMdQ",
+    "expire_date": "2022-12-27T20:10:28.517Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ifzl9qonognqws78fv665vy61vywamzp",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCggqNL956BzDCDVA0kpV0Z726bdKHb997_bxVxmUtcukxxZHVRTh1-GWF6St0EP7Dem06tztNIekv0bru-NZbXdW__Dgr2sq7TIAR-ABnQsPcJmIInTme0YCE4MZZOLudwzLAC8cGwMS5TABbgrD5f8HI4QA:1p5d8m:eV5dWB6PzNYNsBbLA0y3yNzdS-4p7_-VRShazraE01w",
+    "expire_date": "2022-12-29T01:34:28.895Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "lf0z8h23sjwoxcoyewjfyyu1yh3x1u63",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCggqNL956BzDCDVA0kpV0Z726bdKHb997_bxVxmUtcukxxZHVRTh1-GWF6St0EP7Dem06tztNIekv0bru-NZbXdW__Dgr2sq7TIAR-ABnQsPcJmIInTme0YCE4MZZOLudwzLAC8cGwMS5TABbgrD5f8HI4QA:1p5d8m:eV5dWB6PzNYNsBbLA0y3yNzdS-4p7_-VRShazraE01w",
+    "expire_date": "2022-12-29T01:34:28.259Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "navcs8gf79pp8n5mnxen9r23q5el8nl5",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCggqNL956BzDCDVA0kpV0Z726bdKHb997_bxVxmUtcukxxZHVRTh1-GWF6St0EP7Dem06tztNIekv0bru-NZbXdW__Dgr2sq7TIAR-ABnQsPcJmIInTme0YCE4MZZOLudwzLAC8cGwMS5TABbgrD5f8HI4QA:1p4ws1:yy2vqbb4WAS165LfmkoqGtWM7E0a2PS4c5oU5W3Gdjg",
+    "expire_date": "2022-12-27T04:26:21.782Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ora7wsfwx9n3y97ifgjtiy1wq0qs9sb0",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCggqNL956BzDCDVA0kpV0Z726bdKHb997_bxVxmUtcukxxZHVRTh1-GWF6St0EP7Dem06tztNIekv0bru-NZbXdW__Dgr2sq7TIAR-ABnQsPcJmIInTme0YCE4MZZOLudwzLAC8cGwMS5TABbgrD5f8HI4QA:1p5ATU:u9EQ4GwOsRWnMl0Vs-0kqHaSPD0CY21HnSBFliw5eAg",
+    "expire_date": "2022-12-27T18:57:56.672Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "q7990u2ebvp17zf3203onllxfk4e933l",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCggqNL956BzDCDVA0kpV0Z726bdKHb997_bxVxmUtcukxxZHVRTh1-GWF6St0EP7Dem06tztNIekv0bru-NZbXdW__Dgr2sq7TIAR-ABnQsPcJmIInTme0YCE4MZZOLudwzLAC8cGwMS5TABbgrD5f8HI4QA:1p5BSN:cF-3eofj7Umq1ku9Pg5D_89ozKisJl4KTWJnXTKgvnc",
+    "expire_date": "2022-12-27T20:00:51.380Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "qdkk958x3ytcr44vslw47m3zrqzjfour",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCggqNL956BzDCDVA0kpV0Z726bdKHb997_bxVxmUtcukxxZHVRTh1-GWF6St0EP7Dem06tztNIekv0bru-NZbXdW__Dgr2sq7TIAR-ABnQsPcJmIInTme0YCE4MZZOLudwzLAC8cGwMS5TABbgrD5f8HI4QA:1pN2VT:K8zwyY6BfbLZtB_YJyZzsPynAIDSJYLU_Fivuy19ANU",
+    "expire_date": "2023-02-15T02:05:51.085Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "qjc1u5n7upasajx0gpddzsdxcumuyp0y",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCggqNL956BzDCDVA0kpV0Z726bdKHb997_bxVxmUtcukxxZHVRTh1-GWF6St0EP7Dem06tztNIekv0bru-NZbXdW__Dgr2sq7TIAR-ABnQsPcJmIInTme0YCE4MZZOLudwzLAC8cGwMS5TABbgrD5f8HI4QA:1p2z3I:NMDR4q_wcvv8qR8YqbV7P4mdc6dzDGFWfjciO7XY_OY",
+    "expire_date": "2022-12-21T18:21:52.930Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "r0k52dyr04cr36lilyh29pmzhyvbbgcu",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCggqNL956BzDCDVA0kpV0Z726bdKHb997_bxVxmUtcukxxZHVRTh1-GWF6St0EP7Dem06tztNIekv0bru-NZbXdW__Dgr2sq7TIAR-ABnQsPcJmIInTme0YCE4MZZOLudwzLAC8cGwMS5TABbgrD5f8HI4QA:1p4p8H:HYBU8bo3MldjkCir-fdv1i-ekzZXJHixPOR5wgqNAU4",
+    "expire_date": "2022-12-26T20:10:37.014Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "s9hejucqfmeq0im18knl5ncowt9tttfo",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCggqNL956BzDCDVA0kpV0Z726bdKHb997_bxVxmUtcukxxZHVRTh1-GWF6St0EP7Dem06tztNIekv0bru-NZbXdW__Dgr2sq7TIAR-ABnQsPcJmIInTme0YCE4MZZOLudwzLAC8cGwMS5TABbgrD5f8HI4QA:1p5ZO9:DoPDGXcS7qS2FRtSb6tyF5ZOsJG6w1gop9N5SLrXJGQ",
+    "expire_date": "2022-12-28T21:34:05.472Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "sgshdydunsh62klne0rbagedb58oqpf8",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQRf-la9PQynSKS_d8QzOPVlADCYWV8d-VhIVu7znnvkyibR3SVvOSRjUXE83pd2OSR552oHeabrOVeVqXke2u2INW28-an9fD_TsYqA7funEMBZE4gjSeAxZBUCDA4AMDeXEILXLoBP05Zu3Qk6AUJ6otq3l_AOFUOD8:1pLSpp:SZfntWB-U0Jy_hPXv4LpqMrrb-xrlS72w5gYmaE6b-w",
+    "expire_date": "2023-02-10T17:48:21.843Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "tsdxm35pqwqheblx924zvdndgxo2bnfn",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCggqNL956BzDCDVA0kpV0Z726bdKHb997_bxVxmUtcukxxZHVRTh1-GWF6St0EP7Dem06tztNIekv0bru-NZbXdW__Dgr2sq7TIAR-ABnQsPcJmIInTme0YCE4MZZOLudwzLAC8cGwMS5TABbgrD5f8HI4QA:1p5Gma:g91y1NoW7cqpknpacFeUvGKYcTQNIMd19OR1wmLfZtI",
+    "expire_date": "2022-12-28T01:42:04.452Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "wdfaepvr64g170ka5djviffowv5ude50",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-x1DS5wzWer2LA8iR4qRC3B0ipYD2zcx7iQTbWtPWaUlTERfhxOl3y4APajsod2i3WeLc1mXKclfkQbsc50LP6-H-HVTo9Vvr6H3BbBjQDjkrhwicGRRptEFHYhOIyRJZUGiYg3YDRCJ39lYZFu8PIeQ5Qg:1pHHCY:78LNm8A5YnYsgdNP7KM_Fd9Ku3PWMs22PWZQVgikE5c",
+    "expire_date": "2023-01-30T04:34:30.593Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "y2vc7d7t52owq3y34tk73wox37w1h3wt",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-x1DS5wzWer2LA8iR4qRC3B0ipYD2zcx7iQTbWtPWaUlTERfhxOl3y4APajsod2i3WeLc1mXKclfkQbsc50LP6-H-HVTo9Vvr6H3BbBjQDjkrhwicGRRptEFHYhOIyRJZUGiYg3YDRCJ39lYZFu8PIeQ5Qg:1p5b2y:gvhbzeJ4pJjW30ZxPbeqtVUkPLIbP3lVQ3mqFfL3XPQ",
+    "expire_date": "2022-12-28T23:20:20.817Z"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 1,
+  "fields": {
+    "name": "Django",
+    "slug": "django"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 2,
+  "fields": {
+    "name": "Vue",
+    "slug": "vue"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 3,
+  "fields": {
+    "name": "Python",
+    "slug": "python"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 4,
+  "fields": {
+    "name": "Empleabilidad",
+    "slug": "empleabilidad"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 5,
+  "fields": {
+    "name": "Tecnologías",
+    "slug": "tecnologias"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 6,
+  "fields": {
+    "name": "Actualidad",
+    "slug": "actualidad"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 7,
+  "fields": {
+    "name": "Noticias",
+    "slug": "noticias"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 8,
+  "fields": {
+    "name": "Economia",
+    "slug": "economia"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 9,
+  "fields": {
+    "name": "Sociedad",
+    "slug": "sociedad"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 10,
+  "fields": {
+    "name": "Personas",
+    "slug": "personas"
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 6,
+  "fields": {
+    "category": 2,
+    "title": "Este es el tercer post",
+    "slug": "este-es-el-tercer-post",
+    "intro": "Esta es la intro del tercer post",
+    "body": "<p>Esta es la intro del tercer post Esta es la intro del tercer post Esta es la intro del tercer post Esta es la intro del tercer post Esta es la intro del tercer post Esta es la intro del tercer post Esta es la intro del tercer post Esta es la intro del tercer post Esta es la intro del tercer post Esta es la intro del tercer post Esta es la intro del tercer post Esta es la intro del tercer post Esta es la intro del tercer post vEsta es la intro del tercer post Esta es la intro del tercer post Esta es la intro del tercer post Esta es la intro del tercer post Esta es la intro del tercer post Esta es la intro del tercer post Esta es la intro del tercer post Esta es la intro del tercer post</p>",
+    "status": "draft",
+    "image": "",
+    "clip": "uploads/2022/12/16/flower_1_TBdnHcf.webm",
+    "created_at": "2022-12-07T16:56:21.107Z"
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 33,
+  "fields": {
+    "category": 2,
+    "title": "Este es el Segundo pst",
+    "slug": "EsteeselSegundopst",
+    "intro": "Este es el Segundo pst\r\n \r\nEste es el Segundo pst\r\n \r\nEste es el Segundo pst\r\n \r\nEste es el Segundo pst",
+    "body": "<p>Este es el Segundo pst Este es el Segundo pst Este es el Segundo pst Este es el Segundo pst Este es el Segundo pst Este es el Segundo pst y</p>",
+    "status": "draft",
+    "image": "uploads/photo-1540574163026-643ea20ade25_xoRab71.jpeg",
+    "clip": "",
+    "created_at": "2022-12-16T21:45:49.547Z"
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 34,
+  "fields": {
+    "category": 1,
+    "title": "sexto post",
+    "slug": "wewwewe",
+    "intro": "Este en el sexto post con foto y videoEste en el sexto post con foto y videoEste en el sexto post con foto y video",
+    "body": "<p>Este en el sexto post con foto y videoEste en el sexto post con foto y videoEste en el sexto post con foto y videoEste en el sexto post con foto y videoEste en el sexto post con foto y videoEste en el sexto post con foto y videoEste en el sexto post con foto y videoEste en el sexto post con foto y videoEste en el sexto post con foto y videoEste en el sexto post con foto y videoEste en el sexto post con foto y videoEste en el sexto post con foto y videoEste en el sexto post con foto y video</p>",
+    "status": "draft",
+    "image": "uploads/grapefruit-slice-332-332_emJEduS.jpg",
+    "clip": "uploads/2022/12/17/flower_1_MT0gOqG.webm",
+    "created_at": "2022-12-17T22:37:30.508Z"
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 35,
+  "fields": {
+    "category": 2,
+    "title": "Septimo Post",
+    "slug": "septimo-post",
+    "intro": "Quinto PostQuinto PostQuinto PostQuinto PostQuinto Post",
+    "body": "<p>Quinto PostQuinto PostQuinto PostQuinto PostQuinto PostQuinto PostQuinto PostQuinto PostQuinto PostQuinto PostQuinto PostQuinto PostQuinto PostQuinto PostQuinto PostQuinto PostQuinto PostQuinto PostQuinto PostQuinto PostQuinto PostQuinto PostQuinto PostQuinto Post</p>",
+    "status": "draft",
+    "image": "",
+    "clip": "uploads/2022/12/21/flower.webm",
+    "created_at": "2022-12-21T18:58:35.394Z"
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 38,
+  "fields": {
+    "category": 4,
+    "title": "Cómo superar los desafíos de encontrar candidatos adecuados en LinkedIn mediante el uso de IA y la mejora de la marca empleadora",
+    "slug": "como-superar-los-desafios-de-encontrar-candidatos-adecuados-en-linkedin-mediante-el-uso-de-ia-y-la-mejora-de-la-marca-empleadora",
+    "intro": "LinkedIn es una herramienta valiosa para los reclutadores, pero también presenta desafíos en la búsqueda de candidatos adecuados. Utilizando herramientas de inteligencia artificial y mejorando la marca empleadora, las empresas pueden superar estos desafíos y encontrar a los mejores candidatos para sus vacantes.",
+    "body": "<p>LinkedIn es una de las principales plataformas de redes sociales profesionales en el mundo, con m&aacute;s de 700 millones de usuarios activos. Los reclutadores y las empresas utilizan LinkedIn para buscar y conectarse con candidatos potenciales.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Sin embargo, a pesar de su gran base de usuarios, a menudo puede ser dif&iacute;cil para los reclutadores encontrar candidatos adecuados para sus vacantes. Uno de los principales problemas es que hay un gran n&uacute;mero de perfiles en LinkedIn, lo que hace que sea dif&iacute;cil para los reclutadores navegar y encontrar a los candidatos adecuados.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Adem&aacute;s, muchos perfiles no est&aacute;n actualizados o no contienen informaci&oacute;n suficiente para que los reclutadores puedan determinar si el candidato es adecuado para el puesto. Otro problema es la competencia entre las empresas. Con tantas empresas buscando a los mismos candidatos, puede ser dif&iacute;cil para los reclutadores destacar y atraer a los mejores candidatos.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>A menudo, los mejores candidatos tienen varias ofertas de trabajo y pueden elegir entre varias empresas. Adem&aacute;s, muchos reclutadores se enfrentan a problemas con el proceso de selecci&oacute;n en s&iacute;. A menudo, los reclutadores reciben un gran n&uacute;mero de solicitudes y curr&iacute;culums para revisar, lo que puede llevar mucho tiempo y esfuerzo. Adem&aacute;s, el proceso de selecci&oacute;n puede ser subjetivo y puede haber problemas de sesgos inconscientes.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Una soluci&oacute;n para estos problemas podr&iacute;a ser utilizar herramientas de inteligencia artificial y aprendizaje autom&aacute;tico para ayudar a los reclutadores a buscar y seleccionar a los mejores candidatos.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Estas herramientas pueden analizar autom&aacute;ticamente los perfiles y curr&iacute;culums para encontrar a los candidatos adecuados y pueden ayudar a los reclutadores a tomar decisiones m&aacute;s informadas. Adem&aacute;s, las empresas pueden trabajar en mejorar su marca empleadora y atraer a los mejores candidatos mediante la creaci&oacute;n de contenido valioso y la promoci&oacute;n de sus oportunidades de trabajo en redes sociales y otros canales.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>En resumen, LinkedIn es una herramienta valiosa para los reclutadores, pero tambi&eacute;n presenta desaf&iacute;os en la b&uacute;squeda de candidatos adecuados. Utilizando herramientas de inteligencia artificial y mejorando la marca empleadora, las empresas pueden superar estos desaf&iacute;os y encontrar a los mejores candidatos para sus vacantes.</p>",
+    "status": "active",
+    "image": "uploads/Ilustra.jpg",
+    "clip": "",
+    "created_at": "2023-01-16T04:53:07.129Z"
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 41,
+  "fields": {
+    "category": 5,
+    "title": "La Inteligencia Artificial y su impacto en la industria de la salud.",
+    "slug": "la-inteligencia-artificial-y-su-impacto-en-la-industria-de-la-salud",
+    "intro": "La Inteligencia Artificial (IA) se está convirtiendo en una herramienta cada vez más valiosa en la industria de la salud, con el potencial de mejorar significativamente la precisión y eficiencia en el diagnóstico y tratamiento de enfermedades.",
+    "body": "<p>El uso de la IA en la salud se est&aacute; expandiendo r&aacute;pidamente, y se est&aacute; aplicando en &aacute;reas como la radiolog&iacute;a, la oncolog&iacute;a, la cardiolog&iacute;a, educaci&oacute;n, entre otras. Esto se debe a que las computadoras son capaces de analizar grandes cantidades de datos y pueden aprender a detectar patrones y tendencias en los datos que los profesionales podr&iacute;an pasar por alto.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>En cardiolog&iacute;a, la IA se est&aacute; utilizando para analizar los electrocardiogramas y detectar patolog&iacute;as del coraz&oacute;n. Esto puede ayudar a los m&eacute;dicos a identificar y evaluar a los pacientes que est&aacute;n en riesgo de un evento card&iacute;aco y tomar medidas tempranas.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Por ejemplo, en radiolog&iacute;a, el uso de la IA puede ayudar a detectar, a trav&eacute;s del an&aacute;lisis de im&aacute;genes, patolog&iacute;as que podr&iacute;an pasar desapercibidas para un radi&oacute;logo. Tambi&eacute;n se est&aacute; utilizando para ayudar a los m&eacute;dicos a planificar el tratamiento del c&aacute;ncer, ya que la IA puede analizar las im&aacute;genes de resonancia magn&eacute;tica para identificar los tumores y determinar la mejor manera de tratarlos.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>En cuanto a la detecci&oacute;n temprana de enfermedades, la IA se est&aacute; utilizando para analizar im&aacute;genes m&eacute;dicas y detectar patolog&iacute;as que de otra forma podr&iacute;an pasar desapercibidas. Esto es especialmente &uacute;til en el campo de la radiolog&iacute;a, donde la IA puede analizar im&aacute;genes de resonancia magn&eacute;tica y tomograf&iacute;as para detectar tumores cerebrales y enfermedades del coraz&oacute;n.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Tambi&eacute;n se est&aacute; utilizando para detectar problemas de la piel, como el c&aacute;ncer de piel, mediante el an&aacute;lisis de im&aacute;genes de la piel. Adem&aacute;s, la IA tambi&eacute;n se est&aacute; utilizando para analizar los datos de las pruebas de laboratorio y detectar enfermedades cr&oacute;nicas como la diabetes. Adem&aacute;s, la IA est&aacute; ayudando a los m&eacute;dicos a planificar tratamientos personalizados para pacientes con enfermedades graves como el c&aacute;ncer.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Los algoritmos de aprendizaje autom&aacute;tico est&aacute;n siendo utilizados para analizar grandes conjuntos de datos de pacientes anteriores y encontrar patrones y tendencias que ayudan a los m&eacute;dicos a predecir qu&eacute; tratamientos funcionar&aacute;n mejor para cada paciente individual. Esto se conoce como medicina de precisi&oacute;n y se espera que tenga un impacto significativo en la forma en que se tratan las enfermedades graves en el futuro.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>En el campo de la educaci&oacute;n, la IA est&aacute; siendo utilizada para personalizar el aprendizaje para cada estudiante. Los sistemas de aprendizaje autom&aacute;tico est&aacute;n siendo desarrollados para analizar el rendimiento y el progreso de los estudiantes y adaptar el contenido y el ritmo de ense&ntilde;anza en consecuencia. Esto se conoce como aprendizaje adaptativo y se espera que tenga un gran impacto en la forma en que se ense&ntilde;a y se aprende en el futuro. Sin embargo, se debe tener en cuenta que la IA en la medicina, asi como en otros campos, tambi&eacute;n presenta desaf&iacute;os &eacute;ticos y legales, especialmente cuando se trata de la privacidad de los datos m&eacute;dicos y la toma de decisiones automatizadas.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Es crucial que los desarrolladores de tecnolog&iacute;as de IA en medicina trabajen en estrecha colaboraci&oacute;n con los m&eacute;dicos y otros profesionales de la salud para asegurar que la tecnolog&iacute;a est&eacute; siendo utilizada de manera &eacute;tica y responsable. Adem&aacute;s, es importante que se establezcan est&aacute;ndares y regulaciones adecuadas para garantizar la seguridad y la privacidad de los datos m&eacute;dicos en todas las aplicaciones de IA en medicina.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>En resumen, la inteligencia artificial est&aacute; revolucionando muchos campos y tiene el potencial de tener un gran impacto en la forma en que vivimos y trabajamos en el futuro.</p>\r\n\r\n<p>Por &uacute;ltimo, tener en cuenta que la IA en medicina no es una soluci&oacute;n m&aacute;gica y que todav&iacute;a hay muchos desaf&iacute;os a superar. Por ejemplo, la IA no puede ni podr&aacute; reemplazar completamente la experiencia y el juicio cl&iacute;nico de un m&eacute;dico. Adem&aacute;s, es importante asegurar la privacidad y la seguridad de los datos m&eacute;dicos al utilizar la IA. Sin embargo, si se utiliza correctamente, la IA puede ser una herramienta valiosa para mejorar la precisi&oacute;n y la eficiencia en el diagn&oacute;stico y el tratamiento de enfermedades.</p>\r\n\r\n<p>&nbsp;</p>",
+    "status": "active",
+    "image": "uploads/radiograficas_BCQqbh1.jpg",
+    "clip": "",
+    "created_at": "2023-01-26T22:54:13.374Z"
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 42,
+  "fields": {
+    "category": 5,
+    "title": "ChatGPT: Cómo la IA está revolucionando la forma en que hacemos negocios.",
+    "slug": "chatgpt-como-la-ia-esta-revolucionando-la-forma-en",
+    "intro": "La inteligencia artificial (IA) está cambiando la forma en que hacemos negocios en el mundo actual, y ChatGPT es un ejemplo de cómo esta tecnología está ayudando a las empresas a automatizar tareas y mejorar la eficiencia. En este artículo, exploraremos las ventajas del uso de ChatGPT y cómo esta tecnología está transformando la forma en que interactuamos con los clientes y tomadores de decisiones.",
+    "body": "<p>ChatGPT es un modelo de lenguaje de gran escala desarrollado por OpenAI. El objetivo de ChatGPT es generar un texto coherente y fluido, capaz de responder preguntas, hacer recomendaciones, traducir idiomas y muchas otras tareas relacionadas con el procesamiento del lenguaje natural. Es uno de los modelos de lenguaje m&aacute;s avanzados disponibles en la actualidad, y su uso se est&aacute; extendiendo cada vez m&aacute;s.</p>\r\n\r\n<p>Una de las bondades de ChatGPT es su capacidad para automatizar tareas que antes eran realizadas manualmente. Por ejemplo, las empresas pueden utilizar ChatGPT para responder preguntas frecuentes de los clientes, lo que permite ahorrar tiempo y recursos valiosos. Adem&aacute;s, ChatGPT puede ser utilizado para generar informes automatizados, crear contenido y hacer traducciones.</p>\r\n\r\n<p>ChatGPT es capaz de generar texto de forma aut&oacute;noma. Esto significa que puede escribir correos electr&oacute;nicos, art&iacute;culos de blog y otros tipos de contenido sin la necesidad de intervenci&oacute;n humana m&aacute;s all&aacute; de que la intervenci&oacute;n debe darse para la posterior revisi&oacute;n y ajuste para finalmente hacer p&uacute;blico el contenido. Esto es especialmente &uacute;til para las empresas que desean aumentar su productividad y reducir los costos laborales.</p>\r\n\r\n<p>Adem&aacute;s, ChatGPT tiene la capacidad de comprender el contexto y el tono del texto. Esto significa que puede generar contenido que sea&nbsp;adecuado para el p&uacute;blico objetivo y el prop&oacute;sito espec&iacute;fico. Por ejemplo, si se le pide a ChatGPT que escriba un art&iacute;culo sobre un producto, puede generar una descripci&oacute;n t&eacute;cnica del producto para un p&uacute;blico t&eacute;cnico, o una descripci&oacute;n m&aacute;s general y accesible para un p&uacute;blico no t&eacute;cnico.</p>\r\n\r\n<p>En el mundo actual, donde la tecnolog&iacute;a se est&aacute; convirtiendo en una parte cada vez m&aacute;s importante de nuestras vidas, ChatGPT se ha convertido en una herramienta esencial para automatizar tareas y ahorrar tiempo. A continuaci&oacute;n, se detallan algunas de las ventajas que tiene su uso en el mundo actual.</p>\r\n\r\n<p>En t&eacute;rminos de marketing y publicidad, ChatGPT permite a las empresas generar contenido altamente personalizado y relevante para su p&uacute;blico objetivo. Por ejemplo, puede ser utilizado para generar descripciones detalladas de productos, anuncios publicitarios, y correos electr&oacute;nicos de marketing automatizado. Adem&aacute;s, tambi&eacute;n puede generar contenido en diferentes idiomas y estilos, lo que lo hace ideal para una variedad de aplicaciones, desde la generaci&oacute;n de respuestas automatizadas en un chatbot hasta la escritura de art&iacute;culos o la creaci&oacute;n de contenido para redes sociales.</p>\r\n\r\n<p>En el mundo empresarial, ChatGPT se utiliza para automatizar tareas como la generaci&oacute;n de informes, la creaci&oacute;n de correos electr&oacute;nicos y la transcripci&oacute;n de audio. En el campo de la educaci&oacute;n, puede ayudar a los estudiantes a generar ensayos y contenido acad&eacute;mico. En el campo de la atenci&oacute;n m&eacute;dica, se utiliza para generar informes de diagn&oacute;stico automatizados.</p>\r\n\r\n<p>Una de las mayores ventajas de ChatGPT es su capacidad para comprender el contexto y el tono del texto. Esto significa que puede generar contenido que sea coherente y relevante para el tema en cuesti&oacute;n, lo que resulta en una experiencia de lectura m&aacute;s agradable para el usuario final. Adem&aacute;s, tambi&eacute;n puede crear contenido en varios idiomas, lo que lo convierte en&nbsp;una herramienta valiosa para las empresas que buscan expandir su alcance global. Esto incluye la traducci&oacute;n autom&aacute;tica de documentos, correos electr&oacute;nicos y mensajes en l&iacute;nea, la transcripci&oacute;n de audio, lo que ahorra tiempo y recursos en comparaci&oacute;n con utilizar servicios tradicionales para realizar estas tareas.</p>\r\n\r\n<p>El uso de ChatGPT tiene muchas ventajas en la actualidad, desde la generaci&oacute;n automatizada de contenido hasta su capacidad para entender el contexto y crear contenido en varios idiomas. Sin embargo, es importante tener en cuenta que la IA no debe reemplazar completamente al personal profesional y m&aacute;s bien se debe utilizar como una herramienta adicional para mejorar la precisi&oacute;n y eficiencia, adem&aacute;s de procurar que el enfoque por parte de las personas sea m&aacute;s concentrado hacia la estrategia, creatividad y planificaci&oacute;n, ya que las tareas tediosas y demandantes en tiempo las puede hacer la IA sin problema.</p>\r\n\r\n<p>En resumen, ChatGPT ofrece una gran cantidad de ventajas en el mundo actual, ya que su capacidad para comprender el contexto y generar contenido de alta calidad lo hace ideal para una variedad de aplicaciones en diferentes campos. Con su uso en aumento, se espera que contin&uacute;e revolucionando la forma en que las empresas y organizaciones manejan y generan contenido.</p>",
+    "status": "active",
+    "image": "uploads/t.jpeg",
+    "clip": "",
+    "created_at": "2023-01-27T16:23:47.155Z"
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 48,
+  "fields": {
+    "category": 5,
+    "title": "Preguntas y respuestas a la AI de CHATGPT 3.5",
+    "slug": "preguntas-y-respuestas-a-la-ai-de-chatgpt-35",
+    "intro": "¿Que opinan de estas preguntas que se le hacen directamente a la AI de ChatGPT?",
+    "body": "<h2><strong>&iquest;Que opinan de estas preguntas que se le hacen directamente a la AI de ChatGPT?</strong></h2>\r\n\r\n<h2><strong>Y de esta manera las responde:</strong></h2>\r\n\r\n<h2><strong>QUESTION</strong></h2>\r\n\r\n<h2><strong>&iquest; Sabes que actualmente hay una pol&eacute;mica acerca de como se entrena el modelo de datos con el cu&aacute;l se alimenta el motor de IA del que est&aacute;s compuesto, espec&iacute;ficamente se habla de que el sur global del mundo realiza tareas duras y con mano de obra barata para preparar los datos que alimentan tu motor de aprendizaje autom&aacute;tico, &iquest;Como te defender&iacute;as de esas aseveraciones y como demostrarias lo contrario si aplicara?</strong></h2>\r\n\r\n<h2>&nbsp;</h2>\r\n\r\n<h2><strong>ANSWER</strong></h2>\r\n\r\n<h2><strong>Como modelo de lenguaje basado en la inteligencia artificial, no tengo la capacidad de defenderme ni de demostrar nada por mi cuenta. Mi funci&oacute;n es proporcionar respuestas y generar texto a partir de la informaci&oacute;n y las instrucciones que se me dan, sin tener conciencia de mi propia existencia o capacidad para tomar decisiones independientes.</strong></h2>\r\n\r\n<h2><strong>Sin embargo, es importante tener en cuenta que la &eacute;tica en el desarrollo de inteligencia artificial es un tema crucial y que se deben tomar medidas para garantizar que los datos utilizados para entrenar modelos de aprendizaje autom&aacute;tico sean &eacute;ticos y representativos de la diversidad de perspectivas y experiencias en todo el mundo. Se deben seguir pr&aacute;cticas de transparencia y responsabilidad en la selecci&oacute;n y el uso de datos de entrenamiento para evitar la perpetuaci&oacute;n de sesgos y prejuicios en los sistemas de IA.</strong></h2>\r\n\r\n<h2><strong>Es importante destacar que el entrenamiento de modelos de aprendizaje autom&aacute;tico es un proceso complejo y que la responsabilidad de garantizar que los datos utilizados sean &eacute;ticos no recae solo en los trabajadores de pa&iacute;ses con mano de obra barata. En &uacute;ltima instancia, es responsabilidad de los desarrolladores de IA y las empresas que utilizan estos sistemas garantizar que los datos sean &eacute;ticos y representativos.</strong></h2>\r\n\r\n<h2><strong>QUESTION</strong></h2>\r\n\r\n<h2>&nbsp;</h2>\r\n\r\n<h2><strong>&iquest;Sabias que muchos paises del sur global son los que, con mano de obra barata, alimentan la base de datos con la que se te entrena?</strong></h2>\r\n\r\n<h2>&nbsp;</h2>\r\n\r\n<h2><strong>ANSWER</strong></h2>\r\n\r\n<h2><strong>S&iacute;, es cierto que muchos pa&iacute;ses del sur global tienen una gran cantidad de trabajadores que realizan tareas de recopilaci&oacute;n y etiquetado de datos para alimentar modelos de aprendizaje autom&aacute;tico, incluyendo los modelos que se utilizan en mi entrenamiento como modelo de lenguaje. Es importante reconocer que la recopilaci&oacute;n de datos es un proceso cr&iacute;tico y necesario en la creaci&oacute;n de modelos de aprendizaje autom&aacute;tico, y que muchas personas en todo el mundo contribuyen a este esfuerzo. Sin embargo, tambi&eacute;n es importante abogar por pr&aacute;cticas &eacute;ticas en la recopilaci&oacute;n y uso de datos, as&iacute; como por la protecci&oacute;n de los derechos y la dignidad de los trabajadores involucrados en este proceso.</strong></h2>\r\n\r\n<h2><strong>QUESTION</strong></h2>\r\n\r\n<h2><strong>&iquest;Que me dices de los derechos laborales de toda esa cantidad de trabajadores que realizan &eacute;stas tareas antes descritas?</strong></h2>\r\n\r\n<h2>&nbsp;</h2>\r\n\r\n<h2><strong>Es cierto que la industria de la inteligencia artificial depende en gran medida de la recopilaci&oacute;n, etiquetado y procesamiento de grandes cantidades de datos, lo que a menudo requiere de trabajadores en pa&iacute;ses con salarios m&aacute;s bajos. Es importante reconocer que en muchos casos, estos trabajadores pueden enfrentar condiciones laborales precarias y explotaci&oacute;n.</strong></h2>\r\n\r\n<h2><strong>Es fundamental que se protejan los derechos laborales de estos trabajadores y se les remunere justamente por su trabajo. Las empresas de tecnolog&iacute;a y las organizaciones que dependen de la recopilaci&oacute;n de datos deben asegurarse de que los trabajadores involucrados reciban salarios justos y condiciones laborales adecuadas, y que se respeten sus derechos humanos. Adem&aacute;s, se deben tomar medidas para garantizar la privacidad y seguridad de los datos personales que manejan.</strong></h2>\r\n\r\n<h2><strong>Como modelo de lenguaje basado en inteligencia artificial, yo no tengo el poder de cambiar las pol&iacute;ticas empresariales, pero es importante que seamos conscientes de estas cuestiones &eacute;ticas y trabajemos para asegurar que los derechos de los trabajadores y la privacidad de los usuarios sean protegidos en la industria de la inteligencia artificial.</strong></h2>\r\n\r\n<h2>&nbsp;</h2>\r\n\r\n<h2><strong>QUESTION</strong></h2>\r\n\r\n<h2><strong>&iquest;En que versi&oacute;n de gpt est&aacute;s funcionando actualmente?</strong></h2>\r\n\r\n<h2>&nbsp;</h2>\r\n\r\n<h2><strong>ANSWER</strong></h2>\r\n\r\n<h2><strong>Estoy funcionando en la versi&oacute;n GPT-3.5 de OpenAI, que fue lanzada en septiembre de 2021.</strong></h2>\r\n\r\n<h2><strong>QUESTION</strong></h2>\r\n\r\n<h2><strong>&iquest;Hasta que fecha tienes data representativa con la que construyes tu aprendizaje?</strong></h2>\r\n\r\n<h2><strong>ANSWER</strong></h2>\r\n\r\n<h2><strong>Mi conocimiento se extiende hasta septiembre de 2021, ya que esa es la fecha l&iacute;mite para la recopilaci&oacute;n de datos que se utiliz&oacute; para entrenar el modelo. Sin embargo, mi conocimiento sigue creciendo continuamente a medida que recibo m&aacute;s datos y actualizaciones de mi entrenamiento.</strong></h2>\r\n\r\n<h2><strong>QUESTION</strong></h2>\r\n\r\n<h2><strong>Perd&oacute;n pero la versi&oacute;n fue lanzada en septiembre de 2021 , &iquest;despu&eacute;s de esa fecha no tienes mas informaci&oacute;n?.</strong></h2>\r\n\r\n<h2><strong>ANSWER</strong></h2>\r\n\r\n<h2><strong>Como modelo de lenguaje entrenado en septiembre de 2021, tengo acceso a datos de entrenamiento que datan de antes de esa fecha, lo que significa que tengo conocimiento de eventos, noticias, tendencias, y otros datos relevantes que ocurrieron antes de esa fecha. Sin embargo, mi capacidad para responder a preguntas sobre eventos, noticias y tendencias que ocurrieron despu&eacute;s de esa fecha puede ser limitada, ya que no tengo acceso a datos de entrenamiento actualizados en tiempo real. En resumen, puedo proporcionar informaci&oacute;n actualizada en funci&oacute;n de mi conocimiento actual, pero es posible que no tenga acceso a todos los datos m&aacute;s recientes.</strong></h2>\r\n\r\n<h2>&nbsp;</h2>\r\n\r\n<h2><strong>Muchas gracias por las respuestas.</strong></h2>\r\n\r\n<h2>&nbsp;</h2>\r\n\r\n<h2><strong>&iexcl;De nada! Estoy aqu&iacute; para ayudarte en lo que necesites. Si tienes m&aacute;s preguntas, no dudes en hacerlas.</strong></h2>",
+    "status": "active",
+    "image": "uploads/fotoAI.png",
+    "clip": "",
+    "created_at": "2023-04-02T19:20:22.760Z"
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 22,
+  "fields": {
+    "post": 38,
+    "name": "admin",
+    "email": "admin@admin.com",
+    "body": "Probando primer comentario del administrador del Site, y por supuesto, decir que la primera publicación de BlogifyAR esta magnífica.",
+    "created_at": "2023-01-22T21:33:15.941Z"
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 23,
+  "fields": {
+    "post": 38,
+    "name": "JoseGalvis",
+    "email": "jolugales@gmail.com",
+    "body": "Felicitaciones Sr Ramón por su excelente trabajo de Backend!\r\n\r\nSaludos...",
+    "created_at": "2023-01-27T17:49:58.367Z"
+  }
+}
+]
