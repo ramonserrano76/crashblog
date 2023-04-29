@@ -1,6 +1,6 @@
-{% extends 'core/base.html' %}
+{% extends "core/base.html" %}
 {% block content %}
-{% block title %} Category | {{ category.title }} | <a href="{% url 'frontpage' %}" class="span">Volver</a> | {% endblock %}
+{% block title %} Category | {{ category.title }} | <a href="{% url 'frontpage' %}" class="span">Volver</a> | {% endblock title %}
 <section class="album py-5 bg-light">
     <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
@@ -9,9 +9,9 @@
                 <div class="card shadow-sm mb-3 rounded">
                     <a href="{% url 'post_detail' post.category.slug post.slug %}">
                         {% if post.image %}
-                        <figure class="">
+                        <figure>
                             <img class="bd-placeholder-img card-img-top" alt="Card media cap"
-                                style="width:420px; height:315px" src="{{ post.image.url }}" alt="{{post.title}}"
+                                width="420px" height="315px" src="{{ post.image.url }}" alt="{{ post.title }}"
                                 width="20%">
                         </figure>
                         {% else %}
@@ -30,7 +30,7 @@
 
                         <div class="card-body">
                             <h5><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h5>
-                            <p class='card-text'>{{ post.intro }}</p>
+                            <p class="card-text">{{ post.intro }}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <p>
@@ -43,7 +43,7 @@
                                     </p>
                                 </div>
                                 <small class="text-muted">
-                                    <p> <a class="">Creado {{ post.created_at|date:"d M Y" }}</a></p>
+                                    <p><a>Creado {{ post.created_at|date:"d M Y" }}</a></p>
                                 </small>
                             </div>
                             <p><small>Category: <a class="btn btn-clipboard btn-outline-dark btn-sm" href="{% url 'category_detail' post.category.slug %}" role="button"><i class="fa-solid fa-filter"></i> <b>{{ post.category }}</b></a></small></p>
@@ -59,7 +59,7 @@
         </div>        
     </div>            
 </section>
-{% endblock %}
+{% endblock content %}
 {% comment %} <!-- <a href="{% url 'post_detail' post.category.slug post.slug %}">
                                         <h2 class="subtitle is-4">hace {{ post.created_at|timesince }}</h2>
                                         <h1 class="title">{{ post.title }}</h1>

@@ -1,9 +1,9 @@
-{% extends 'core/base.html' %}
+{% extends "core/base.html" %}
 {% if request.user.is_staff %}   
-{% include 'blog/includes/post_menu.html'%}
+{% include "blog/includes/post_menu.html" %}
 {% endif %}
 {% block content %}
-{% block title %} Search | <a href="{% url 'frontpage' %}" class="span">Volver</a> | {% endblock %}
+{% block title %} Search | <a href="{% url 'frontpage' %}" class="span">Volver</a> | {% endblock title %}
     <section class="hero">
         <div class="hero-body">
             <div class="container">
@@ -20,7 +20,7 @@
                                     <a href="{% url 'post_detail' post.category.slug post.slug %}">
                                         <h2 class="subtitle is-4">{{ post.created_at|timesince }} ago</h2>
                                         <h1 class="title">{{ post.title }}</h1>
-                                        <p style="font-size: 24px;">{{ post.intro }}</p>
+                                        <p class="fs-4">{{ post.intro }}</p>
                                     </a>
                                 </div>
                             {% empty %}
@@ -34,4 +34,4 @@
             </div>
         </div>
     </section>
-{% endblock %}
+{% endblock content %}

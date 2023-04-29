@@ -1,11 +1,11 @@
-{% extends 'core/base.html' %}
-{% include 'blog/includes/post_menu.html'%}
+{% extends "core/base.html" %}
+{% include "blog/includes/post_menu.html" %}
 {% load static %}
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 {% include "tinymce/init.html" %}
 {% block content %}
-{% block title %} | Crear publicación | <a href="{% url 'frontpage' %}" class="span">Volver</a> | {% endblock %}
+{% block title %} | Crear publicación | <a href="{% url 'frontpage' %}" class="span">Volver</a> | {% endblock title %}
 <main role="main">
     <div class="container">
                         
@@ -25,10 +25,10 @@
                     </div>
                 </form>
                 <!-- Modal --> 
-                    {% include 'blog/add_category.html' %}
+                    {% include "blog/add_category.html" %}
                 <!-- Modal -->                
             </div>
         </div>
     </div>
 </main>
-{% endblock %}
+{% endblock content %}

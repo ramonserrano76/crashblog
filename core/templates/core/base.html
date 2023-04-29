@@ -7,7 +7,10 @@
         <meta name="keywords" content="BlogifyAR, Tech, Python">
         <meta name="description" content="Your meta description goes here">
         <title>
-            {% block title %}BlogifyAR{% endblock title %}BlogifyAR
+            {% block title %}
+                BlogifyAR
+            {% endblock title %}
+            BlogifyAR
         </title>
         {% load static %}
         <link rel="stylesheet"
@@ -46,7 +49,7 @@
         </style>
     </head>
     <body class="d-flex flex-column min-vh-100">
-        <main class="flex-grow-1 mt-auto">
+        <main>
             <div class="container-fluid">
                 <div class="header">
                     <div class="inner-header">
@@ -161,7 +164,7 @@
         {% endblock content %}
     </div>
 </main>
-<footer class="fixed-bottom footer bg-light px-2 py-2 mt-3">
+<footer class="footer bg-light px-2 py-2 mt-3 mt-auto d-none d-md-block">
     <div class="container-fluid">
         <div class="row align-items-center">
             <div class="col-12 col-sm-4 mb-3 mb-sm-0">

@@ -1,16 +1,16 @@
-{% extends 'core/base.html' %}
+{% extends "core/base.html" %}
 {% load static %}
-{% block title %}Publicaciones{% endblock %}
+{% block title %} Publicaciones {% endblock title %}
 {% block content %}
-{% include 'blog/includes/post_menu.html' %}
+{% include "blog/includes/post_menu.html" %}
 <main role="main">
     <div class="container mb-4">
         {% for post in posts|dictsort:"slug" reversed %}
         <div class="row mt-3">
             <div class="col-md-9 mx-auto">
-                <h2 class="mb-4">{{posts.title}}</h2>
+                <h2 class="mb-4">{{ posts.title }}</h2>
                 <div>
-                    <p>{{posts.body|striptags|safe|truncatechars:"200"}}</p>
+                    <p>{{ posts.body|striptags|safe|truncatechars:"200" }}</p>
                     <p><a href="{% url 'frontpage' posts.slug posts.title|slugify %}">Leer más</a>
                         | <a href="{% url 'update' posts.slug %}">Editar</a>
                         | <a href="{% url 'delete' posts.slug %}">Borrar</a>
@@ -21,4 +21,4 @@
         {% endfor %}
     </div>
 </main>
-{% endblock %}
+{% endblock content %}
