@@ -53,7 +53,7 @@
                                     </p>
                                 </div>
                                 <small class="text-muted">
-                                    <p><a>Creado {{ post.created_at|date:"d M Y" }}</a></p>
+                                    <p>Creado {{ post.created_at|date:"d M Y" }}</p>
                                 </small>
                             </div>
                             <p><small>Category: <a class="btn btn-outline-dark btn-sm" href="{% url 'category_detail' post.category.slug %}" role="button"><i class="fa-solid fa-filter"></i> <b>{{ post.category }}</b></a></small></p>
