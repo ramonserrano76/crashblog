@@ -43,9 +43,9 @@
         <link rel="stylesheet" href="{% static 'styles.css' %}" type="text/css">
         <link rel="icon" href="{% static 'core/favicon.ico' %}" type="image/x-icon">
         <style>
-        .body {
-            background: grey;
-        }
+            body {
+                background-color: #bfbfbf;
+            }
         </style>
     </head>
     <body class="d-flex flex-column">
@@ -53,7 +53,7 @@
             <div class="container-fluid">
                 <div class="header">
                     <div class="inner-header">
-                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
                             <div class="container-fluid">
                                 <a class="navbar-brand" href="{% url 'frontpage' %}">
                                     <img src="{% static 'core/Miproyecto.png' %}"
@@ -61,7 +61,7 @@
                                          width="100"
                                          height="100"
                                          class="d-inline-block align-text-center">
-                                    <strong>BlogifyAR</strong></a>
+                                    <strong class="text-light">BlogifyAR</strong></a>
                                 <button class="navbar-toggler"
                                         type="button"
                                         data-toggle="collapse"
@@ -87,11 +87,11 @@
                                         </div>
                                         <ul class="navbar-nav mr-auto">
                                             <li class="nav-item">
-                                                <a class="navbar-item is-active is-size-5 has-text-weight-semibold"
+                                                <a class="navbar-item is-active is-size-5 has-text-weight-semibold text-light"
                                                    href="{% url 'frontpage' %}">Inicio</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="navbar-item is-active is-size-5 has-text-weight-semibold"
+                                                <a class="navbar-item is-active is-size-5 has-text-weight-semibold text-light"
                                                    href="{% url 'about' %}">Acerca de</a>
                                             </li>
                                         </ul>
@@ -100,7 +100,7 @@
                                                 <li class="nav-item  mr-3">
                                                     <a class="navbar-item is-size-5 has-text-weight-semibold btn btn-outline-primary me-2"
                                                        href="{% url 'login' %}"
-                                                       role="button"><i class="fa-solid fa-right-to-bracket"></i> Acceder</a>
+                                                       role="button"><i class="fa-solid fa-right-to-bracket"></i>Acceder</a>
                                                 </li>
                                                 <li class="nav-item">
                                                 <a role='button'
@@ -111,13 +111,13 @@
                                     {% else %}
                                         {% if request.user.is_superuser %}
                                             <li class="nav-item">
-                                                <a class="navbar-item is-active is-size-5 has-text-weight-semibold"
+                                                <a class="navbar-item is-active is-size-5 has-text-weight-semibold text-light"
                                                    href="{% url 'profiles:list' %}">Perfiles</a>
                                             </li>
                                         {% else %}
                                         {% endif %}
                                         <li class="nav-item">
-                                            <a class="navbar-item is-active is-size-5 has-text-weight-semibold"
+                                            <a class="navbar-item is-active is-size-5 has-text-weight-semibold text-light"
                                                href="{% url 'profile' %}">Perfil</a>
                                         </li>
                                         <li class="nav-item">
@@ -164,23 +164,23 @@
         {% endblock content %}
     </div>
 </main>
-<footer class="footer bg-light px-2 py-2 mt-3 mt-auto d-none d-md-block">
+<footer class="footer bg-dark px-2 py-2 mt-3 mt-auto d-none d-md-block">
     <div class="container-fluid">
         <div class="row align-items-center">
             <div class="col-12 col-sm-4 mb-3 mb-sm-0">
                 <div class="d-flex justify-content-center justify-content-sm-start">
-                    <a href="#"><i class="fab fa-instagram fa-2x text-dark mr-3"></i></a>
-                    <a href="#"><i class="fab fa-facebook fa-2x text-dark mr-3"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp fa-2x text-dark"></i></a>
+                    <a href="#"><i class="fab fa-instagram fa-2x text-light mr-3"></i></a>
+                    <a href="#"><i class="fab fa-facebook fa-2x text-light mr-3"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp fa-2x text-light"></i></a>
                 </div>
             </div>
             <div class="col-12 col-sm-4 mb-3 mb-sm-0 text-center">
-                <span class="text-sm text-dark mx-auto">
+                <span class="text-sm text-light mx-auto">
                     <h4>© 2022 BlogifyAR</h4>
                 </span>
             </div>
             <div class="col-12 col-sm-4 mb-3 mb-sm-0 text-right">
-                <span class="text-sm text-dark align-self-center">
+                <span class="text-sm text-light align-self-center">
                     <h4>Follow us on Twitter</h4>
                 </span>
             </div>

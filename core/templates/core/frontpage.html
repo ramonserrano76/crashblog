@@ -2,17 +2,13 @@
 {% load static %}
 {% block title %}Home | {% endblock title %}
 {% block content %}
-<style>
-    .body{
-        background: grey;
-    } 
-    </style>
-<section class="album py-5 bg-light">
+
+<section class="album py-5 bg-transparent">
     <div class="container-fluid">
         <!--Section heading-->
-        <h2 class="h1-responsive font-weight-bold text-center my-4">Nuestras Publicaciones</h2>
+        <h2 class="h1-responsive font-weight-bold text-center text-secondary my-4">Nuestras Publicaciones</h2>
         <!--Section description-->
-        <p class="text-center w-responsive mx-auto mb-5">Estas son las mejores publicaciones que puedes ver en un blog, variedades,
+        <p class="text-center text-secondary w-responsive mx-auto mb-5">Estas son las mejores publicaciones que puedes ver en un blog, variedades,
             noticias de tecnología, del área de programación y mucho más.</p>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
             {% for post in posts %}

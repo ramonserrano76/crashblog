@@ -48,13 +48,13 @@ table {
 .waves {
   position: relative;
   width: 100%;
-  height: 20vh;
-  margin-bottom: -7px;
-  /*Fix for safari gap*/
-  min-height: 100px;
-  max-height: 150px;
+  height: 10vh;
+  /* se cambia de 20vh a 10vh */
+margin-bottom: -3.5px; /* se cambia de -7px a -3.5px */
+/*Fix for safari gap*/
+min-height: 50px; /* se cambia de 100px a 50px */
+max-height: 75px; /* se cambia de 150px a 75px */
 }
-
 .output {
   margin: auto;
   height: 35vh;
