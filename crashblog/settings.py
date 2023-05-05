@@ -145,7 +145,7 @@ LOGOUT_REDIRECT_URL = '/'
 DEFAULT_IMAGE_URL = 'https://demofree.sirv.com/nope-not-here.jpg'
 LINKEDIN_CLIENT_ID = '779t61pwcb1014'
 LINKEDIN_CLIENT_SECRET = '5jaNbiMrjlR1aCzF'
-REDIRECT_URI = 'http://127.0.0.1:9000/redirect_uri/'
+REDIRECT_URI = 'https://www.blogifyar.pro/redirect_uri/'
 #emails
 if not DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
