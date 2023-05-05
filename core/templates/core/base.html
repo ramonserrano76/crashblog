@@ -98,13 +98,13 @@
                                         <ul class="navbar-nav mr-auto  text-end">
                                             {% if not request.user.is_authenticated %}
                                                 <li class="nav-item  mr-3">
-                                                    <a class="navbar-item is-size-5 has-text-weight-semibold btn btn-outline-primary me-2"
+                                                    <a class="navbar-item is-size-5 has-text-weight-semibold btn btn-outline-light text-light me-2"
                                                        href="{% url 'login' %}"
                                                        role="button"><i class="fa-solid fa-right-to-bracket"></i>Acceder</a>
                                                 </li>
                                                 <li class="nav-item">
                                                 <a role='button'
-                                                   class="navbar-item is-size-5 has-text-weight-semibold btn btn-outline-primary me-2"
+                                                   class="navbar-item is-size-5 has-text-weight-semibold btn btn-outline-light text-light me-2"
                                                    href="{% url 'signup' %}"><i class="fa-solid fa-user-plus"></i>
                                             Registro</a>
                                         </li>
@@ -121,12 +121,12 @@
                                                href="{% url 'profile' %}">Perfil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <p type="text" class="d-inline">Bienvenido\a, {{ user.username }}.</p>
-                                            <a type="text" href="{% url 'password_change' %}" class="d-inline">Cambiar
+                                            <p type="text" class="d-inline text-light">Bienvenido\a, {{ user.username }}.</p>
+                                            <a type="text" href="{% url 'password_change' %}" class="d-inline text-light">Cambiar
                                             contraseña </a>
                                             <a role='button'
-                                               class="btn btn-outline-primary me-2 navbar-item is-size-5 has-text-weight-semibold"
-                                               href="{% url 'logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Salir</a>
+                                               class="btn btn-outline-light me-2 navbar-item is-size-5 has-text-weight-semibold text-light"
+                                               href="{% url 'logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i>Salir</a>
                                         </li>
                                     {% endif %}
                                 </ul>

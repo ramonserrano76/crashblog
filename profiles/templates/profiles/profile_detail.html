@@ -1,6 +1,6 @@
-{% extends 'core/base.html' %}
+{% extends "core/base.html" %}
 {% load static %}
-{% block title %}{{profile.user}}{% endblock %}
+{% block title %}{{ profile.user }}{% endblock title %}
 {% block content %}
 <main role="main">
     <div class="container">
@@ -11,16 +11,16 @@
                         <!-- Avatar -->
                         <div class="col-md-2">
                             {% if profile.avatar %}
-                            <img src="{{profile.avatar.url}}" class="img-fluid">
+                            <img height="" width="" alt="profile avatar" src="{{ profile.avatar.url }}" class="img-fluid">
                             {% else %}
-                            <img src="{% static 'registration/img/no-avatar.jpg' %}" class="img-fluid">
+                            <img height="" width="" alt="profile avatar" src="{% static 'registration/img/no-avatar.jpg' %}" class="img-fluid">
                             {% endif %}
                         </div>
                         <!-- Campos -->
                         <div class="col-md-10">
-                            <h3>{{profile.user}}</h3>
-                            {% if profile.bio %}<p>{{profile.bio}}</p>{% endif %}
-                            {% if profile.link %}<p><a href="{{profile.link}}" target="_blank">{{profile.link}}</a></p>
+                            <h3>{{ profile.user }}</h3>
+                            {% if profile.bio %}<p>{{ profile.bio }}</p>{% endif %}
+                            {% if profile.link %}<p><a href="{{ profile.link }}" target="_blank">{{ profile.link }}</a></p>
                             {% endif %}
                         </div>
                     </div>
@@ -29,4 +29,4 @@
         </div>
     </div>
 </main>
-{% endblock %}
+{% endblock content %}

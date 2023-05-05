@@ -1,6 +1,6 @@
-{% extends 'core/base.html' %}
+{% extends "core/base.html" %}
 {% load static %}
-{% block title %}Iniciar sesión{% endblock %}
+{% block title %}Iniciar sesión{% endblock title %}
 {% block content %}
 <style>
     .errorlist {
@@ -12,12 +12,12 @@
         <div class="row mt-3">
             <div class="col-md-9 mx-auto mb-5">
                 {% if 'register' in request.GET %}
-                <p style="color:green">Usuario registrado correctamente, ya podés identificarte</p>
+                <p class="text-success">Usuario registrado correctamente, ya podés identificarte</p>
                 {% endif %}
                 <form action="" method="post">{% csrf_token %}
                     <h3 class="mb-4">Iniciar sesión</h3>
                     {% if form.non_field_errors %}
-                    <p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
+                    <p class="text-danger">Usuario o contraseña incorrectos, prueba de nuevo.</p>
                     {% endif %}
                     <p>
                         <input type="text" name="username" autofocus maxlength="254" required id="id_username"
@@ -27,16 +27,16 @@
                         <input type="password" name="password" required id="id_password" class="form-control"
                             placeholder="Contraseña" />
                     </p>
-                    <p><input type="submit" class="btn btn-primary btn-block" value="Acceder"></p>
+                    <p><input type="submit" class="btn btn-dark" value="Acceder"></p>
                 </form>
-                <p>
-                    ¿Olvidó su clave? Puede restaurarla <a href="{% url 'password_reset' %}">aquí</a> .
+                <p class="text-dark font-weight-bold">
+                    ¿Olvidó su clave? Puede restaurarla <a class="text-light font-weight-bold" href="{% url 'password_reset' %}">aquí</a>.
                 </p>
             </div>
         </div>
     </div>
 </main>
-{% endblock %}
+{% endblock content %}
 
 
 

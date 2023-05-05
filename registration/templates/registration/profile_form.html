@@ -1,7 +1,7 @@
-{% extends 'core/base.html' %}
+{% extends "core/base.html" %}
 {% load static %}
 {% block content %}
-{% block title %}Perfil de Usuario | Usuario: {{ profile.user }}{% endblock %}
+{% block title %}Perfil de Usuario | Usuario: {{ profile.user }}{% endblock title %}
 <style>
     .errorlist {
         color: red;
@@ -20,10 +20,10 @@
                         <!-- Previa del avatar -->
                         <div class="col-md-2">
                             {% if request.user.profile.avatar %}
-                            <img src="{{request.user.profile.avatar.url}}" class="img-fluid">
+                            <img height="" width="" alt="profile avatar" src="{{ request.user.profile.avatar.url }}" class="img-fluid">
                             <p class="mt-1">¿Borrar? <input type="checkbox" id="avatar-clear" name="avatar-clear" /></p>
                             {% else %}
-                            <img src="{% static 'registration/img/no-avatar.jpg' %}" class="img-fluid">
+                            <img height="" width="" alt="profile avatar" src="{% static 'registration/img/no-avatar.jpg' %}" class="img-fluid">
                             {% endif %}
                         </div>
                         <!-- Formulario -->
@@ -32,13 +32,13 @@
                             <input type="file" name="avatar" class="form-control-file mt-3" id="id_avatar">
                             {{ form.bio }}
                             {{ form.link }}
-                            <input type="email" value="{{request.user.email}}" class="form-control mt-3" readonly>
-                            <p class="mt-3">Para editar el e-Mail presione <a href="{% url 'profile_email' %}">aquí</a>
+                            <input type="email" value="{{ request.user.email }}" class="form-control mt-3" readonly>
+                            <p class="text-dark font-weight-bold mt-3">Para editar el e-Mail presione <a class="text-light font-weight-bold" href="{% url 'profile_email' %}">aquí</a>
                                 <br>
-                                Y si quieres cambiar tu contraseña haz clic <a
+                                Y si quieres cambiar tu contraseña haz clic <a class="text-light font-weight-bold"
                                     href="{% url 'password_change' %}">aquí</a>
                             </p>
-                            <input type="submit" class="btn btn-primary btn-block mt-3" value="Actualizar">
+                            <input type="submit" class="btn btn-dark mt-3" value="Actualizar">
                         </div>
                     </div>
                 </form>
@@ -46,4 +46,4 @@
         </div>
     </div>
 </main>
-{% endblock %}
+{% endblock content %}
