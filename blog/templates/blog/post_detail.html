@@ -52,7 +52,7 @@
                                                        role="button"
                                                        type="button"
                                                        class="btn btn-outline-primary"
-                                                       value="      Compartir en redes sociales"
+                                                       value="share on social media"
                                                        data-toggle="modal"
                                                        data-target="#socialSharingModal">
                                                 <span style="position: relative;
@@ -68,21 +68,21 @@
                                 <p>
                                     <a class="btn btn-clipboard btn-outline-primary btn-sm"
                                        href="{% url 'frontpage' %}"
-                                       role="button"><i class="fa-solid fa-arrow-left"></i> <b>Volver</b></a>
+                                       role="button" value="go back"><i class="fa-solid fa-arrow-left"></i> <b>Volver</b></a>
                                     {% if request.user.is_staff %}
                                     <a class="btn btn-clipboard btn-outline-info btn-sm"
                                        href="{% url 'update' post.slug %}"
-                                       role="button"><i class="fa-solid fa-pencil"></i>
+                                       role="button" value="edit post"><i class="fa-solid fa-pencil"></i>
                                     <b>Editar</b></a>
                                 <a class="btn btn-clipboard btn-outline-danger btn-sm"
                                    href="{% url 'delete' post.slug %}"
-                                   role="button"><i class="fa-regular fa-trash-can"></i> <b>Borrar</b></a>
+                                   role="button" value="delete post"><i class="fa-regular fa-trash-can"></i> <b>Borrar</b></a>
                             </p>
                         {% endif %}
                         <p>
                             <small><b>Category:</b> <a class="btn btn-clipboard btn-outline-dark btn-sm"
     href="{% url 'category_detail' post.category.slug %}"
-    role="button"><i class="fa-solid fa-filter"></i> <b>{{ post.category }}</b></a></small>
+    role="button" value="filter category"><i class="fa-solid fa-filter"></i> <b>{{ post.category }}</b></a></small>
                         </p>
                         <hr>
                         <h2 class="subtitle is-4">Comments</h2>
@@ -92,7 +92,7 @@
                                 {{ form.as_p }}
                                 <div class="field">
                                     <div class="control">
-                                        <button class="btn btn-outline-success">
+                                        <button class="btn btn-outline-success" role="button" value="send comment">
                                             <i class="fa-regular fa-comment-dots"></i>
                                             <b>Enviar comentario</b>
                                         </button>
