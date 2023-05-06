@@ -11,7 +11,7 @@
             <div class="container">
                 <section class="section">
                     <div class="row">
-                        <div class="col-12 col-md-6 mx-auto">
+                        <div class="col-8 mx-auto">
                             {% if post.image %}
                                 <figure class="image mb-6">
                                     <img src="{{ post.image.url }}"
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12 col-md-8 mx-auto">
+                        <div class="col-12 mx-auto bg-light">
                             <div class="content is-medium">
                                 <h2 class="subtitle is-4">hace {{ post.created_at|timesince }}</h2>
                                 <h1 class="title">{{ post.title }}</h1>
@@ -47,20 +47,11 @@
                                     <div id="is-relative">
                                         <p>
                                             <a>
-                                                <input style="font-weight: bolder;
-                                                              user-select: none"
-                                                       role="button"
-                                                       type="button"
-                                                       class="btn btn-outline-primary"
-                                                       value="share on social media"
+                                                <input type="button"
+                                                       class="btn btn-lg btn-outline-primary font-weight-bold"
+                                                       value="Share on social media"
                                                        data-toggle="modal"
                                                        data-target="#socialSharingModal">
-                                                <span style="position: relative;
-                                                             display: flex;
-                                                             top: -25px;
-                                                             left: 9px;
-                                                             user-select: none;
-                                                             cursor:pointer"><i class="fa-solid fa-share-from-square text-primary"></i></span>
                                             </a>
                                         </p>
                                     </div>
@@ -68,28 +59,34 @@
                                 <p>
                                     <a class="btn btn-clipboard btn-outline-primary btn-sm"
                                        href="{% url 'frontpage' %}"
-                                       role="button" value="go back"><i class="fa-solid fa-arrow-left"></i> <b>Volver</b></a>
+                                       role="button"
+                                       value="go back"><i class="fa-solid fa-arrow-left"></i> <b>Volver</b></a>
                                     {% if request.user.is_staff %}
                                     <a class="btn btn-clipboard btn-outline-info btn-sm"
                                        href="{% url 'update' post.slug %}"
-                                       role="button" value="edit post"><i class="fa-solid fa-pencil"></i>
+                                       role="button"
+                                       value="edit post"><i class="fa-solid fa-pencil"></i>
                                     <b>Editar</b></a>
                                 <a class="btn btn-clipboard btn-outline-danger btn-sm"
                                    href="{% url 'delete' post.slug %}"
-                                   role="button" value="delete post"><i class="fa-regular fa-trash-can"></i> <b>Borrar</b></a>
+                                   role="button"
+                                   value="delete post"><i class="fa-regular fa-trash-can"></i> <b>Borrar</b></a>
                             </p>
                         {% endif %}
                         <p>
                             <small><b>Category:</b> <a class="btn btn-clipboard btn-outline-dark btn-sm"
     href="{% url 'category_detail' post.category.slug %}"
-    role="button" value="filter category"><i class="fa-solid fa-filter"></i> <b>{{ post.category }}</b></a></small>
+    role="button"
+    value="filter category"><i class="fa-solid fa-filter"></i> <b>{{ post.category }}</b></a></small>
                         </p>
                         <hr>
                         <h2 class="subtitle is-4">Comments</h2>
                         {% if request.user.is_authenticated %}
                             <form method="post" class="mb-6">
-                                {% csrf_token %}
-                                {{ form.as_p }}
+                                <div class="mx-auto">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                </div>
                                 <div class="field">
                                     <div class="control">
                                         <button class="btn btn-outline-success" role="button" value="send comment">
@@ -102,7 +99,7 @@
                         {% endif %}
                         {% for comment in post.comments.all %}
                             <article class="media box">
-                                <div class="media-content">
+                                <div class="media-content mx-auto">
                                     <strong>{{ comment.name }}</strong> <small>{{ comment.created_at|timesince }} ago</small>
                                     <br>
                                     {{ comment.body }}
@@ -116,7 +113,6 @@
     </div>
 </div>
 </section>
-
 {% comment %} {% block js %}
     <script>
         $(document).ready(function () {
@@ -144,13 +140,13 @@
                 hideTooltip(e.trigger);
             });
         });
-    </script>
+</script>
 {% endblock js %} {% endcomment %}
 <div class="modal" id="socialSharingModal">
     {% if messages %}
         <script>{% for message in messages %} toastr["{{ message.tags }}"]("{{ message }}"); {% endfor %}</script>
     {% endif %}
-    <div class="modal-dialog">
+    <div class="modal-dialog bg-dark">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Compartir publicación</h5>

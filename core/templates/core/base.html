@@ -38,8 +38,8 @@
               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/regular.min.css"
               integrity="sha512-k2UAKyvfA7Xd/6FrOv5SG4Qr9h4p2oaeshXF99WO3zIpCsgTJ3YZELDK0gHdlJE5ls+Mbd5HL50b458z3meB/Q=="
               crossorigin="anonymous"
-              referrerpolicy="no-referrer" />        
-        {% comment %} <script type="text/javascript" src="../../../staticfiles/main.js" ></script> {% endcomment %}
+              referrerpolicy="no-referrer" />
+        {% comment %} <script type="text/javascript" src="../../../staticfiles/main.js"></script> {% endcomment %}
         {% comment %} <link type="text/css" rel="stylesheet" href="{% static 'styles.css' %}"> {% endcomment %}
         <link rel="icon" href="{% static 'core/favicon.ico' %}" type="image/x-icon">
         <style>
@@ -50,7 +50,7 @@
     </head>
     <body class="d-flex flex-column min-vh-100">
         <main class="flex-grow-1">
-            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <nav class="navbar navbar-expand-md navbar-light bg-dark">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="{% url 'frontpage' %}">
                         <img src="{% static 'core/Miproyecto.png' %}"
@@ -69,11 +69,11 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="nep">
-                        <div class="navbar-end">
-                            <div class="navbar-nav mr-auto">
+                        <div class="navbar-nav">
+                            <div class="navbar-nav mx-auto">
                                 <form method="get" action="{% url 'search' %}">
-                                    <div class="control has-icons-left">
-                                        <input class="input is-rounded"
+                                    <div class="control has-icons-left mr-3  mb-2">
+                                        <input class="input is-rounded is-size-7"
                                                name="query"
                                                type="text"
                                                placeholder="Buscar publicación">
@@ -85,46 +85,43 @@
                             </div>
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
-                                    <a class="navbar-item is-active is-size-5 has-text-weight-semibold text-light rounded"
+                                    <a role="button"
+                                       value="start"
+                                       class="navbar-item is-size-7 has-text-weight-semibold btn btn-outline-light text-light mr-3 mb-2 rounded"
                                        href="{% url 'frontpage' %}">Inicio</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="navbar-item is-active is-size-5 has-text-weight-semibold text-light rounded"
+                                    <a class="navbar-item is-size-7 has-text-weight-semibold text-light btn btn-outline-light text-light mr-3  mb-2 rounded"
                                        href="{% url 'about' %}">Acerca de</a>
                                 </li>
                             </ul>
                             <ul class="navbar-nav mr-auto text-end">
                                 {% if not request.user.is_authenticated %}
                                     <li class="nav-item  mr-3">
-                                        <a class="navbar-item is-size-5 has-text-weight-semibold btn btn-outline-light text-light me-2"
+                                        <a class="navbar-item is-size-7 has-text-weight-semibold btn btn-outline-light text-light mr-3  mb-2"
                                            href="{% url 'login' %}"
                                            role="button"><i class="fa-solid fa-right-to-bracket"></i>Acceder</a>
                                     </li>
                                     <li class="nav-item">
                                         <a role='button'
-                                           class="navbar-item is-size-5 has-text-weight-semibold btn btn-outline-light text-light me-2"
+                                           class="navbar-item is-size-7 has-text-weight-semibold btn btn-outline-light text-light mr-3  mb-2"
                                            href="{% url 'signup' %}"><i class="fa-solid fa-user-plus"></i>Registro</a>
                                     </li>
                                 {% else %}
                                     {% if request.user.is_superuser %}
                                         <li class="nav-item">
-                                            <a class="navbar-item is-active is-size-5 has-text-weight-semibold text-light rounded"
+                                            <a class="navbar-item is-size-7 has-text-weight-semibold btn btn-outline-light text-light mr-3  mb-2 rounded"
                                                href="{% url 'profiles:list' %}">Perfiles</a>
                                         </li>
                                     {% else %}
                                     {% endif %}
                                     <li class="nav-item">
-                                        <a class="navbar-item is-active is-size-5 has-text-weight-semibold text-light rounded"
+                                        <a class="navbar-item is-size-7 has-text-weight-semibold btn btn-outline-light text-light mr-3  mb-2 rounded"
                                            href="{% url 'profile' %}">Perfil</a>
                                     </li>
                                     <li class="nav-item">
-                                        <p type="text" class="d-inline text-light">Bienvenido\a, {{ user.username }}.</p>
-                                        <a type="text"
-                                           href="{% url 'password_change' %}"
-                                           class="d-inline text-light">Cambiar
-                                        contraseña </a>
                                         <a role='button'
-                                           class="btn btn-outline-light me-2 navbar-item is-size-5 has-text-weight-semibold text-light"
+                                           class="btn btn-outline-light mr-3 navbar-item is-size-7 has-text-weight-semibold text-light"
                                            href="{% url 'logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i>Salir</a>
                                     </li>
                                 {% endif %}
@@ -139,13 +136,7 @@
                     <!--Waves Container-->
                     <div>
                         <div id="output"></div>
-                        <svg class="waves"
-                             xmlns="http://www.w3.org/2000/svg"
-                             xmlns:xlink="http://www.w3.org/1999/xlink"
-                             viewBox="0 24 150 28"
-                             preserveAspectRatio="none"
-                             shape-rendering="auto" 
-                             style="background-color: linear-gradient(60deg, #111111 0%, #999999 100%)">
+                        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto" style="background-color: linear-gradient(60deg, #111111 0%, #999999 100%)">
                             <defs>
                             <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
                             </defs>
@@ -162,7 +153,15 @@
                 {% if request.user.is_staff %}
                     {% include "blog/includes/post_menu.html" %}
                 {% endif %}
+                {% if request.user.is_authenticated %}
+                        <p type="text" class="d-inline text-dark text-capitalize">Bienvenido\@, {{ user.username }}.</p>
+                        <a type="text"
+                           href="{% url 'password_change' %}"
+                           class="d-inline text-light">Cambiar
+                        contraseña </a>
+                    {% endif %}
                 {% block content %}
+                    
                 {% endblock content %}
             </div>
         </main>
