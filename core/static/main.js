@@ -4,7 +4,7 @@ $(function () {
     console.log("dentro do ready");
     $.ajax({
         type: "GET",
-        url: "static/target-file.csv",
+        url: "staticfiles/target-file.csv",
         dataType: "text",
         success: function(data) {processData(data);}
     });
