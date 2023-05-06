@@ -1,26 +1,33 @@
 {% load static %}
 <script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
-<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+<script type="text/javascript"
+        src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
 <link href="{% static 'blog/css/custom_ckeditor.css' %}" rel="stylesheet">
-
-<div class="pos-f-t">
-    <nav class="navbar navbar-light bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
-            aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <span class="navbar-brand text-white" href="#"><i>Administrar publicaciones</i></span>
-    </nav>
-    <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-secondary p-4">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link  text-white" href="{% url 'create' %}"><i>Crear Publicación</i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link  text-white" href="{% url 'frontpage' %}"><i>Volver a publicaciones</i></a>
-                </li>
-            </ul>
+<div class="container-fluid">
+    <div class="pos-f-t">
+        <nav class="navbar navbar-dark bg-dark">
+            <button class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarToggleExternalContent"
+                    aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <span class="navbar-brand text-white" href="#"><i>Administrar publicaciones</i></span>
+        </nav>
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-secondary p-4">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link  text-white" href="{% url 'create' %}"><i>Crear Publicación</i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  text-white" href="{% url 'frontpage' %}"><i>Volver a publicaciones</i></a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
