@@ -40,10 +40,10 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <p>
-                                        <a class="btn btn-outline-success btn-sm" href="{{ post.get_absolute_url }}" role="button" value="see post"><i class="fa-regular fa-eye"></i><b>Ver</b></a>
+                                        <a class="btn btn-outline-success btn-sm font-weight-bold" href="{{ post.get_absolute_url }}" role="button" value="see post"><i class="fa-regular fa-eye"></i><b>Ver</b></a>
                                         {% if request.user.is_staff %}
-                                        <a class="btn btn-outline-info btn-sm" href="{% url 'update' post.slug %}" role="button" value="edit post"><i class="fa-solid fa-pencil"></i><b>Editar</b></a>
-                                        <a class="btn btn-outline-danger btn-sm" href="{% url 'delete' post.slug %}" role="button" value="delete post"><i class="fa-regular fa-trash-can"></i><b>Borrar</b></a>
+                                        <a class="btn btn-outline-info btn-sm font-weight-bold" href="{% url 'update' post.slug %}" role="button" value="edit post"><i class="fa-solid fa-pencil"></i><b>Editar</b></a>
+                                        <a class="btn btn-outline-danger btn-sm font-weight-bold" href="{% url 'delete' post.slug %}" role="button" value="delete post"><i class="fa-regular fa-trash-can"></i><b>Borrar</b></a>
                                         
                                         {% endif %}
                                     </p>

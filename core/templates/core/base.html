@@ -156,11 +156,11 @@
                     {% include "blog/includes/post_menu.html" %}
                 {% endif %}
                 {% if request.user.is_authenticated %}
-                    <p type="text" class="d-inline text-dark text-capitalize">Bienvenido\@, {{ user.username }}.</p>
+                    <p type="text" class="d-inline text-dark text-capitalize font-weight-bold">Bienvenido\@, {{ user.username }}.</p>
                     <a type="text"
                        href="{% url 'password_change' %}"
                        class="d-inline text-light">Cambiar
-                    contraseña </a>
+                    contraseña.</a>
                 {% endif %}
                 {% block content %}
                 {% endblock content %}
