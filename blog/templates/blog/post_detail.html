@@ -4,7 +4,7 @@
 {% endif %}
 {% block content %}
     {% block title %}
-        | {{ post.title }} | <a href="{% url 'frontpage' %}" class="span text-light font-weight-bold">Volver</a> |
+        | <p class="text-dark font-weight-bold d-inline">{{ post.title }}</p> | <a href="{% url 'frontpage' %}" class="span text-light font-weight-bold">Volver</a> |
     {% endblock title %}
     <section class="hero">
         <div class="hero-body">
