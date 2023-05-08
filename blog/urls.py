@@ -11,9 +11,12 @@ url_patterns = [
     path('<slug:category_slug>/<slug:slug>', views.post_detail, name='post_detail'),
     path('<slug:slug>', views.category, name='category_detail'),
     path('handle_linkedin_response/<code>', views.handle_linkedin_response, name='handle_linkedin_response'),
+    
+    path('twitter_login/', views.twitter_login, name='twitter_login'),
+    path('redirect_uri2/', views.handle_resp, name='redirect_uri2'),    
+    path('redirect_uri2/handle_twitter_code/', views.twitter_callback, name='handle_twitter_code'),
     path('login-linkedin/', views.login_linkedin, name='login_linkedin'),
     path('redirect_uri/', views.redirect_uri, name='redirect_uri'),
-    path('redirect_uri/handle_code/', views.handle_linkedin_response, name='handle_code'),
-    
+    path('redirect_uri/handle_code/', views.handle_linkedin_response, name='handle_code'),    
     
 ]
