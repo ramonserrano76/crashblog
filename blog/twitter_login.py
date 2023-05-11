@@ -1,5 +1,4 @@
 import oauthlib.oauth1
-from oauthlib.oauth1 import Client
 import base64
 import hashlib
 import json
@@ -156,7 +155,8 @@ def post_tweet_with_image(request, slug, access_token):
 
     # Crear el objeto de firma OAuth1
     oauth_client = oauthlib.oauth1.Client(oauth_consumer_key, oauth_consumer_secret)
-    # Crear el params para oauth_signature
+
+
     paramssign = {
         'oauth_consumer_key': oauth_consumer_key,
         'oauth_nonce': "WQFRTfd",
