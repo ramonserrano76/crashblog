@@ -154,7 +154,7 @@ def post_tweet_with_image(request, slug, access_token):
         'oauth_callback': redirect_uri
     }
     headers2 = {
-        'Authorization': f'OAuth oauth_consumer_key= {oauth_consumer_key}, oauth_nonce="WQFRTfd", oauth_signature="I34G1VjsVXk2MO%2BvkvMzfm9w1LU%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp= {timestamp}, oauth_version="1.0"',
+        'Authorization': f'OAuth oauth_consumer_key= {oauth_consumer_key}, oauth_nonce="WQFRTfd", oauth_signature="rb4pNpvOeDPzRXrXqn6KIRFBh9g%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp= {timestamp}, oauth_version="1.0"',
     }
     responsetoken = requests.request('POST', token_url, headers=headers2, params=paramstoken)
     response_text = responsetoken.text
