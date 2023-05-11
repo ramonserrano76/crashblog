@@ -9,9 +9,9 @@ from django.shortcuts import redirect
 from django.http import HttpResponse
 import requests
 import urllib.parse
-from urllib.parse import urlencode
+from urllib.parse import parse_qs, urlencode
 import urllib.request
-
+import os
 
 # SECCION PARA POSTEAR EL TWITTER #
 # Define a function to generate a random code_verifier and its corresponding code_challenge
@@ -116,10 +116,7 @@ def post_tweet_with_image(request, slug, access_token):
 
     # URL para publicar el tweet
     tweet_url = 'https://api.twitter.com/2/tweets'
-
-    # URL para cargar la imagen
-    upload_url = 'https://upload.twitter.com/1.1/media/upload.json'
-
+    redirect_uri = "http%3A%2F%2F127.0.0.1%3A9000%2Fredirect_uri2%2F"
     # Cabeceras para la autenticación con el token de acceso
     headers = {"Authorization": f'Bearer {access_token}',
                "User-Agent": "v2CreateTweetPY",
@@ -129,38 +126,89 @@ def post_tweet_with_image(request, slug, access_token):
                "Accept": "*/*",
                "Connection": "keep-alive",
                }
-
-    headers3 = {'Authorization': f'Bearer {access_token}',
-                'Content-Type': 'application/json',
-                }
-
+    
     # Obtener la URL de la imagen
     post = Post.objects.get(slug=slug)
     image_url = request.build_absolute_uri(post.image.url)
 
     # Descargar la imagen desde la URL
-    response = requests.get(image_url)
+    responseup = requests.get(image_url)
 
     # Obtener los bytes de la imagen
-    image_bytes = response.content
+    image_bytes = responseup.content
     total_bytes = len(image_bytes)
     print('total_bytes:', total_bytes)
+    file_name = os.path.basename(post.image.name)
+    print('IMAGEN:', file_name)
+    import datetime
+    # Obtener el objeto datetime actual
+    now = datetime.datetime.now()
+    # Obtener el timestamp actual en segundos
+    timestamp = now.timestamp()
+    print(timestamp)
+    oauth_consumer_key = "ogKdSKDeBi1oiUtB8LZCnYzkw"
+        
+    # URL para obtener oauth_token
+    token_url = 'https://api.twitter.com/oauth/request_token'
+    paramstoken = {
+        'oauth_callback': redirect_uri
+    }
+    headers2 = {
+        'Authorization': f'OAuth oauth_consumer_key= {oauth_consumer_key}, oauth_nonce="WQFRTfd", oauth_signature="rb4pNpvOeDPzRXrXqn6KIRFBh9g%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp= {timestamp}, oauth_version="1.0"',
+    }
+    responsetoken = requests.request('POST', token_url, headers=headers2, params=paramstoken)
+    response_text = responsetoken.text
+    response_data = parse_qs(response_text)
+    #oauth_token = response_data['oauth_token'][0]
+    #oauth_token_secret = response_data['oauth_token_secret'][0]
+    print('STAT_CODE_TOKEN_200:', responsetoken.status_code)
+    print('Response_Token:', response_text)
+    
+    # URL para cargar la imagen   
+    # upload_url = 'https://upload.twitter.com/1.1/media/upload.json'
+    # headers3 = {
+    #     'Authorization': f'OAuth oauth_consumer_key= {oauth_consumer_key}, oauth_token={oauth_token}, oauth_signature_method="HMAC-SHA1", oauth_timestamp= {timestamp}, oauth_nonce="WQFRTfd",oauth_version="1.0", oauth_callback={redirect_uri}, oauth_signature="rb4pNpvOeDPzRXrXqn6KIRFBh9g%3D"',
+    #     'Content-Type': 'multipart/form-data',
+    #     'Content-Length': f'{total_bytes}',
+    #     'media_type': 'image/jpeg',
+    #     'media_category': 'tweet_image'
+    # }
+    
+    # # Obtener la URL de la imagen
+    # post = Post.objects.get(slug=slug)
+    # image_url = request.build_absolute_uri(post.image.url)
 
+    # # Descargar la imagen desde la URL
+    # responseup = requests.get(image_url)
+
+    # # Obtener los bytes de la imagen
+    # image_bytes = responseup.content
+    # total_bytes = len(image_bytes)
+    # print('total_bytes:', total_bytes)
+    # file_name = os.path.basename(post.image.name)
+    # print('IMAGEN:', file_name)
     # # Cargar la imagen en Twitter
-    # files = {'command': 'INIT',
-    #          'total_bytes': f'{total_bytes}',
-    #          'media_type': 'image/jpeg',
-    #          'media_category': 'tweet_image'
-    #          }
-    # media_response = requests.post(upload_url, headers=headers3, data=files)
-    # print('STATUS_CODE:', media_response.status_code)
-    # print('RESPONSE_JSON:', media_response.json())
+    # files = {
+    #     'media': (file_name, image_bytes, 'image/png')
+    # }
+    
+    # payload2 = files
+    # media_response = requests.request('POST', upload_url, headers=headers3, data=payload2)
+    # response_json = media_response.text
+    # status_code = media_response.status_code
+    # print('STATUS_CODE:', status_code)
+    # print('Response UPLOAD:', response_json)
+    # file = {'command': 'INIT',
+    #         'total_bytes': f'{total_bytes}',
+    #         'media_type': 'image/jpeg',
+    #         'media_category': 'tweet_image'
+    #         }
 
     # media_id = media_response.json()['media_id']
     # print('MEDIA_ID:', media_id)
 
-    # Tweet con imagen
-    tweet_text = str(request.build_absolute_uri(post.get_absolute_url()))
+    # # Tweet con imagen
+    # tweet_text = f'{ post.title } ' + '| ' + str(request.build_absolute_uri(post.get_absolute_url()))
 
     # Parámetros del tweet
     palabras = ['hola', 'adios', 'buenos dias',
@@ -177,11 +225,12 @@ def post_tweet_with_image(request, slug, access_token):
         "text": f"{palabra_aleatoria} {frase_aleatoria}"
     }
     payload = json.dumps(data2)
-    print(type(payload))
+    print('FileType:', type(payload))
 
     # Publicar el tweet
-    tweet_response = response = requests.request("POST", tweet_url, headers=headers, data=payload)
-
+    tweet_response = requests.request(
+        "POST", tweet_url, headers=headers, data=payload)
+    print(tweet_response.text)
     # Comprobar la respuesta del tweet
     if tweet_response.status_code == 201:
         print('El tweet se ha publicado correctamente.')
@@ -191,3 +240,7 @@ def post_tweet_with_image(request, slug, access_token):
     # Redirigir al detalle del post
     category_slug = request.session.get('category_slug')
     return redirect('post_detail', category_slug=category_slug, slug=slug)
+
+
+
+
