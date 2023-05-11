@@ -73,7 +73,7 @@ def twitter_callback(request, slug, code):
     # Set up the OAuth 2.0 credentials
     client_id = "Njl1eG1MTkREM1J3UjVzWHBIRTc6MTpjaQ"
     client_secret = "LXd4FQxX0jVLarw8NStx4gtxGyHaXyk5uCpFxWv2xBHgRB1GhF"
-    redirect_uri = "http://127.0.0.1:9000/redirect_uri2/"
+    redirect_uri = "https://www.blogifyar.pro/redirect_uri2/"
 
     # Define the URL for the access token endpoint
     token_url = "https://api.twitter.com/2/oauth2/token"
@@ -118,7 +118,7 @@ def post_tweet_with_image(request, slug, access_token):
 
     # URL para publicar el tweet
     tweet_url = 'https://api.twitter.com/2/tweets'
-    redirect_uri = "http%3A%2F%2F127.0.0.1%3A9000%2Fredirect_uri2%2F"
+    redirect_uri = "https%3A%2F%2Fwww.blogify.pro%2Fredirect_uri2%2F"
     # Cabeceras para la autenticación con el token de acceso
     headers = {"Authorization": f'Bearer {access_token}',
                "User-Agent": "v2CreateTweetPY",
@@ -146,7 +146,7 @@ def post_tweet_with_image(request, slug, access_token):
     # Obtener el objeto datetime actual
     now = datetime.datetime.now()
     # Obtener el timestamp actual en segundos
-    timestamp = now.timestamp()
+    timestamp = round(now.timestamp())
     print(timestamp)
     
     
@@ -157,7 +157,7 @@ def post_tweet_with_image(request, slug, access_token):
     token_url = 'https://api.twitter.com/oauth/request_token'
 
     # Crear el objeto de firma OAuth1
-    oauth_client = oauthlib.oauth1.Client(oauth_consumer_key, oauth_consumer_secret)
+    oauth_client = Client(client_key = oauth_consumer_key, client_secret = oauth_consumer_secret)
     # Crear el params para oauth_signature
     paramssign = {
         'oauth_consumer_key': oauth_consumer_key,
