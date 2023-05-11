@@ -148,8 +148,6 @@ def post_tweet_with_image(request, slug, access_token):
     # Obtener el timestamp actual en segundos
     timestamp = now.timestamp()
     print(timestamp)
-    
-    
     oauth_consumer_key = "ogKdSKDeBi1oiUtB8LZCnYzkw"
     oauth_consumer_secret = "XG2SKvAjLDUlnw8R8Ghbg747m7OS0SC0vapUmhsBYPFl94nuAM"    
     
@@ -167,29 +165,27 @@ def post_tweet_with_image(request, slug, access_token):
         'oauth_version': '1.0'
 }
     # Generar la firma
-    uri, headersOa, body = oauth_client.sign(token_url, 'POST', paramssign)
+    uri, headers, body = oauth_client.sign(token_url, 'POST', paramssign)
     
     # Obtener la firma de los headers
-    oauth_signature = headersOa['Authorization'].split('oauth_signature="')[1].split('"')[0]
+    oauth_signature = headers['Authorization'].split('oauth_signature="')[1].split('"')[0]
     print('OAuth Signature:', oauth_signature)
-
+    
     # URL para obtener luego oauth_token
     token_url = 'https://api.twitter.com/oauth/request_token'
     paramstoken = {
             'oauth_callback': redirect_uri
         }
     headers2 = {
-            'Authorization': f'OAuth oauth_consumer_key= {oauth_consumer_key}, oauth_nonce="WQFRTfd", oauth_signature="...", oauth_signature_method="HMAC-SHA1", oauth_timestamp= {timestamp}, oauth_version="1.0"',
+            'Authorization': f'OAuth oauth_consumer_key= {oauth_consumer_key}, oauth_nonce="WQFRTfd", oauth_signature= {oauth_signature}, oauth_signature_method="HMAC-SHA1", oauth_timestamp= {timestamp}, oauth_version="1.0"',
         }
-    # Incluir la firma en los headers de la solicitud
-    headers2['Authorization'] = headers2['Authorization'].replace('oauth_signature="..."', f'oauth_signature="{oauth_signature}"')
 
     
     responsetoken = requests.request('POST', token_url, headers=headers2, params=paramstoken)
     response_text = responsetoken.text
     response_data = parse_qs(response_text)
-    # oauth_token = response_data['oauth_token'][0]
-    # oauth_token_secret = response_data['oauth_token_secret'][0]
+    #oauth_token = response_data['oauth_token'][0]
+    #oauth_token_secret = response_data['oauth_token_secret'][0]
     print('STAT_CODE_TOKEN_200:', responsetoken.status_code)
     print('Response_Token:', response_text)
     
