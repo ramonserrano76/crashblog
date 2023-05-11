@@ -1,0 +1,33 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}\sphinxhyphen {}General Terms}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}\sphinxhyphen {}License}{2}{chapter.2}%
+\contentsline {chapter}{\numberline {3}\sphinxhyphen {}Definitions and key terms}{3}{chapter.3}%
+\contentsline {chapter}{\numberline {4}\sphinxhyphen {}Restrictions}{4}{chapter.4}%
+\contentsline {chapter}{\numberline {5}\sphinxhyphen {}Payment}{5}{chapter.5}%
+\contentsline {chapter}{\numberline {6}\sphinxhyphen {}Return and Refund Policy}{6}{chapter.6}%
+\contentsline {chapter}{\numberline {7}\sphinxhyphen {}Your Suggestions}{7}{chapter.7}%
+\contentsline {chapter}{\numberline {8}\sphinxhyphen {}Your Consent}{8}{chapter.8}%
+\contentsline {chapter}{\numberline {9}\sphinxhyphen {}Cookies}{9}{chapter.9}%
+\contentsline {chapter}{\numberline {10}\sphinxhyphen {}Changes To Our Terms and Connditions}{10}{chapter.10}%
+\contentsline {chapter}{\numberline {11}\sphinxhyphen {}Modifications to Our service}{11}{chapter.11}%
+\contentsline {chapter}{\numberline {12}\sphinxhyphen {}Third\sphinxhyphen {}Party Services}{12}{chapter.12}%
+\contentsline {chapter}{\numberline {13}\sphinxhyphen {}Term and Termination}{13}{chapter.13}%
+\contentsline {chapter}{\numberline {14}\sphinxhyphen {}Term and Termination}{14}{chapter.14}%
+\contentsline {chapter}{\numberline {15}\sphinxhyphen {}Indemnification}{15}{chapter.15}%
+\contentsline {chapter}{\numberline {16}\sphinxhyphen {}No Warranties}{16}{chapter.16}%
+\contentsline {chapter}{\numberline {17}\sphinxhyphen {}Limitation of Liability}{17}{chapter.17}%
+\contentsline {chapter}{\numberline {18}\sphinxhyphen {}Severability}{18}{chapter.18}%
+\contentsline {chapter}{\numberline {19}\sphinxhyphen {}Waiver}{19}{chapter.19}%
+\contentsline {chapter}{\numberline {20}\sphinxhyphen {}Amendments to this Agreement}{20}{chapter.20}%
+\contentsline {chapter}{\numberline {21}\sphinxhyphen {}Entire Agreement}{21}{chapter.21}%
+\contentsline {chapter}{\numberline {22}\sphinxhyphen {}Updates to Our Terms}{22}{chapter.22}%
+\contentsline {chapter}{\numberline {23}\sphinxhyphen {}Intellectual Property}{23}{chapter.23}%
+\contentsline {chapter}{\numberline {24}\sphinxhyphen {}Agreement to Arbitrate}{24}{chapter.24}%
+\contentsline {chapter}{\numberline {25}\sphinxhyphen {}Notice of Dispute}{25}{chapter.25}%
+\contentsline {chapter}{\numberline {26}\sphinxhyphen {}Binding Arbitration}{26}{chapter.26}%
+\contentsline {chapter}{\numberline {27}\sphinxhyphen {}Submissions and Privacy}{27}{chapter.27}%
+\contentsline {chapter}{\numberline {28}\sphinxhyphen {}Promotions}{28}{chapter.28}%
+\contentsline {chapter}{\numberline {29}\sphinxhyphen {}Typographical Errors}{29}{chapter.29}%
+\contentsline {chapter}{\numberline {30}\sphinxhyphen {}Miscellaneous}{30}{chapter.30}%
+\contentsline {chapter}{\numberline {31}\sphinxhyphen {}Disclaimer}{31}{chapter.31}%
+\contentsline {chapter}{\numberline {32}\sphinxhyphen {}Contact Us}{32}{chapter.32}%
