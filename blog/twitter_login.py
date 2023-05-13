@@ -1,4 +1,6 @@
 import os
+
+from django.forms import SlugField
 from crashblog.settings import BASE_DIR, CLIENT_ID, CLIENT_SECRET, CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET, ACCESS_TOKEN_short
 import tweepy
 import tempfile
@@ -63,7 +65,12 @@ def twitter_login(request):
 
 def handle_resp(request):
     code = request.GET.get('code')
+    
     slug = request.session.get('slug')
+    post = Post.objects.get(slug=slug)    
+    request.session['slug'] = slug
+    
+    
     # Llama a la función twitter_callback()
     return twitter_callback(request, slug, code)
 
