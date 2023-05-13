@@ -128,11 +128,12 @@ def twitter_callback(request, slug, code):
         access_token = response.json()['access_token']
         request.session['access_token'] = access_token
         print('RESPUESTA ACCESS TOKEN:', access_token)
+        print('SE CREÓ EL ACCESS TOKEN EXITOSAMENTE')    
         
-        return post_tweet_with_image(request, slug, access_token)
     else:
         # Mostrar un mensaje de error si la petición no fue exitosa
         return HttpResponse("Error al obtener el access token de twitter")
+    return post_tweet_with_image(request, slug, access_token)
 
 
 def post_tweet_with_image(request, slug, access_token):
