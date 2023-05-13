@@ -78,6 +78,9 @@ def twitter_callback(request, slug, code):
 
     category_slug = request.session.get('category_slug')
     post = Post.objects.get(slug=slug)
+    request.session['slug'] = slug
+    slug = request.session.get('slug')
+    
     # Set up the OAuth 2.0 credentials
     client_id = str(CLIENT_ID)
     client_secret = str(CLIENT_SECRET)
@@ -115,7 +118,8 @@ def twitter_callback(request, slug, code):
     if response.status_code == 200:
         # Try to extract access token from response
         access_token = response.json()['access_token']
-        print('RESPUESTA ACCESS TOKEN:', response.text)
+        request.session['access_token']
+        print('RESPUESTA ACCESS TOKEN:', access_token)
         
         return post_tweet_with_image(request, slug, access_token)
     else:
@@ -127,7 +131,7 @@ def post_tweet_with_image(request, slug, access_token):
 
     # URL para publicar el tweet
     tweet_url = 'https://api.twitter.com/2/tweets'
-    
+    access_token = request.session.get('access_token')
     # Cabeceras para la autenticación con el token de acceso
     headers = {"Authorization": f'Bearer {access_token}',
                "User-Agent": "v2CreateTweetPY",
@@ -139,7 +143,10 @@ def post_tweet_with_image(request, slug, access_token):
                }
 
     # Obtener la URL de la imagen y el objeto POST para acceder al contenido del post
+    category_slug = request.session.get('category_slug')
     post = Post.objects.get(slug=slug)
+    slug = request.session.get('slug')
+
     image_url = request.build_absolute_uri(post.image.url)
 
     # Descargar la imagen desde la URL
@@ -293,5 +300,5 @@ def post_tweet_with_image(request, slug, access_token):
     #     shutil.rmtree(temp_file.name, ignore_errors=True)
         
     # Redirigir al detalle del post
-    category_slug = request.session.get('category_slug')
+    
     return redirect('post_detail', category_slug=category_slug, slug=slug)
