@@ -282,14 +282,14 @@ def post_tweet_with_image(request, slug, access_token):
     timestamp = round(now.timestamp())
     print(timestamp)
     
-    time.sleep(10)
-    try:
-        # Intentar eliminar el archivo
-        os.remove(temp_file.name)
-    except PermissionError:
-        time.sleep(5)
-        # Si ocurre un error de permisos, intentar forzar el borrado con shutil
-        shutil.rmtree(temp_file.name, ignore_errors=True)
+    time.sleep(5)
+    # try:
+    #     # Intentar eliminar el archivo
+    #     os.remove(temp_file.name)
+    # except PermissionError:
+    #     time.sleep(5)
+    #     # Si ocurre un error de permisos, intentar forzar el borrado con shutil
+    #     shutil.rmtree(temp_file.name, ignore_errors=True)
         
     # Redirigir al detalle del post
     category_slug = request.session.get('category_slug')
