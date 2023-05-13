@@ -126,7 +126,7 @@ def twitter_callback(request, slug, code):
     if response.status_code == 200:
         # Try to extract access token from response
         access_token = response.json()['access_token']
-        request.session['access_token']
+        request.session['access_token'] = access_token
         print('RESPUESTA ACCESS TOKEN:', access_token)
         
         return post_tweet_with_image(request, slug, access_token)
