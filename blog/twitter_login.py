@@ -133,6 +133,7 @@ def twitter_callback(request, slug, code):
     else:
         # Mostrar un mensaje de error si la petición no fue exitosa
         return HttpResponse("Error al obtener el access token de twitter")
+    access_token = request.session.get('access_token')
     return post_tweet_with_image(request, slug, access_token)
 
 
@@ -140,7 +141,7 @@ def post_tweet_with_image(request, slug, access_token):
 
     # URL para publicar el tweet
     tweet_url = 'https://api.twitter.com/2/tweets'
-    access_token = request.session.get('access_token')
+    
     # Cabeceras para la autenticación con el token de acceso
     headers = {"Authorization": f'Bearer {access_token}',
                "User-Agent": "v2CreateTweetPY",
@@ -152,10 +153,10 @@ def post_tweet_with_image(request, slug, access_token):
                }
 
     # Obtener la URL de la imagen y el objeto POST para acceder al contenido del post
-    category_slug = request.session.get('category_slug')
+    
     post = Post.objects.get(slug=slug)
     slug = request.session.get('slug')
-
+    category_slug = request.session.get('category_slug')
     image_url = request.build_absolute_uri(post.image.url)
 
     # Descargar la imagen desde la URL
@@ -171,6 +172,7 @@ def post_tweet_with_image(request, slug, access_token):
     file_name_without_ext, file_ext = os.path.splitext(file_name)
 
     # Crear un archivo temporal con el mismo nombre y extensión del archivo original
+    print('CREANDO ARCHIVO TENPORAL Y LO ESCRIBE EN SERVER')
     temp_file = tempfile.NamedTemporaryFile(suffix=file_ext, delete=False)
     temp_file.write(image_bytes)
     temp_file.close()
@@ -193,7 +195,7 @@ def post_tweet_with_image(request, slug, access_token):
     # Autenticar con las credenciales
     # # Ruta de la imagen o video que deseas subir
     absolute_path = os.path.abspath(temp_file.name)
-
+    print('PATH ABSOLUTO')
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
 
