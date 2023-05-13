@@ -153,8 +153,7 @@ ACCESS_TOKEN_SECRET = 'wxCKaPSlaNIoNlw7fj1aPX1nrRPPSj0nK6k2Go0Fv0rId'
 ACCESS_TOKEN_short = '578fb9e220945403aeb3941da1f6747060681a1c'
 
 REDIRECT_URI = 'https://www.blogifyar.pro/redirect_uri/'
-REDIRECT_URI_2 = "https%3A%2F%2Fwww.blogifyar.pro%2Fredirect_uri2%2F"
-REDIRECT_URI_3 = "https://www.blogifyar.pro/redirect_uri2/"
+
 # EMAIL
 #emails
 if not DEBUG:

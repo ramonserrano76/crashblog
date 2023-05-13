@@ -1,5 +1,5 @@
 import os
-from crashblog.settings import BASE_DIR, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI_3, REDIRECT_URI_2, CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET, ACCESS_TOKEN_short
+from crashblog.settings import BASE_DIR, CLIENT_ID, CLIENT_SECRET, CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET, ACCESS_TOKEN_short
 import tweepy
 import tempfile
 import base64
@@ -37,7 +37,7 @@ def twitter_login(request):
     client_id = str(CLIENT_ID)
     client_secret = str(CLIENT_SECRET)
     # str(REDIRECT_URI_3)
-    redirect_uri = "https://www.blogifyar.pro/redirect_uri2/" #"http://127.0.0.1:9000/redirect_uri2/"  
+    redirect_uri ="http://127.0.0.1:9000/redirect_uri2/" #"https://www.blogifyar.pro/redirect_uri2/" #  
     # Define the URL for the authorization endpoint
     authorize_url = "https://twitter.com/i/oauth2/authorize"
     # Define the parameters for the authorization request
@@ -82,7 +82,7 @@ def twitter_callback(request, slug, code):
     client_id = str(CLIENT_ID)
     client_secret = str(CLIENT_SECRET)
     # str(REDIRECT_URI_3)
-    redirect_uri = "https://www.blogifyar.pro/redirect_uri2/" #"http://127.0.0.1:9000/redirect_uri2/" 
+    redirect_uri ="http://127.0.0.1:9000/redirect_uri2/" # str("https://www.blogifyar.pro/redirect_uri2/") # 
 
     # Define the URL for the access token endpoint
     token_url = "https://api.twitter.com/2/oauth2/token"
@@ -282,7 +282,7 @@ def post_tweet_with_image(request, slug, access_token):
     timestamp = round(now.timestamp())
     print(timestamp)
     
-    time.sleep(5)
+    
     # try:
     #     # Intentar eliminar el archivo
     #     os.remove(temp_file.name)
@@ -294,6 +294,3 @@ def post_tweet_with_image(request, slug, access_token):
     # Redirigir al detalle del post
     category_slug = request.session.get('category_slug')
     return redirect('post_detail', category_slug=category_slug, slug=slug)
-
-
-    
