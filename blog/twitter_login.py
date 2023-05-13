@@ -67,9 +67,10 @@ def handle_resp(request):
     code = request.GET.get('code')
     
     slug = request.session.get('slug')
+    category_slug = request.session.get('category_slug')
     post = Post.objects.get(slug=slug)    
     request.session['slug'] = slug
-    
+    request.session['category_slug'] = category_slug
     
     # Llama a la función twitter_callback()
     return twitter_callback(request, slug, code)
