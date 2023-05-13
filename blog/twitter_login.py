@@ -109,7 +109,7 @@ def twitter_callback(request, slug, code):
     # # Send the access token request
     
     # Send request to Twitter API to get access token
-    response = requests.post(token_url, data=params2, headers=headers)
+    response = requests.request('POST', token_url, data=params2, headers=headers)
 
     # Parse the response to get the access token
     if response.status_code == 200:
