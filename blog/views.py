@@ -4,7 +4,7 @@ import secrets
 from django.shortcuts import redirect
 import random
 import string
-from crashblog.settings import DEFAULT_IMAGE_URL, LINKEDIN_CLIENT_ID, LINKEDIN_CLIENT_SECRET, REDIRECT_URI
+from crashblog.settings import DEFAULT_IMAGE_URL, REDIRECT_URI
 from .models import Post, Category
 import os
 from django.conf import settings

@@ -1,3 +1,7 @@
+import os
+from crashblog.settings import BASE_DIR, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI_3, REDIRECT_URI_2, CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET, ACCESS_TOKEN_short
+import tweepy
+import tempfile
 import base64
 import hashlib
 import json
@@ -5,29 +9,35 @@ import random
 import secrets
 from django.shortcuts import redirect
 from .models import Post
-from django.shortcuts import redirect
 from django.http import HttpResponse
 import requests
 import urllib.parse
-from urllib.parse import parse_qs, urlencode
+from urllib.parse import urlencode
 import urllib.request
-import os
-
+from configparser import SafeConfigParser
+import datetime
+from dotenv import load_dotenv
+import time
+import shutil
+dotenv_path = BASE_DIR / 'crashblog' / '.env'
 # SECCION PARA POSTEAR EL TWITTER #
 # Define a function to generate a random code_verifier and its corresponding code_challenge
+
+
 def generate_code_verifier_and_challenge():
     code_verifier = secrets.token_urlsafe(64)
     code_challenge = urllib.parse.quote_plus(base64.urlsafe_b64encode(
         hashlib.sha256(code_verifier.encode('utf-8')).digest()).decode('utf-8'))
     return code_verifier, code_challenge
-
+code_challenge, code_verifier = generate_code_verifier_and_challenge()
 
 def twitter_login(request):
     # Set up the OAuth 2.0 credentials
-    code_challenge, code_verifier = generate_code_verifier_and_challenge()
-    client_id = "Njl1eG1MTkREM1J3UjVzWHBIRTc6MTpjaQ"
-    client_secret = "LXd4FQxX0jVLarw8NStx4gtxGyHaXyk5uCpFxWv2xBHgRB1GhF"
-    redirect_uri = "http://127.0.0.1:9000/redirect_uri2/"
+    
+    client_id = str(CLIENT_ID)
+    client_secret = str(CLIENT_SECRET)
+    # str(REDIRECT_URI_3)
+    redirect_uri = "http://127.0.0.1:9000/redirect_uri2/"  #"https://www.blogifyar.pro/redirect_uri2/"
     # Define the URL for the authorization endpoint
     authorize_url = "https://twitter.com/i/oauth2/authorize"
     # Define the parameters for the authorization request
@@ -69,9 +79,10 @@ def twitter_callback(request, slug, code):
     category_slug = request.session.get('category_slug')
     post = Post.objects.get(slug=slug)
     # Set up the OAuth 2.0 credentials
-    client_id = "Njl1eG1MTkREM1J3UjVzWHBIRTc6MTpjaQ"
-    client_secret = "LXd4FQxX0jVLarw8NStx4gtxGyHaXyk5uCpFxWv2xBHgRB1GhF"
-    redirect_uri = "http://127.0.0.1:9000/redirect_uri2/"
+    client_id = str(CLIENT_ID)
+    client_secret = str(CLIENT_SECRET)
+    # str(REDIRECT_URI_3)
+    redirect_uri = "http://127.0.0.1:9000/redirect_uri2/" # "https://www.blogifyar.pro/redirect_uri2/"
 
     # Define the URL for the access token endpoint
     token_url = "https://api.twitter.com/2/oauth2/token"
@@ -95,7 +106,7 @@ def twitter_callback(request, slug, code):
         'Content-Type': 'application/x-www-form-urlencoded'
     }
     # # Send the access token request
-    # response = requests.post(token_url, data=params2, headers=headers)
+    
     # Send request to Twitter API to get access token
     response = requests.post(token_url, data=params2, headers=headers)
 
@@ -104,8 +115,7 @@ def twitter_callback(request, slug, code):
         # Try to extract access token from response
         access_token = response.json()['access_token']
         print('RESPUESTA ACCESS TOKEN:', response.text)
-        # Parse the response to extract the access token
-        # access_token = response.json()["access_token"]
+        
         return post_tweet_with_image(request, slug, access_token)
     else:
         # Mostrar un mensaje de error si la petición no fue exitosa
@@ -126,8 +136,8 @@ def post_tweet_with_image(request, slug, access_token):
                "Accept": "*/*",
                "Connection": "keep-alive",
                }
-    
-    # Obtener la URL de la imagen
+
+    # Obtener la URL de la imagen y el objeto POST para acceder al contenido del post
     post = Post.objects.get(slug=slug)
     image_url = request.build_absolute_uri(post.image.url)
 
@@ -138,78 +148,103 @@ def post_tweet_with_image(request, slug, access_token):
     image_bytes = responseup.content
     total_bytes = len(image_bytes)
     print('total_bytes:', total_bytes)
+
+    # Obtener el nombre y extensión del archivo original
     file_name = os.path.basename(post.image.name)
-    print('IMAGEN:', file_name)
-    import datetime
-    # Obtener el objeto datetime actual
-    now = datetime.datetime.now()
-    # Obtener el timestamp actual en segundos
-    timestamp = now.timestamp()
-    print(timestamp)
-    oauth_consumer_key = "ogKdSKDeBi1oiUtB8LZCnYzkw"
-        
-    # URL para obtener oauth_token
-    token_url = 'https://api.twitter.com/oauth/request_token'
-    paramstoken = {
-        'oauth_callback': redirect_uri
-    }
-    headers2 = {
-        'Authorization': f'OAuth oauth_consumer_key= {oauth_consumer_key}, oauth_nonce="WQFRTfd", oauth_signature="rb4pNpvOeDPzRXrXqn6KIRFBh9g%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp= {timestamp}, oauth_version="1.0"',
-    }
-    responsetoken = requests.request('POST', token_url, headers=headers2, params=paramstoken)
-    response_text = responsetoken.text
-    response_data = parse_qs(response_text)
-    #oauth_token = response_data['oauth_token'][0]
-    #oauth_token_secret = response_data['oauth_token_secret'][0]
-    print('STAT_CODE_TOKEN_200:', responsetoken.status_code)
-    print('Response_Token:', response_text)
+    file_name_without_ext, file_ext = os.path.splitext(file_name)
+
+    # Crear un archivo temporal con el mismo nombre y extensión del archivo original
+    temp_file = tempfile.NamedTemporaryFile(suffix=file_ext, delete=False)
+    temp_file.write(image_bytes)
+    temp_file.close()
+
+    print('NOMBRE DE IMAGEN:', temp_file.name)
+
+    # Obtener el media_type según la extensión del archivo
+    if file_ext.startswith("."):
+        file_ext = file_ext[1:]  # Eliminar el punto inicial si existe
+
+    # Utilizar la extensión del archivo en el parámetro media_type
+    media_type = f"image/{file_ext}"
+
+    # Configurar las credenciales de acceso a la API de Twitter
+    consumer_key = str(CONSUMER_KEY)
+    consumer_secret = str(CONSUMER_SECRET)
+    access_token = str(ACCESS_TOKEN)
+    access_token_secret = str(ACCESS_TOKEN_SECRET)
+
+    # Autenticar con las credenciales
+    # # Ruta de la imagen o video que deseas subir
+    absolute_path = os.path.abspath(temp_file.name)
+
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+
+    # Crear una instancia de la API de Twitter
+    api = tweepy.API(auth)
     
-    # URL para cargar la imagen   
-    # upload_url = 'https://upload.twitter.com/1.1/media/upload.json'
-    # headers3 = {
-    #     'Authorization': f'OAuth oauth_consumer_key= {oauth_consumer_key}, oauth_token={oauth_token}, oauth_signature_method="HMAC-SHA1", oauth_timestamp= {timestamp}, oauth_nonce="WQFRTfd",oauth_version="1.0", oauth_callback={redirect_uri}, oauth_signature="rb4pNpvOeDPzRXrXqn6KIRFBh9g%3D"',
-    #     'Content-Type': 'multipart/form-data',
-    #     'Content-Length': f'{total_bytes}',
-    #     'media_type': 'image/jpeg',
-    #     'media_category': 'tweet_image'
-    # }
+    # Ruta del archivo de imagen a subir
+    image_path = absolute_path
+    file = open(image_path, 'rb')
+    # Subir la imagen a Twitter
+    media = api.media_upload(filename=image_path, file=file)
+    if media is not None:
+        media_ids = [media.media_id_string]
+    else:
+    # Manejo del caso cuando media es None
+        media_ids = []    
+    # Obtener el media_id de la imagen subida
+    media_id = str(media_ids[0])
+    # Imprimir el media_id
+    print('MEDIA_ID:', media_id)
+    #api.update_status(status="Test Tweet", media_ids=media_ids)
     
-    # # Obtener la URL de la imagen
-    # post = Post.objects.get(slug=slug)
-    # image_url = request.build_absolute_uri(post.image.url)
+    # Función para acortar el enlace utilizando Bitly
+    def shorten_url(url):
+        # Reemplaza con tu access token de Bitly
+        ACCESS_TOKEN_SHORT = str(ACCESS_TOKEN_short)
+        api_url = f'https://api-ssl.bitly.com/v4/shorten'
 
-    # # Descargar la imagen desde la URL
-    # responseup = requests.get(image_url)
+        headers = {
+            'Authorization': f'Bearer {ACCESS_TOKEN_SHORT}',
+            'Content-Type': 'application/json'
+        }
 
-    # # Obtener los bytes de la imagen
-    # image_bytes = responseup.content
-    # total_bytes = len(image_bytes)
-    # print('total_bytes:', total_bytes)
-    # file_name = os.path.basename(post.image.name)
-    # print('IMAGEN:', file_name)
-    # # Cargar la imagen en Twitter
-    # files = {
-    #     'media': (file_name, image_bytes, 'image/png')
-    # }
+        payload = {
+            'long_url': url
+        }
+
+        response = requests.request('POST', api_url, headers=headers, json=payload)
+        data = response.json()
+
+        if 'id' in data:
+            return data['id']
+        else:
+            return url
+
+
+    # Longitud máxima permitida para el mensaje de Twitter
+    MAX_TWEET_LENGTH = 280
+
+    # Acortar el enlace original con Bitly
+    # Obtener la URL completa del post
+    url = request.build_absolute_uri(post.get_absolute_url())
+
+    # Verificar si la URL comienza con 'http://127.0.0.1:9000'
+    if url.startswith('http://127.0.0.1:9000'):
+        # Reemplazar la parte inicial de la URL por 'https://www.blogifyar.pro'
+        url = 'https://www.blogifyar.pro' + url[len('http://127.0.0.1:9000'):]
+
+    shortened_url = str(shorten_url(url))
+    print('SHORTEN URL:', shortened_url)
+    # Acortar el título si excede la longitud máxima
+    # Obtener el título acortado del post
+    shortened_title = post.title[:MAX_TWEET_LENGTH - len(shortened_url) - 3] + '...' if len(
+    post.title) > MAX_TWEET_LENGTH - len(shortened_url) - 3 else post.title
+
+    # Crear el texto del tweet
+    tweet_text = f'{shortened_title} | {shortened_url}'    
     
-    # payload2 = files
-    # media_response = requests.request('POST', upload_url, headers=headers3, data=payload2)
-    # response_json = media_response.text
-    # status_code = media_response.status_code
-    # print('STATUS_CODE:', status_code)
-    # print('Response UPLOAD:', response_json)
-    # file = {'command': 'INIT',
-    #         'total_bytes': f'{total_bytes}',
-    #         'media_type': 'image/jpeg',
-    #         'media_category': 'tweet_image'
-    #         }
-
-    # media_id = media_response.json()['media_id']
-    # print('MEDIA_ID:', media_id)
-
-    # # Tweet con imagen
-    # tweet_text = f'{ post.title } ' + '| ' + str(request.build_absolute_uri(post.get_absolute_url()))
-
     # Parámetros del tweet
     palabras = ['hola', 'adios', 'buenos dias',
                 'buenas tardes', 'buenas noches']
@@ -218,29 +253,47 @@ def post_tweet_with_image(request, slug, access_token):
 
     palabra_aleatoria = random.choice(palabras)
     frase_aleatoria = random.choice(frases)
-    tweet_text = f'{palabra_aleatoria} {frase_aleatoria}'
+    tweet_text1 = f'{palabra_aleatoria} {frase_aleatoria}'
     # with open('archivo.json', 'r') as f:
     #     data2 = json.load(f)
+    # "text": f"{palabra_aleatoria} {frase_aleatoria}"
     data2 = {
-        "text": f"{palabra_aleatoria} {frase_aleatoria}"
+        "text": tweet_text, "media": {
+            "media_ids": [media_id]}
+        
     }
     payload = json.dumps(data2)
     print('FileType:', type(payload))
 
     # Publicar el tweet
-    tweet_response = requests.request(
-        "POST", tweet_url, headers=headers, data=payload)
+    tweet_response = requests.request("POST", tweet_url, headers=headers, data=payload)
     print(tweet_response.text)
     # Comprobar la respuesta del tweet
     if tweet_response.status_code == 201:
         print('El tweet se ha publicado correctamente.')
+        # Eliminar el archivo temporal cuando hayas terminado de usarlo
+        
     else:
         print(f'Error al publicar el tweet: {tweet_response.text}')
 
+    # Obtener el objeto datetime actual
+    now = datetime.datetime.now()
+    # Obtener el timestamp actual en segundos
+    timestamp = round(now.timestamp())
+    print(timestamp)
+    
+    time.sleep(10)
+    try:
+        # Intentar eliminar el archivo
+        os.remove(temp_file.name)
+    except PermissionError:
+        time.sleep(5)
+        # Si ocurre un error de permisos, intentar forzar el borrado con shutil
+        shutil.rmtree(temp_file.name, ignore_errors=True)
+        
     # Redirigir al detalle del post
     category_slug = request.session.get('category_slug')
     return redirect('post_detail', category_slug=category_slug, slug=slug)
 
 
-
-
+    

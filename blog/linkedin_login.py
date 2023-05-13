@@ -1,7 +1,7 @@
 from django.shortcuts import redirect
 import random
 import string
-from crashblog.settings import DEFAULT_IMAGE_URL, LINKEDIN_CLIENT_ID, LINKEDIN_CLIENT_SECRET, REDIRECT_URI
+from crashblog.settings import BASE_DIR, DEFAULT_IMAGE_URL, REDIRECT_URI, LINKEDIN_CLIENT_ID, LINKEDIN_CLIENT_SECRET
 from .models import Post
 import os
 from django.shortcuts import redirect
@@ -12,7 +12,8 @@ from django.contrib import messages
 import urllib.parse
 from urllib.parse import urlencode, urlparse
 import urllib.request
-
+from dotenv import load_dotenv
+dotenv_path = BASE_DIR / 'crashblog' / '.env'
 
 def create_CSRF_token():
     '''
