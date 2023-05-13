@@ -21,11 +21,4 @@ urllib3==1.26.15
 pip==23.1.2
 setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
 tweepy
-datetime
-hashlib
-base64
-json
-random
-secrets
-os
 python-dotenv
