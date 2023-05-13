@@ -82,8 +82,8 @@ def twitter_callback(request, slug, code):
     client_id = str(CLIENT_ID)
     client_secret = str(CLIENT_SECRET)
     # str(REDIRECT_URI_3)
-    # str("https://www.blogifyar.pro/redirect_uri2/") #
-    redirect_uri = "http://127.0.0.1:9000/redirect_uri2/"
+    # str() # "http://127.0.0.1:9000/redirect_uri2/"
+    redirect_uri = "https://www.blogifyar.pro/redirect_uri2/"
 
     # Define the URL for the access token endpoint
     token_url = "https://api.twitter.com/2/oauth2/token"
