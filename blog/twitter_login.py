@@ -37,7 +37,7 @@ def twitter_login(request):
     client_id = str(CLIENT_ID)
     client_secret = str(CLIENT_SECRET)
     # str(REDIRECT_URI_3)
-    redirect_uri ="http://127.0.0.1:9000/redirect_uri2/" #"https://www.blogifyar.pro/redirect_uri2/" #  
+    redirect_uri = "https://www.blogifyar.pro/redirect_uri2/" #"http://127.0.0.1:9000/redirect_uri2/" # #  
     # Define the URL for the authorization endpoint
     authorize_url = "https://twitter.com/i/oauth2/authorize"
     # Define the parameters for the authorization request
@@ -82,7 +82,8 @@ def twitter_callback(request, slug, code):
     client_id = str(CLIENT_ID)
     client_secret = str(CLIENT_SECRET)
     # str(REDIRECT_URI_3)
-    redirect_uri ="http://127.0.0.1:9000/redirect_uri2/" # str("https://www.blogifyar.pro/redirect_uri2/") # 
+    # str("https://www.blogifyar.pro/redirect_uri2/") #
+    redirect_uri = "http://127.0.0.1:9000/redirect_uri2/"
 
     # Define the URL for the access token endpoint
     token_url = "https://api.twitter.com/2/oauth2/token"
@@ -126,7 +127,7 @@ def post_tweet_with_image(request, slug, access_token):
 
     # URL para publicar el tweet
     tweet_url = 'https://api.twitter.com/2/tweets'
-    redirect_uri = "http%3A%2F%2F127.0.0.1%3A9000%2Fredirect_uri2%2F"
+    
     # Cabeceras para la autenticación con el token de acceso
     headers = {"Authorization": f'Bearer {access_token}',
                "User-Agent": "v2CreateTweetPY",
