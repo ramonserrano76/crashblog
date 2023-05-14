@@ -38,8 +38,12 @@ def twitter_login(request):
     
     client_id = str(CLIENT_ID)
     client_secret = str(CLIENT_SECRET)
-    # str(REDIRECT_URI_3)
-    redirect_uri = "https://www.blogifyar.pro/redirect_uri2/" #"http://127.0.0.1:9000/redirect_uri2/" # #  
+    
+    if "https://www.blogifyar.pro" in request.build_absolute_uri() or "https://blogifyar.onrender.com" in request.build_absolute_uri():
+        redirect_uri = "https://www.blogifyar.pro/redirect_uri2/"
+    else:
+        redirect_uri = "http://127.0.0.1:9000/redirect_uri2/"
+
     # Define the URL for the authorization endpoint
     authorize_url = "https://twitter.com/i/oauth2/authorize"
     # Define the parameters for the authorization request
@@ -64,11 +68,10 @@ def twitter_login(request):
 
 
 def handle_resp(request):
-    code = request.GET.get('code')
-    
+    code = request.GET.get('code')    
     slug = request.session.get('slug')
+    post = Post.objects.get(slug=slug)
     category_slug = request.session.get('category_slug')
-    post = Post.objects.get(slug=slug)    
     request.session['slug'] = slug
     request.session['category_slug'] = category_slug
     
@@ -93,8 +96,8 @@ def twitter_callback(request, slug, code):
     client_id = str(CLIENT_ID)
     client_secret = str(CLIENT_SECRET)
     # str(REDIRECT_URI_3)
-    # str() # "http://127.0.0.1:9000/redirect_uri2/"
-    redirect_uri = "https://www.blogifyar.pro/redirect_uri2/"
+    # str() # 
+    redirect_uri = "http://127.0.0.1:9000/redirect_uri2/"  #"https://www.blogifyar.pro/redirect_uri2/"
 
     # Define the URL for the access token endpoint
     token_url = "https://api.twitter.com/2/oauth2/token"
@@ -138,7 +141,7 @@ def twitter_callback(request, slug, code):
 
 
 def post_tweet_with_image(request, slug, access_token):
-
+    print('ENTRANDO EN LA FUNCION DE POST TWEET')
     # URL para publicar el tweet
     tweet_url = 'https://api.twitter.com/2/tweets'
     
@@ -158,7 +161,7 @@ def post_tweet_with_image(request, slug, access_token):
     slug = request.session.get('slug')
     category_slug = request.session.get('category_slug')
     image_url = request.build_absolute_uri(post.image.url)
-
+    print('A PUNTO DE DESCARGAR LA IMAGEN')
     # Descargar la imagen desde la URL
     responseup = requests.get(image_url)
 
