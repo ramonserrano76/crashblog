@@ -21,6 +21,7 @@ import datetime
 from dotenv import load_dotenv
 import time
 import shutil
+from django.core.files.base import ContentFile
 dotenv_path = BASE_DIR / 'crashblog' / '.env'
 # SECCION PARA POSTEAR EL TWITTER #
 # Define a function to generate a random code_verifier and its corresponding code_challenge
@@ -182,13 +183,13 @@ def post_tweet_with_image(request, slug, access_token):
     file_name = os.path.basename(post.image.name)
     file_name_without_ext, file_ext = os.path.splitext(file_name)
 
-    # Crear un archivo temporal con el mismo nombre y extensión del archivo original
-    print('CREANDO ARCHIVO TENPORAL Y LO ESCRIBE EN SERVER')
-    temp_file = tempfile.NamedTemporaryFile(suffix=file_ext, delete=False)
-    temp_file.write(image_bytes)
-    temp_file.close()
+    # # Crear un archivo temporal con el mismo nombre y extensión del archivo original
+    # print('CREANDO ARCHIVO TENPORAL Y LO ESCRIBE EN SERVER')
+    # temp_file = tempfile.NamedTemporaryFile(suffix=file_ext, delete=False)
+    # temp_file.write(image_bytes)
+    # temp_file.close()
 
-    print('NOMBRE DE IMAGEN:', temp_file.name)
+    print('NOMBRE DE IMAGEN:', image_file.name)
 
     # Obtener el media_type según la extensión del archivo
     if file_ext.startswith("."):
@@ -205,7 +206,7 @@ def post_tweet_with_image(request, slug, access_token):
 
     # Autenticar con las credenciales
     # # Ruta de la imagen o video que deseas subir
-    absolute_path = os.path.abspath(temp_file.name)
+    absolute_path = os.path.abspath(image_file.name)
     print('PATH ABSOLUTO')
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
