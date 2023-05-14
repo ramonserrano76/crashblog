@@ -80,7 +80,7 @@ def handle_resp(request):
 
 
 def twitter_callback(request, slug, code):
-
+    print('ENTRO EN LA FUNCION PARA OBTENER EL ACCESS TOKEN')
     # Retrieve the authorization code from the callback URL
     code = request.GET.get('code')
     print("RESPUESTA CODE", code)
@@ -97,7 +97,10 @@ def twitter_callback(request, slug, code):
     client_secret = str(CLIENT_SECRET)
     # str(REDIRECT_URI_3)
     # str() # 
-    redirect_uri = "http://127.0.0.1:9000/redirect_uri2/"  #"https://www.blogifyar.pro/redirect_uri2/"
+    if "https://www.blogifyar.pro" in request.build_absolute_uri() or "https://blogifyar.onrender.com" in request.build_absolute_uri():
+        redirect_uri = "https://www.blogifyar.pro/redirect_uri2/"
+    else:
+        redirect_uri = "http://127.0.0.1:9000/redirect_uri2/"
 
     # Define the URL for the access token endpoint
     token_url = "https://api.twitter.com/2/oauth2/token"
