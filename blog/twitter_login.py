@@ -166,12 +166,17 @@ def post_tweet_with_image(request, slug, access_token):
     image_url = request.build_absolute_uri(post.image.url)
     print('A PUNTO DE DESCARGAR LA IMAGEN')
     # Descargar la imagen desde la URL
-    responseup = requests.get(image_url)
+    # responseup = requests.get(image_url)
+    # Obtener el archivo de imagen
+    image_file = post.image
 
     # Obtener los bytes de la imagen
-    image_bytes = responseup.content
+    image_bytes = image_file.read()
     total_bytes = len(image_bytes)
     print('total_bytes:', total_bytes)
+    # image_bytes = responseup.content
+    # total_bytes = len(image_bytes)
+    # print('total_bytes:', total_bytes)
 
     # Obtener el nombre y extensión del archivo original
     file_name = os.path.basename(post.image.name)
