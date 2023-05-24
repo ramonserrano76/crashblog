@@ -1,4 +1,5 @@
 {
     "python.analysis.typeCheckingMode": "basic",
-    "esbonio.sphinx.confDir": ""
+    "esbonio.sphinx.confDir": "${workspaceFolder}\\my-venv\\Lib\\site-packages\\django\\urls",
+    "iis.configDir": ""
 }

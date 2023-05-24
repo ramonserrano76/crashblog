@@ -1,7 +1,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.utils.text import slugify
-
+from django.core.validators import URLValidator
 
 class Category(models.Model):
     
@@ -27,7 +27,7 @@ class Post(models.Model):
         (DRAFT, 'Draft')
     )
 
-    category = models.ForeignKey(Category, related_name='posts', verbose_name="Category", on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, related_name='posts', verbose_name='Category', on_delete=models.CASCADE)
     title = models.CharField(max_length=400, verbose_name="Title")    
     slug = models.SlugField(unique=True, blank=True)           
     intro = models.TextField(verbose_name="intro", max_length=20000)
@@ -36,6 +36,8 @@ class Post(models.Model):
     image = models.ImageField(upload_to='uploads/', verbose_name="Image", blank=True, )
     clip = models.FileField(upload_to='uploads/%Y/%m/%d/',
                             verbose_name="Clip", blank=True, )
+    remote_image_url = models.URLField(blank=True, validators=[URLValidator()])
+    remote_clip_url = models.URLField(blank=True, validators=[URLValidator()])
     created_at = models.DateTimeField(auto_now_add=True)
     
         
@@ -50,9 +52,19 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):  # new
         if not self.slug:
-            self.slug = slugify(self.title)
+            base_slug = slugify(self.title)
+            self.slug = self.generate_unique_slug(base_slug)
         return super().save(*args, **kwargs)
-        
+
+    def generate_unique_slug(self, base_slug):
+        slug = base_slug
+        suffix = 1
+
+        while Post.objects.filter(slug=slug).exists():
+            slug = f"{base_slug}-{suffix}"
+            suffix += 1
+
+        return slug
     # def delete_post(self, slug=None, using=None, keep_parents=False):
     #     if self.image:
     #         self.image.storage.delete(self.image.name)  # borrado fisico

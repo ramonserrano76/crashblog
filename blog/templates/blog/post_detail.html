@@ -1,174 +1,242 @@
 {% extends "core/base.html" %}
-{% if request.user.is_staff %}
-    {% include "blog/includes/post_menu.html" %}
+{% if request.user.is_staff %} 
+{% include "blog/includes/post_menu.html" %}
 {% endif %}
-{% block content %}
-    {% block title %}
-        | <p class="text-dark font-weight-bold d-inline">{{ post.title }}</p> | <a href="{% url 'frontpage' %}" class="span text-light font-weight-bold">Volver</a> |
-    {% endblock title %}
-    <section class="hero">
-        <div class="hero-body">
-            <div class="container">
-                <section class="section">
-                    <div class="row">
-                        <div class="col-8 mx-auto">
-                            {% if post.image %}
-                                <figure class="image mb-6">
-                                    <img src="{{ post.image.url }}"
-                                         alt="imagen"
-                                         width="720"
-                                         height="480"
-                                         class="rounded mx-auto d-block img-fluid">
-                                </figure>
-                            {% else %}
-                            {% endif %}
-                            {% if post.clip %}
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <video class="video" controls width="720" height="480">
-                                        <source src="{{ post.clip.url }}" type="video/webm">
-                                        <a href="{{ post.clip.url }}">Ver/Descargar Video</a>
-                                    </video>
-                                </div>
-                            {% else %}
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 mx-auto bg-light">
-                            <div class="content is-medium">
-                                <h2 class="subtitle is-4">hace {{ post.created_at|timesince }}</h2>
-                                <h1 class="title">{{ post.title }}</h1>
-                                <p>
-                                    <strong>{{ post.intro }}</strong>
-                                </p>
-                                <p class="text-left">{{ post.body|safe }}</p>
-                                {% if request.user.is_staff %}
-                                    <br>
-                                    <div id="is-relative">
-                                        <p>
-                                            <a class="btn btn-lg btn-outline-primary font-weight-bold"
-                                               href="#"
-                                               data-toggle="modal"
-                                               data-target="#socialSharingModal">
-                                                <i class="fas fa-share-alt fa-lg"> </i>  Social Media Share  </a>
-                                        </p>
-                                    </div>
-                                {% endif %}
-                                <p>
-                                    <a class="btn btn-clipboard btn-outline-primary btn-sm font-weight-bold"
-                                       href="{% url 'frontpage' %}"
-                                       role="button"
-                                       value="go back"><i class="fa-solid fa-arrow-left"></i> <b>Volver</b></a>
-                                    {% if request.user.is_staff %}
-                                    <a class="btn btn-clipboard btn-outline-info btn-sm font-weight-bold"
-                                       href="{% url 'update' post.slug %}"
-                                       role="button"
-                                       value="edit post"><i class="fa-solid fa-pencil"></i>
-                                    <b>Editar</b></a>
-                                <a class="btn btn-clipboard btn-outline-danger btn-sm font-weight-bold"
-                                   href="{% url 'delete' post.slug %}"
-                                   role="button"
-                                   value="delete post"><i class="fa-regular fa-trash-can"></i> <b>Borrar</b></a>
-                            </p>
-                        {% endif %}
-                        <p>
-                            <small><b>Category:</b> <a class="btn btn-clipboard btn-outline-dark btn-sm font-weight-bold"
-    href="{% url 'category_detail' post.category.slug %}"
-    role="button"
-    value="filter category"><i class="fa-solid fa-filter"></i> <b>{{ post.category }}</b></a></small>
-                        </p>
-                        <hr>
-                        <h2 class="subtitle is-4">Comments</h2>
-                        {% if request.user.is_authenticated %}
-                            <form method="post" class="mb-6">
-                                <div class="mx-auto">
-                                    {% csrf_token %}
-                                    {{ form.as_p }}
-                                </div>
-                                <div class="field">
-                                    <div class="control">
-                                        <button class="btn btn-outline-success font-weight-bold"
-                                                role="button"
-                                                value="send comment">
-                                            <i class="fa-regular fa-comment-dots"></i>
-                                            <b>Enviar comentario</b>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        {% endif %}
-                        {% for comment in post.comments.all %}
-                            <article class="media box">
-                                <div class="media-content mx-auto">
-                                    <strong>{{ comment.name }}</strong> <small>{{ comment.created_at|timesince }} ago</small>
-                                    <br>
-                                    {{ comment.body }}
-                                </div>
-                            </article>
-                        {% endfor %}
-                    </div>
-                </div>
+{% block content %} 
+{% block title %}
+<p class="text-dark font-weight-bold d-inline mx-2">{{ post.title }}</p>
+<a href="{% url 'frontpage' %}" class="span text-light font-weight-bold mx-2">Volver</a>
+{% endblock title %}
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <section class="section">
+        <div class="row">
+          <div class="col-8 mx-auto">
+            {% if post.image %}
+            <figure class="image mb-6">
+              <img
+                src="{{ post.image.url }}"
+                alt="imagen"
+                width="720"
+                height="480"
+                class="rounded mx-auto d-block img-fluid"
+              />
+            </figure>
+            {% elif post.remote_image_url %}
+            <figure class="image mb-6">
+              <img
+                src="{{ post.remote_image_url }}"
+                alt="imagen"
+                width="720"
+                height="480"
+                class="rounded mx-auto d-block img-fluid"
+              />
+            </figure>
+            {% else %} {% endif %} {% if post.clip %}
+            <div class="embed-responsive embed-responsive-16by9 mb-6">
+              <video
+                id="myVideo"
+                class="video"
+                controls
+                width="720"
+                height="480"
+                autoplay
+                loop
+              >
+                <source src="{{ post.clip.url }}" type="video/webm" />
+                <source src="{{ post.clip.url }}" type="video/mp4" />
+                <a class="mt-3" href="{{ post.clip.url }}"
+                  >Ver/Descargar Video</a
+                >
+              </video>
             </div>
-        </section>
+            {% elif post.remote_clip_url %}
+            <div class="embed-responsive embed-responsive-16by9 mb-6">
+              <video
+                id="myVideo"
+                class="video"
+                controls
+                width="720"
+                height="480"
+                autoplay
+                loop
+              >
+                <source src="{{ post.remote_clip_url }}" type="video/webm" />
+                <source src="{{ post.remote_clip_url }}" type="video/mp4" />
+                <a class="mt-3" href="{{ post.remote_clip_url }}"
+                  >Ver/Descargar Video</a
+                >
+              </video>
+            </div>
+            {% else %} {% endif %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 mx-auto bg-light">
+            <div class="content is-medium">
+              <h2 class="subtitle is-4">
+                hace {{ post.created_at|timesince }}
+              </h2>
+              <h1 class="title">{{ post.title }}</h1>
+              <p>
+                <strong>{{ post.intro }}</strong>
+              </p>
+              <p class="text-left">{{ post.body|safe }}</p>
+              {% if request.user.is_staff %}
+              <br />
+              <div id="is-relative">
+                <p>
+                  <a
+                    class="btn btn-lg btn-outline-primary font-weight-bold"
+                    href="#"
+                    data-toggle="modal"
+                    data-target="#socialSharingModal"
+                  >
+                    <i class="fas fa-share-alt fa-lg"> </i> Social Media Share
+                  </a>
+                </p>
+              </div>
+              {% endif %}
+              <p>
+                <a
+                  class="btn btn-clipboard btn-outline-primary btn-sm font-weight-bold"
+                  href="{% url 'frontpage' %}"
+                  role="button"
+                  value="go back"
+                  ><i class="fa-solid fa-arrow-left"></i> <b>Volver</b></a
+                >
+                {% if request.user.is_staff %}
+                <a
+                  class="btn btn-clipboard btn-outline-info btn-sm font-weight-bold"
+                  href="{% url 'update' post.slug %}"
+                  role="button"
+                  value="edit post"
+                  ><i class="fa-solid fa-pencil"></i> <b>Editar</b></a
+                >
+                <a
+                  class="btn btn-clipboard btn-outline-danger btn-sm font-weight-bold"
+                  href="{% url 'delete' post.slug %}"
+                  role="button"
+                  value="delete post"
+                  ><i class="fa-regular fa-trash-can"></i> <b>Borrar</b></a
+                >
+              </p>
+              {% endif %}
+              <p>
+                <small
+                  ><b>Category:</b>
+                  <a
+                    class="btn btn-clipboard btn-outline-dark btn-sm font-weight-bold"
+                    href="{% url 'category_detail' post.category.slug %}"
+                    role="button"
+                    value="filter category"
+                    ><i class="fa-solid fa-filter"></i>
+                    <b>{{ post.category }}</b></a
+                  ></small
+                >
+              </p>
+              <hr />
+              <h2 class="subtitle is-4">Comments</h2>
+              {% if request.user.is_authenticated %}
+              <form method="post" class="mb-6">
+                <div class="mx-auto">{% csrf_token %} {{ form.as_p }}</div>
+                <div class="field">
+                  <div class="control">
+                    <button
+                      class="btn btn-outline-success font-weight-bold"
+                      role="button"
+                      value="send comment"
+                    >
+                      <i class="fa-regular fa-comment-dots"></i>
+                      <b>Enviar comentario</b>
+                    </button>
+                  </div>
+                </div>
+              </form>
+              {% endif %} {% for comment in post.comments.all %}
+              <article class="media box">
+                <div class="media-content mx-auto">
+                  <strong>{{ comment.name }}</strong>
+                  <small>{{ comment.created_at|timesince }} ago</small>
+                  <br />
+                  {{ comment.body }}
+                </div>
+              </article>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-</div>
+  </div>
 </section>
 {% comment %} {% block js %}
-    <script>
-        $(document).ready(function () {
-            $('.btn-clipboard').tooltip({
-                trigger: 'click',
-                placement: 'bottom'
-            });
-            function setTooltip(btn, message) {
-                $(btn).tooltip('hide')
-                    .attr('data-original-title', message)
-                    .tooltip('show');
-            }
-            function hideTooltip(btn) {
-                setTimeout(function () {
-                    $(btn).tooltip('hide');
-                }, 1000);
-            }
-            var clipboard = new ClipboardJS('.btn-clipboard');
-            clipboard.on('success', function (e) {
-                setTooltip(e.trigger, 'Copiado!');
-                hideTooltip(e.trigger);
-            });
-            clipboard.on('error', function (e) {
-                setTooltip(e.trigger, 'Fallo al copiar!');
-                hideTooltip(e.trigger);
-            });
-        });
+<script>
+  $(document).ready(function () {
+    $(".btn-clipboard").tooltip({
+      trigger: "click",
+      placement: "bottom",
+    });
+    function setTooltip(btn, message) {
+      $(btn)
+        .tooltip("hide")
+        .attr("data-original-title", message)
+        .tooltip("show");
+    }
+    function hideTooltip(btn) {
+      setTimeout(function () {
+        $(btn).tooltip("hide");
+      }, 1000);
+    }
+    var clipboard = new ClipboardJS(".btn-clipboard");
+    clipboard.on("success", function (e) {
+      setTooltip(e.trigger, "Copiado!");
+      hideTooltip(e.trigger);
+    });
+    clipboard.on("error", function (e) {
+      setTooltip(e.trigger, "Fallo al copiar!");
+      hideTooltip(e.trigger);
+    });
+  });
 </script>
 {% endblock js %} {% endcomment %}
 <div class="modal" id="socialSharingModal">
-    {% if messages %}
-        <script>{% for message in messages %} toastr["{{ message.tags }}"]("{{ message }}"); {% endfor %}</script>
-    {% endif %}
-    <div class="modal-dialog bg-dark">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Compartir publicación</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">x</span>
-                </button>
-            </div>
-            <div class="modal-body text-center">
-                <a href="{% url 'login_linkedin' %}" class="btn btn-outline-primary">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-                <a href="{% url 'login_linkedin' %}" class="btn btn-outline-danger">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="{% url 'login_linkedin' %}" class="btn btn-outline-primary">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </a>
-                <a href="{% url 'twitter_login' %}" class="btn btn-outline-info">
-                    <i class="fa-brands fa-twitter"></i>
-                </a>
-            </div>
-        </div>
+  {% if messages %}
+  <script>
+    {% for message in messages %}
+    toastr["{{ message.tags }}"]("{{ message }}");
+    {% endfor %}
+  </script>
+  {% endif %}
+  <div class="modal-dialog bg-dark">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Compartir publicación</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">x</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <a href="{% url 'login_linkedin' %}" class="btn btn-outline-primary">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="{% url 'instagram_login' %}" class="btn btn-outline-danger">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="{% url 'login_linkedin' %}" class="btn btn-outline-primary">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="{% url 'twitter_login' %}" class="btn btn-outline-info">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </div>
     </div>
+  </div>
 </div>
 {% endblock content %}
