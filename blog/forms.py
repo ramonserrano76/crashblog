@@ -34,8 +34,7 @@ class PostForm(forms.ModelForm):
     
     class Meta:
         model = Post
-        fields = ['category', 'title', 'intro', 'body', 'status',
-                  'image', 'clip', 'remote_image_url', 'remote_clip_url']
+        fields = ['category', 'title', 'intro', 'body', 'status', 'image', 'clip']
         
         # image = forms.FileField(label='image', help_text="Formats accepted: JPEG nd PNG", required=False, validators=[FileTypeValidator(allowed_types=['image/jpeg', 'image/png'])])
         # clip = forms.FileField(label='clip', help_text="Formats accepted: JPG nd WEBM", required=False, validators=[FileTypeValidator(allowed_types=['video/mp4', 'video/webm'])])
@@ -46,7 +45,7 @@ class PostForm(forms.ModelForm):
             'clip': forms.ClearableFileInput(attrs={'class ': 'form-control-file mt-3'}),                        
             }
         labels = {
-            'category': 'category', 'title': 'Title', 'slug': 'Slug', 'intro': 'Intro', 'body': 'Body', 'status': 'Status', 'image': 'Image', 'clip': 'Clip', 'image': 'Image', 'clip': 'Clip'
+            'category': 'category', 'title': 'Title', 'slug': 'Slug', 'intro': 'Intro', 'body': 'Body', 'status': 'Status', 'image': 'Image', 'clip': 'Clip'
         }
         
 class CategoryForm(forms.ModelForm):

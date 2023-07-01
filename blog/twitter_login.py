@@ -1,7 +1,9 @@
 import os
-from io import BytesIO
+
+from django.forms import SlugField
 from crashblog.settings import BASE_DIR, CLIENT_ID, CLIENT_SECRET, CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET, ACCESS_TOKEN_short
 import tweepy
+import tempfile
 import base64
 import hashlib
 import json
@@ -14,10 +16,12 @@ import requests
 import urllib.parse
 from urllib.parse import urlencode
 import urllib.request
+from configparser import SafeConfigParser
 import datetime
-
-
-
+from dotenv import load_dotenv
+import time
+import shutil
+from django.core.files.base import ContentFile
 dotenv_path = BASE_DIR / 'crashblog' / '.env'
 # SECCION PARA POSTEAR EL TWITTER #
 # Define a function to generate a random code_verifier and its corresponding code_challenge
@@ -160,41 +164,23 @@ def post_tweet_with_image(request, slug, access_token):
     post = Post.objects.get(slug=slug)
     slug = request.session.get('slug')
     category_slug = request.session.get('category_slug')
-    # image_url = request.build_absolute_uri(post.image.url)
+    image_url = request.build_absolute_uri(post.image.url)
     print('A PUNTO DE DESCARGAR LA IMAGEN')
     # Descargar la imagen desde la URL
     # responseup = requests.get(image_url)
-    if post.image:
-        media_file = post.image
-        with open(media_file.path, 'rb') as file:
-            media_bytes = file.read()
-    elif post.remote_image_url:
-        media_file = post.remote_image_url
-        response = requests.get(media_file)
-        response.raise_for_status()
-        media_bytes = response.content
-    elif post.clip:
-        media_file = post.clip
-        with open(media_file.path, 'rb') as file:
-            media_bytes = file.read()
-    else:
-        media_file = post.remote_clip_url
-        response = requests.get(media_file)
-        response.raise_for_status()
-        media_bytes = response.content
-    total_bytes = len(media_bytes)
+    # Obtener el archivo de imagen
+    image_file = post.image
+
+    # Obtener los bytes de la imagen
+    image_bytes = image_file.read()
+    total_bytes = len(image_bytes)
     print('total_bytes:', total_bytes)
     # image_bytes = responseup.content
     # total_bytes = len(image_bytes)
     # print('total_bytes:', total_bytes)
 
-    # Obtener el nombre y extensión del archivo
-    if isinstance(media_file, str):  # Si es una URL
-        file_name = os.path.basename(media_file)
-    else:  # Si es un archivo local
-        file_name = os.path.basename(media_file.path)
-
-
+    # Obtener el nombre y extensión del archivo original
+    file_name = os.path.basename(post.image.name)
     file_name_without_ext, file_ext = os.path.splitext(file_name)
 
     # # Crear un archivo temporal con el mismo nombre y extensión del archivo original
@@ -203,24 +189,15 @@ def post_tweet_with_image(request, slug, access_token):
     # temp_file.write(image_bytes)
     # temp_file.close()
 
-    print('NOMBRE DE IMAGEN:', file_name) # media_file
+    print('NOMBRE DE IMAGEN:', image_file.name)
 
     # Obtener el media_type según la extensión del archivo
     if file_ext.startswith("."):
         file_ext = file_ext[1:]  # Eliminar el punto inicial si existe
-        print('EXTENSION:', file_ext)
+
     # Utilizar la extensión del archivo en el parámetro media_type
-    # Verificar la extensión del archivo y asignar el tipo de media correspondiente
-    if file_ext.lower() in ['jpg', 'jpeg', 'png', 'webp']:
-        media_type = f"image/{file_ext}"
-        media_category = "tweet_image"
-    elif file_ext.lower() in ['mp4', 'avi', 'mov', 'webm']:        
-        media_type = f"video/{file_ext}"
-        media_category = "tweet_video"
-    else:
-        media_type = f"image/{file_ext}"
-        media_category = "tweet_gif"
-    print('media_category Y media_type:', media_category, media_type)
+    media_type = f"image/{file_ext}"
+
     # Configurar las credenciales de acceso a la API de Twitter
     consumer_key = str(CONSUMER_KEY)
     consumer_secret = str(CONSUMER_SECRET)
@@ -228,74 +205,20 @@ def post_tweet_with_image(request, slug, access_token):
     access_token_secret = str(ACCESS_TOKEN_SECRET)
 
     # Autenticar con las credenciales
-    # Ruta absoluta de la imagen o video que deseas subir
-    if isinstance(media_file, str):
-    # Si media_file es una URL o una cadena, usarla directamente como ruta absoluta
-        absolute_path = media_file
-    else:
-        # Si media_file es una ruta de archivo local, obtener la ruta absoluta usando os.path.abspath()
-        file_path = media_file.path
-        absolute_path = os.path.abspath(file_path)
-    print('Ruta absoluta:', absolute_path)
+    # # Ruta de la imagen o video que deseas subir
+    absolute_path = os.path.abspath(image_file.name)
+    print('PATH ABSOLUTO')
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
 
     # Crear una instancia de la API de Twitter
     api = tweepy.API(auth)
     
-
     # Ruta del archivo de imagen a subir
-    # image_path = absolute_path
-    # media_bytes_io = BytesIO(media_bytes)
-    # # Subir la imagen a Twitter
-    # media = api.media_upload(filename=file_name, file=media_bytes_io)
-    # Ruta del archivo de media a subir
-    
-    media_file = absolute_path
-
-    # Obtener el tamaño del archivo en bytes
-    # def get_remote_file_size(url):
-    #     response = requests.head(url)
-    #     if 'Content-Length' in response.headers:
-    #         file_size = int(response.headers['Content-Length'])
-    #         return file_size
-    #     else:
-    #         return 0
-    # if isinstance(media_file, str):   
-    #     file_size = get_remote_file_size(media_file)
-    # else:
-    #     file_size = os.path.getsize(media_file) 
-        
-    image_threshold = 5 * 1024 * 1024  # 5 MB en bytes        
-        
-    # Verificar el tamaño del archivo
-    if total_bytes <= image_threshold and media_category == 'tweet_image'  and not media_type == 'image/gif':
-        media_bytes_io = BytesIO(media_bytes)
-        # El archivo es lo suficientemente pequeño, realizar la carga directa
-        media = api.media_upload(filename=file_name, file=media_bytes_io, media_category=media_category)
-    elif total_bytes <= 15 * 1024 * 1024 and media_category == 'tweet_image' and media_type == 'image/gif':
-        # El archivo es pequeño, pero es un gif, realizar la carga directa
-        media_bytes_io = BytesIO(media_bytes)
-        media = api.media_upload(filename=file_name, file=media_bytes_io, media_category=media_category)
-    else:
-        # El archivo es grande, realizar la carga fraccionada
-            media_bytes_io = BytesIO(media_bytes)
-            # Iniciar la carga fraccionada
-            response = api.chunked_upload_init(total_bytes=media_bytes, media_type=media_type, media_category=media_category)
-            media_id = response['media_id']
-
-            # Enviar los fragmentos del archivo
-            segment_id = 0
-            while True:
-                chunk = media_bytes_io.read(5 * 1024 * 1024)  # Leer fragmento de 5 MB
-                if not chunk:
-                    break
-                response = api.chunked_upload_append(media_id, segment_id, chunk)
-                segment_id += 1
-                print('segment_id:', segment_id)
-            # Finalizar la carga fraccionada
-            media = api.chunked_upload_finalize(media_id)
-            
+    image_path = absolute_path
+    file = open(image_path, 'rb')
+    # Subir la imagen a Twitter
+    media = api.media_upload(filename=image_path, file=file)
     if media is not None:
         media_ids = [media.media_id_string]
     else:
@@ -306,6 +229,7 @@ def post_tweet_with_image(request, slug, access_token):
     # Imprimir el media_id
     print('MEDIA_ID:', media_id)
     #api.update_status(status="Test Tweet", media_ids=media_ids)
+    
     # Función para acortar el enlace utilizando Bitly
     def shorten_url(url):
         # Reemplaza con tu access token de Bitly

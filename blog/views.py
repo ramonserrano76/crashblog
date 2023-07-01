@@ -27,32 +27,17 @@ from urllib.parse import urlencode, urlparse, unquote, quote
 import urllib.request
 from blog.twitter_login import *
 from blog.linkedin_login import *
-from blog.instagram_login import *
 
 
 def post_form(request):
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            post = form.save(commit=False)
-            remote_image_url = form.cleaned_data['remote_image_url']
-            remote_clip_url = form.cleaned_data['remote_clip_url']
-
-            if remote_image_url:
-                post.image = remote_image_url
-                post.clip = None  # Limpiar el campo de archivo de clip
-
-            if remote_clip_url:
-                post.clip = remote_clip_url
-                post.image = None  # Limpiar el campo de archivo de imagen
-
-            post.save()
+            form.save()
             return HttpResponse('uploads')
-        else:
-            print('Form not valid')
+        print('Form not valid')
     else:
         form = PostForm()
-
     return render(request, "blog/post_form.html", {'form': form})
 
 

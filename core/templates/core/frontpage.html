@@ -1,106 +1,64 @@
 {% extends "core/base.html" %}
 {% load static %}
-{% block title %}Home |{% endblock title %}
+{% block title %}Home | {% endblock title %}
 {% block content %}
-    <section class="album py-3 bg-transparent">
-        <div class="container-fluid">
-            <!--Section heading-->
-            <h2 class="h1-responsive font-weight-bold text-center text-dark font-weight-bold my-4">Nuestras Publicaciones</h2>
-            <!--Section description-->
-            <p class="text-center text-dark font-weight-bold w-responsive mx-auto mb-5">
-                Estas son las mejores publicaciones que puedes ver en un blog, variedades,
-                noticias de tecnología, del área de programación y mucho más.
-            </p>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
-                {% for post in posts %}
-                    <div class="col-md-4">
-                        <div class="card shadow-sm bg-dark mb-3 p-3 rounded">
-                            <a href="{% url 'post_detail' post.category.slug post.slug %}"
-                               aria-label="{{ post.title }}">
-                                {% if post.image %}
-                                    <figure>
-                                        <img class="bd-placeholder-img card-img-top"
-                                             alt="Card media cap"
-                                             width="420px"
-                                             height="315px"
-                                             src="{{ post.image.url }}"
-                                             alt="{{ post.title }}"
-                                             width="20%">
-                                    </figure>
-                                {% else %}
-                                {% endif %}
-                                {% if post.clip %}
-                                    <div class="embed-responsive embed-responsive-16by9 mb-6">
-                                        <video id="myVideo"
-                                               class="video"
-                                               controls
-                                               width="420"
-                                               height="315"
-                                               autoplay
-                                               loop
-                                               muted>
-                                            <source src="{{ post.clip.url }}" type="video/webm">
-                                            <source src="{{ post.clip.url }}" type="video/mp4">
-                                            
-                                            
-                                        </video>
-                                    </div>
-                                {% elif post.remote_clip_url %}
-                                    <div class="embed-responsive embed-responsive-16by9 mb-6">
-                                        <video id="myVideo"
-                                               class="video"
-                                               controls
-                                               width="420"
-                                               height="315"
-                                               autoplay
-                                               loop
-                                               muted>
-                                            <source src="{{ post.remote_clip_url }}" type="video/webm">
-                                            <source src="{{ post.remote_clip_url }}" type="video/mp4">
-                                            
-                                            
-                                        </video>
-                                    </div>
-                                {% else %}
-                                {% endif %}
-                                <div class="card-body bg-dark">
-                                    <a class="text-info text-decoration-none font-weight-bold font-size-5"
-                                       href="{{ post.get_absolute_url }}"
-                                       aria-label="{{ post.title }}">{{ post.title }}</a>
-                                    <p class="card-text text-light font-weight-bold">{{ post.intro }}</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">                                            
-                                                <a class="btn btn-sm btn-outline-success font-weight-bold"
-                                                   href="{{ post.get_absolute_url }}"
-                                                   role="button"
-                                                   value="see post"><i class="fa-regular fa-eye"></i><b>Ver</b></a>
-                                                {% if request.user.is_staff %}
-                                                <a class="btn btn-sm btn-outline-info font-weight-bold"
-                                                    href="{% url 'update' post.slug %}"
-                                                    role="button"
-                                                    value="edit post"><i class="fa-solid fa-pencil"></i><b>Editar</b></a>
-                                                <a class="btn btn-sm btn-outline-danger font-weight-bold"
-                                                    href="{% url 'delete' post.slug %}"
-                                                    role="button"
-                                                    value="delete post"><i class="fa-regular fa-trash-can"></i><b>Borrar</b></a>
-                                                {% endif %}                                            
-                                        </div>
-                                        <small>
-                                            <p class="text-muted font-weight-bold">Creado {{ post.created_at|date:"d M Y" }}</p>
-                                        </small>
-                                    </div>
-                                    <p class="text-muted font-weight-bold">
-                                        <small>Category: <a class="btn btn-outline-light btn-sm"
-                                            href="{% url 'category_detail' post.category.slug %}"
-                                            role="button"
-                                            value="filter category"><i class="fa-solid fa-filter"></i> <b>{{ post.category }}</b></a></small>
+
+<section class="album py-3 bg-transparent">
+    <div class="container-fluid">
+        <!--Section heading-->
+        <h2 class="h1-responsive font-weight-bold text-center text-dark font-weight-bold my-4">Nuestras Publicaciones</h2>
+        <!--Section description-->
+        <p class="text-center text-dark font-weight-bold w-responsive mx-auto mb-5">Estas son las mejores publicaciones que puedes ver en un blog, variedades,
+            noticias de tecnología, del área de programación y mucho más.</p>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+            {% for post in posts %}
+            <div class="col-md-4">
+                <div class="card shadow-sm bg-dark mb-3 p-3 rounded">
+                    <a href="{% url 'post_detail' post.category.slug post.slug %}" aria-label="{{ post.title }}">
+                        {% if post.image %}
+                        <figure>
+                            <img class="bd-placeholder-img card-img-top" alt="Card media cap" width="420px"  height="315px" src="{{ post.image.url }}"
+                                alt="{{ post.title }}" width="20%">
+                        </figure>
+                        {% else %}
+
+                        {% endif %}
+                        {% if post.clip %}
+                        <div class="video">
+                            <video controls width="720" height="480" alt="Card media cap">
+                                <source src="{{ post.clip.url }}" type="video/webm">
+                                <a href="{{ post.clip.url }}">Ver/Descargar Video</a>
+                            </video>
+                        </div>
+                        {% else %}
+
+                        {% endif %}
+
+                        <div class="card-body bg-dark">
+                            <a class="text-info text-decoration-none font-weight-bold font-size-5" href="{{ post.get_absolute_url }}" aria-label="{{ post.title }}">{{ post.title }}</a>
+                            <p class="card-text text-light font-weight-bold">{{ post.intro }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <p>
+                                        <a class="btn btn-outline-success btn-sm font-weight-bold" href="{{ post.get_absolute_url }}" role="button" value="see post"><i class="fa-regular fa-eye"></i><b>Ver</b></a>
+                                        {% if request.user.is_staff %}
+                                        <a class="btn btn-outline-info btn-sm font-weight-bold" href="{% url 'update' post.slug %}" role="button" value="edit post"><i class="fa-solid fa-pencil"></i><b>Editar</b></a>
+                                        <a class="btn btn-outline-danger btn-sm font-weight-bold" href="{% url 'delete' post.slug %}" role="button" value="delete post"><i class="fa-regular fa-trash-can"></i><b>Borrar</b></a>
+                                        
+                                        {% endif %}
                                     </p>
                                 </div>
-                            </a>
+                                <small>
+                                    <p class="text-muted font-weight-bold">Creado {{ post.created_at|date:"d M Y" }}</p>
+                                </small>
+                            </div>
+                            <p class="text-muted font-weight-bold"><small>Category: <a class="btn btn-outline-light btn-sm" href="{% url 'category_detail' post.category.slug %}" role="button" value="filter category"><i class="fa-solid fa-filter"></i> <b>{{ post.category }}</b></a></small></p>
                         </div>
-                    </div>
-                {% endfor %}
+                    </a>
+                </div>
             </div>
+            {% endfor %}
         </div>
-    </section>
+    </div>
+</section>
 {% endblock content %}

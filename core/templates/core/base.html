@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="keywords" content="BlogifyAR, Tech, Python">
         <meta name="description" content="Your meta description goes here">
+        <title>
+            {% block title %}
+                BlogifyAR
+            {% endblock title %}
+            BlogifyAR
+        </title>
         {% load static %}
         <link rel="stylesheet"
               href="https://unpkg.com/bulma@0.9.2/css/bulma.min.css">
@@ -43,9 +49,7 @@
                 background-color: #bfbfbf;
             }
         </style>
-        <title id="page-title"></title>
     </head>
-    
     <body class="d-flex flex-column min-vh-100">
         <main class="flex-grow-1">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -152,10 +156,7 @@
                     {% include "blog/includes/post_menu.html" %}
                 {% endif %}
                 {% if request.user.is_authenticated %}
-                    <p type="text"
-                       class="d-inline text-dark text-capitalize font-weight-bold">
-                        Bienvenido\@, {{ user.username }}.
-                    </p>
+                    <p type="text" class="d-inline text-dark text-capitalize font-weight-bold">Bienvenido\@, {{ user.username }}.</p>
                     <a type="text"
                        href="{% url 'password_change' %}"
                        class="d-inline text-light">Cambiar
@@ -199,19 +200,5 @@
                 integrity="sha512-nKvEIGRKw2OQCR34yLfnWnvrOBxidLG9aK+vzsBxCZ/9ZxgcS4FrYcN+auWUTkCitTVZAt82InDKJ7x+QtKu6g=="
                 crossorigin="anonymous"
                 referrerpolicy="no-referrer"></script>
-        <script>
-            $(document).ready(function() {
-                var pageTitle = "{% block title %}{% endblock title %}";
-                    $("#page-title").text(pageTitle);
-            });
-            const video = document.getElementById("myVideo");
-            video.addEventListener("click", function() {
-                if (video.paused) {
-                    video.play();
-                } else {
-                    video.pause();
-                }
-            });
-        </script>
     </body>
 </html>
