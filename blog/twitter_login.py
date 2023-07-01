@@ -266,14 +266,14 @@ def post_tweet_with_image(request, slug, access_token):
     # else:
     #     file_size = os.path.getsize(media_file) 
         
-    image_threshold = 4*1024*1024  # 5 MB en bytes        
+    image_threshold = 5 * 1024 * 1024  # 5 MB en bytes        
         
     # Verificar el tamaño del archivo
     if total_bytes <= image_threshold and media_category == 'tweet_image'  and not media_type == 'image/gif':
         media_bytes_io = BytesIO(media_bytes)
         # El archivo es lo suficientemente pequeño, realizar la carga directa
         media = api.media_upload(filename=file_name, file=media_bytes_io, media_category=media_category)
-    elif total_bytes <= 15*1024*1024 and media_category == 'tweet_image' and media_type == 'image/gif':
+    elif total_bytes <= 15 * 1024 * 1024 and media_category == 'tweet_image' and media_type == 'image/gif':
         # El archivo es pequeño, pero es un gif, realizar la carga directa
         media_bytes_io = BytesIO(media_bytes)
         media = api.media_upload(filename=file_name, file=media_bytes_io, media_category=media_category)
@@ -287,7 +287,7 @@ def post_tweet_with_image(request, slug, access_token):
             # Enviar los fragmentos del archivo
             segment_id = 0
             while True:
-                chunk = media_bytes_io.read(4*1024*1024)  # Leer fragmento de 5 MB
+                chunk = media_bytes_io.read(5 * 1024 * 1024)  # Leer fragmento de 5 MB
                 if not chunk:
                     break
                 response = api.chunked_upload_append(media_id, segment_id, chunk)
