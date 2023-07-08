@@ -3,7 +3,7 @@ arrow==1.2.3
 asgiref==3.6.0
 asttokens==2.2.1
 async-generator==1.10
-attrs==18.2.0
+attrs
 autopep8==2.0.2
 Babel==2.12.1
 backcall==0.2.0
@@ -44,7 +44,7 @@ h11==0.14.0
 html-tag-names==0.1.2
 html-void-elements==0.1.0
 httplib2==0.22.0
-ics==0.7.2
+ics
 idna==3.4
 imagesize==1.4.1
 ipykernel==6.23.0
