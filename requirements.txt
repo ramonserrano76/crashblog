@@ -64,7 +64,7 @@ outcome
 packaging==23.1
 parso==0.8.3
 pathspec==0.11.1
-pdflatex
+
 pickleshare==0.7.5
 Pillow==9.5.0
 platformdirs==3.5.1
