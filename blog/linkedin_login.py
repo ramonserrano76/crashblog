@@ -28,29 +28,35 @@ def create_CSRF_token():
 
 
 def login_linkedin(request):
-    # Construir la URL de redirección
-    # request.build_absolute_uri(reverse('redirect_uri'))
-    redirect_uri2 = "https://www.linkedin.com/developerstools/oauth/redirect"
-    # Construir la URL para obtener el código de autorización
-    url = "https://www.linkedin.com/oauth/v2/authorization"
-    params = {
-        'response_type': 'code',
-        'client_id': {LINKEDIN_CLIENT_ID},
-        'redirect_uri': {REDIRECT_URI},
-        'state': 'DCEeFWf45A53sdfKef437',
-        'scope': 'r_liteprofile%20r_emailaddress%20w_member_social%20openid%20profile%20email%20r_organization_social%20w_organization_social%20rw_organization_admin%20r_ads%20rw_ads%20r_basicprofile%20r_organization_admin%20r_1st_connections_size%20r_ads_reporting'
-    }
-    # enviar request a LinkedIn para obtener el código de autorización
-    # response = requests.post(url, params=params, headers=headers)
-    # code = request.GET.get('code')
-    # Especificar la ruta de code response
-    scope = 'r_liteprofile%20r_emailaddress%20w_member_social%20openid%20profile%20email'
-    state = create_CSRF_token()
-    url = "https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id={}&redirect_uri={}&state={}&scope={}".format(
-        LINKEDIN_CLIENT_ID, REDIRECT_URI, state, scope)
-    # Redirigir al usuario a LinkedIn para obtener el código de autorización
-    print('CODE URL:', url)
-    return redirect(url)
+    try:
+        # Construir la URL para obtener el código de autorización
+        url = "https://www.linkedin.com/oauth/v2/authorization"
+        params = {
+            'response_type': 'code',
+            'client_id': {LINKEDIN_CLIENT_ID},
+            'redirect_uri': {REDIRECT_URI},
+            'state': 'DCEeFWf45A53sdfKef437',
+            'scope': 'r_liteprofile%20r_emailaddress%20w_member_social%20openid%20profile%20email%20r_organization_social%20w_organization_social%20rw_organization_admin%20r_ads%20rw_ads%20r_basicprofile%20r_organization_admin%20r_1st_connections_size%20r_ads_reporting',
+        }
+
+        # enviar request a LinkedIn para obtener el código de autorización
+        # response = requests.post(url, params=params, headers=headers)
+        # code = request.GET.get('code')
+        # Especificar la ruta de code response
+        scope = 'r_liteprofile%20r_emailaddress%20w_member_social%20openid%20profile%20email'
+        state = create_CSRF_token()
+        url = "https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id={}&redirect_uri={}&state={}&scope={}".format(
+            LINKEDIN_CLIENT_ID, REDIRECT_URI, state, scope)
+        # Redirigir al usuario a LinkedIn para obtener el código de autorización
+        print('CODE URL:', url)
+        return redirect(url)
+    except Exception as e:
+        # En caso de error, puedes redirigir al usuario a una página de error,
+        # imprimir un mensaje de error en el servidor, o tomar alguna otra acción
+        print(f"Ocurrió un error: {e}")
+        category_slug = request.session.get('category_slug')
+        slug = request.session.get('slug')
+        return redirect('post_detail', category_slug=category_slug, slug=slug)
 
 
 def redirect_uri(request):
@@ -105,8 +111,7 @@ def post_linkedin_network_update(request, access_token, title, body, intro, subm
         'cache-control': 'no-cache',
         'X-Restli-Protocol-Version': '2.0.0'
     }
-    response_ = requests.get(
-        'https://api.linkedin.com/v2/me', headers=headers_)
+    response_ = requests.get('https://api.linkedin.com/v2/me', headers=headers_)
 
     global userInfo
     userInfo = response_.json()
