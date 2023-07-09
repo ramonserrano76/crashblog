@@ -44,7 +44,7 @@ def login_linkedin(request):
         # code = request.GET.get('code')
         # Especificar la ruta de code response
         scope = 'r_liteprofile%20r_emailaddress%20w_member_social%20openid%20profile%20email'
-        state = create_CSRF_token()
+        state = 'DCEeFWf45A53sdfKef437' #create_CSRF_token()
         url = "https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id={}&redirect_uri={}&state={}&scope={}".format(
             LINKEDIN_CLIENT_ID, REDIRECT_URI, state, scope)
         # Redirigir al usuario a LinkedIn para obtener el código de autorización
@@ -178,14 +178,12 @@ def post_linkedin_network_update(request, access_token, title, body, intro, subm
 
     responseImage = requests.post(url4, headers=headersImage, json=dataImage)
     response_dataImage = responseImage.json()
-    responseImage2 = requests.post(
-        url7, headers=headersImage2, json=dataImage2)
+    responseImage2 = requests.post(url7, headers=headersImage2, json=dataImage2)
     response_dataImage2 = responseImage2.json()
     # Extraemos uploadUrl y asset del JASON par ausarlo en el upload a linkedin
     UploadUrl = response_dataImage.get('value').get('uploadUrl')
     image_urn = response_dataImage.get('value').get('image')
-    UploadUrl2 = response_dataImage2.get('value').get('uploadMechanism').get(
-        'com.linkedin.digitalmedia.uploading.MediaUploadHttpRequest').get('uploadUrl')
+    UploadUrl2 = response_dataImage2.get('value').get('uploadMechanism').get('com.linkedin.digitalmedia.uploading.MediaUploadHttpRequest').get('uploadUrl')
     asset = response_dataImage2.get('value').get('asset')
     # Imprimimos resultados para control
     print('CODIGO RESPUESTA uploadImage:', responseImage)
@@ -301,7 +299,7 @@ def post_linkedin_network_update(request, access_token, title, body, intro, subm
     body_STR = str(body)
     intro_STR = str(intro)
     params = {
-        "author": ORGANIZATION_URL_STR,
+        "author": PERSON_URL_STR,
         "commentary": message_STR,
         "visibility": "PUBLIC",
         "distribution": {
@@ -489,10 +487,8 @@ def post_to_linkedin(request, slug, access_token):
     response_status_code = post_linkedin_network_update(
         request, access_token, title, intro, body, submitted_url, submitted_image_url)
     if response_status_code:
-        messages.add_message(request, messages.SUCCESS,
-                             'El post se ha compartido exitosamente en LinkedIn')
+        messages.add_message(request, messages.SUCCESS, 'El post se ha compartido exitosamente en LinkedIn')
     else:
-        messages.add_message(
-            request, messages.ERROR, 'Ha ocurrido un error al compartir el post en LinkedIn')
+        messages.add_message(request, messages.ERROR, 'Ha ocurrido un error al compartir el post en LinkedIn')
 
     return redirect('post_detail', category_slug=category_slug, slug=slug)
