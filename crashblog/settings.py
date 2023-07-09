@@ -152,7 +152,7 @@ ACCESS_TOKEN = '1654219252013072384-PHEyxTdlmncmqy4p58v8uSmtxygMYn'
 ACCESS_TOKEN_SECRET = 'wxCKaPSlaNIoNlw7fj1aPX1nrRPPSj0nK6k2Go0Fv0rId'
 ACCESS_TOKEN_short = '578fb9e220945403aeb3941da1f6747060681a1c'
 
-REDIRECT_URI = 'https://www.blogifyar.pro/redirect_uri/'
+REDIRECT_URI = 'https://www.blogifyar.pro/redirect_uri/'  #'http://127.0.0.1:9000/redirect_uri/'# 
 
 # EMAIL
 #emails
