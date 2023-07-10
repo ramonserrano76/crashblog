@@ -1,45 +1,89 @@
 {% load static %}
 {% block content %}
-<main role='main'>
-    <div class="container">
-        {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-                {% endfor %}
-        </ul>
-        {% endif %}
-        <!-- Modal -->
-        <div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog"
-            aria-labelledby="addCategoryModalLabel" aria-hidden="True">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="addCategoryModalLabel">Add Category</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="True">x</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="post">
-                            {% csrf_token %}
-                            {{ category_form.as_p }}
-                            {% comment %} <div class="form-group">
-                                {{ category_form.name.label_tag }} {{ category_form.name }}
-                            </div>  {% endcomment %}
-                            {% comment %} <div class="text-center">
-                                <input type="submit" class="btn btn-primary btn-block" value="Save category" />
-                            </div> {% endcomment %}
-                        </form>
-                    </div>
-                     <div class="modal-footer">
-                        {% comment %}<button type="button" class="btn btn-primary">Save changes</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>{% endcomment %}                        
-                    </div> 
-                </div>
-            </div>
+<main role="main">
+	<div class="container">
+		{% if messages %}
+		<ul class="messages">
+			{% for message in messages %}
+			<li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+				{{ message }}
+			</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+		<!-- Modal -->
+		<div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog"
+			aria-labelledby="addCategoryModalLabel" aria-hidden="True">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="addCategoryModalLabel">Add Category</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="True">x</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form id="categoryForm" method="post" action="{% url 'add_category' %}">
+							<div class="form-group">
+								<div class="text-center">
+									{% csrf_token %} {{ category_form.as_p }}									
+									<textarea name="name" rows="1"  value="add category" placeholder="Input Category name"
+										class="form-control mb-3"></textarea>									
+								</div>
+								<div class="text-right">
+									<input type="submit" class="btn btn-primary" value="Save category" />
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">
+										Close
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					<!-- <div class="modal-footer"></div> -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+
+
+	<!-- {% comment %} 
+    <div
+      class="modal fade"
+      id="categoryModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="categoryModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="categoryModalLabel">
+              Agregar nueva categoría
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            
+            <form
+              id="categoryForm"
+              method="post"
+              action="{% url 'add_category' %}"
+            >
+              {% csrf_token %} {{ category_form.as_p }}
+              <button type="submit">Agregar</button>
+            </form>
+          </div>
         </div>
-        <!-- Modal -->
+      </div>
     </div>
+  </div> {% endcomment %} -->
 </main>
 {% endblock content %}

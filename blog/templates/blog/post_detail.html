@@ -143,7 +143,7 @@
 </script>
 {% endblock js %} {% endcomment %}
 <div class="modal" id="socialSharingModal">
-    {% if messages %}
+    {% if messages %}    
         <script>{% for message in messages %} toastr["{{ message.tags }}"]("{{ message }}"); {% endfor %}</script>
     {% endif %}
     <div class="modal-dialog bg-dark">

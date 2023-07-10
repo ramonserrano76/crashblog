@@ -1,0 +1,41 @@
+{% load static %}
+{% block content %}
+<main role="main">
+    <div class="container">
+                <!-- <h1>Eliminar categoría</h1>
+
+                <p>¿Estás seguro de que quieres eliminar la categoría "{{ category.name }}"?</p> -->
+        <!-- Modal -->
+        <div class="modal fade" id="delCategoryModal" tabindex="-1" role="dialog"
+            aria-labelledby="delCategoryModalLabel" aria-hidden="True">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="delCategoryModalLabel">Delete Category</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="True">x</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="categoryForm" method="post" action="{% url 'delete_category' %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="categorySelect">Select a category to delete:</label>
+                                <select name="category" id="categorySelect" class="form-control mb-3">
+                                    {% for cat in categories %}
+                                    <option value="{{ cat.slug }}">{{ cat.name }}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" class="btn btn-danger" value="Delete category" />
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- <div class="modal-footer"></div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+</main>
+{% endblock content %}

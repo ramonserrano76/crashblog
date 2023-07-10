@@ -16,5 +16,8 @@ url_patterns = [
     path('redirect_uri/handle_code/', views.handle_linkedin_response, name='handle_code'),    
     path('twitter_login/', views.twitter_login, name='twitter_login'),
     path('redirect_uri2/', views.handle_resp, name='redirect_uri2'),    
-    path('redirect_uri2/handle_twitter_code/', views.twitter_callback, name='handle_twitter_code'),   
+    path('redirect_uri2/handle_twitter_code/', views.twitter_callback, name='handle_twitter_code'),
+    path('add_category/', views.add_category, name='add_category'),
+    path('category/', views.delete_category, name='delete_category'),
+    path('categories/', views.category, name='category_list'),
 ]

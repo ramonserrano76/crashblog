@@ -1,3 +1,6 @@
+from django.template.defaultfilters import slugify
+from django.shortcuts import render, redirect
+from .forms import CategoryForm
 import base64
 import hashlib
 import secrets
@@ -122,8 +125,7 @@ def post_detail(request, category_slug, slug):
 
 def category(request, slug):
     category = get_object_or_404(Category, slug=slug)
-    posts = Post.objects.filter(
-        category=category, status=Post.ACTIVE).order_by('-created_at')
+    posts = Post.objects.filter(category=category, status=Post.ACTIVE).order_by('-created_at')
     categories = Category.objects.all()
     return render(request, 'blog/category.html', {'category': category, 'posts': posts, 'categories': categories})
 
@@ -135,3 +137,44 @@ def search(request):
         Q(title__icontains=query) | Q(intro__icontains=query) | Q(body__icontains=query))
 
     return render(request, 'blog/search.html', {'posts': posts, 'query': query})
+
+
+# def add_category(request):
+#     if request.method == 'POST':
+#         form = CategoryForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             # Reemplaza 'ruta_redireccion' con la URL a la que deseas redirigir después de crear la categoría
+#             return redirect('blog/add_category.html')
+#     else:
+#         form = CategoryForm()
+#     return render(request, 'blog/post_form.html', {'category_form': form})
+
+
+def add_category(request):
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            category = form.save(commit=False)
+            slug = slugify(category.name)
+            if Category.objects.filter(slug=slug).exists():
+                # El slug ya existe, genera uno nuevo
+                slug += '-2'
+            category.slug = slug
+            category.save()
+            # Reemplaza 'ruta_redireccion' con la URL a la que deseas redirigir después de crear la categoría
+            return redirect('create')
+    else:
+        form = CategoryForm()
+    return render(request, 'blog/post_form.html', {'category_form': form})
+
+
+def delete_category(request):
+    if request.method == 'POST':
+        selected_category_slug = request.POST.get('category')
+        selected_category = get_object_or_404(Category, slug=selected_category_slug)
+        selected_category.delete()
+        return redirect('delete_category')
+
+    categories = Category.objects.all()
+    return render(request, 'blog/delete_category.html', {'categories': categories})
