@@ -253,7 +253,7 @@ a {
 }
 
 .acerca_img {
-  display: flex;
+  display: inline-block;
   width: 48px;
   height: 48px;
   background-repeat: no-repeat;
