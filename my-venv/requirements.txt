@@ -1,17 +1,17 @@
 asgiref==3.6.0
 autopep8==2.0.2
-certifi==2022.12.7
+certifi==2023.7.22
 charset-normalizer==3.1.0
-Django==3.2.19
+Django==3.2.25
 django-ckeditor==6.5.1
 django-js-asset==2.0.0
 gunicorn==20.1.0
 idna==3.4
-Pillow==9.5.0
+Pillow==10.3.0
 pycodestyle==2.10.0
 pytz==2023.3
 requests==2.31.0
 sqlparse==0.4.4
 tomli==2.0.1
-urllib3==1.26.15
+urllib3==1.26.18
 setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
