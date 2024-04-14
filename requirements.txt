@@ -45,7 +45,7 @@ html-tag-names==0.1.2
 html-void-elements==0.1.0
 httplib2==0.22.0
 ics
-idna==3.4
+idna==3.7
 imagesize==1.4.1
 ipykernel==6.23.0
 ipython==8.13.2
