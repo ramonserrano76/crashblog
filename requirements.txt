@@ -83,6 +83,7 @@ PySocks==1.7.1
 python-dateutil==2.8.2
 python-dotenv==1.0.0
 pytz==2023.3
+<<<<<<< HEAD
 PyYAML==6.0
 pyzmq==25.0.2
 regex==2023.3.23
@@ -102,6 +103,9 @@ sphinxcontrib-htmlhelp==2.0.1
 sphinxcontrib-jsmath==1.0.1
 sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.5
+=======
+requests==2.31.0
+>>>>>>> origin/snyk-fix-cf10ebf68d2bc610154e1e29e7abb710
 sqlparse==0.4.4
 stack-data==0.6.2
 TatSu==5.8.3
